@@ -4,7 +4,8 @@ import UIKit
 
 struct MainModule {
     enum Tab: Int {
-        case market, balance, transactions, settings
+        case  balance, transactions, settings
+//        case market, balance, transactions, settings
     }
 
     static func instance(presetTab: Tab? = nil) -> UIViewController {

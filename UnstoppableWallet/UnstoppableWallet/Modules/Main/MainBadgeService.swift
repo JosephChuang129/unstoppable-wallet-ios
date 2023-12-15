@@ -77,8 +77,9 @@ class MainBadgeService {
 
     private func syncSettingsBadge() {
         let count = walletConnectSessionManager.activePendingRequests.count
-        let cloudError = contactBookManager.iCloudError != nil && contactBookManager.remoteSync
-        let visible = accountRestoreWarningManager.hasNonStandard || !backupManager.allBackedUp || !passcodeManager.isPasscodeSet || !termsManager.termsAccepted || cloudError || count != 0
+//        let cloudError = contactBookManager.iCloudError != nil && contactBookManager.remoteSync
+//        let visible = accountRestoreWarningManager.hasNonStandard || !backupManager.allBackedUp || !passcodeManager.isPasscodeSet || !termsManager.termsAccepted || cloudError || count != 0
+        let visible = accountRestoreWarningManager.hasNonStandard || !backupManager.allBackedUp || !passcodeManager.isPasscodeSet || !termsManager.termsAccepted || count != 0
         settingsBadgeRelay.accept((visible, count))
     }
 }

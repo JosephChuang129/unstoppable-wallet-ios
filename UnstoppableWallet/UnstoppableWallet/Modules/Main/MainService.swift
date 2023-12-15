@@ -101,6 +101,28 @@ extension MainService {
         showMarketRelay.asObservable()
     }
 
+//    var initialTab: MainModule.Tab {
+//        if let presetTab = presetTab {
+//            return presetTab
+//        }
+//
+//        switch launchScreenManager.launchScreen {
+//        case .auto:
+//            if let storedIndex: Int = storage.value(for: keyTabIndex), let storedTab = MainModule.Tab(rawValue: storedIndex) {
+//                switch storedTab {
+//                case .settings: return .balance
+//                default: return storedTab
+//                }
+//            }
+//
+//            return .balance
+//        case .balance:
+//            return .balance
+//        case .marketOverview, .watchlist:
+//            return .market
+//        }
+//    }
+    
     var initialTab: MainModule.Tab {
         if let presetTab = presetTab {
             return presetTab
@@ -116,10 +138,8 @@ extension MainService {
             }
 
             return .balance
-        case .balance:
+        case .balance, .marketOverview, .watchlist:
             return .balance
-        case .marketOverview, .watchlist:
-            return .market
         }
     }
 

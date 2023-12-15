@@ -252,34 +252,34 @@ extension ManageAccountViewController: SectionsDataSource {
             ) { [weak self] in
                 self?.viewModel.onTapBackup()
             }
-        case let .cloudBackedUp(isCloudBackedUp, isManualBackedUp):
-            if isCloudBackedUp {
-                return tableView.universalRow48(
-                    id: "cloud-backup-recovery",
-                    image: .local(UIImage(named: "no_internet_24")?.withTintColor(.themeLucian)),
-                    title: .body("manage_account.cloud_delete_backup_recovery_phrase".localized, color: .themeLucian),
-                    autoDeselect: true,
-                    isFirst: isFirst,
-                    isLast: isLast
-                ) { [weak self] in
-                    self?.viewModel.onTapDeleteCloudBackup()
-                }
-            }
-
-            return tableView.universalRow48(
-                id: "cloud-backup-recovery",
-                image: .local(UIImage(named: "icloud_24")?.withTintColor(.themeJacob)),
-                title: .body("manage_account.cloud_backup_recovery_phrase".localized, color: .themeJacob),
-                accessoryType: CellBuilderNew.CellElement.ImageAccessoryType(
-                    image: UIImage(named: "warning_2_24")?.withTintColor(.themeLucian),
-                    visible: !isManualBackedUp
-                ),
-                autoDeselect: true,
-                isFirst: isFirst,
-                isLast: isLast
-            ) { [weak self] in
-                self?.viewModel.onTapCloudBackup()
-            }
+//        case let .cloudBackedUp(isCloudBackedUp, isManualBackedUp):
+//            if isCloudBackedUp {
+//                return tableView.universalRow48(
+//                    id: "cloud-backup-recovery",
+//                    image: .local(UIImage(named: "no_internet_24")?.withTintColor(.themeLucian)),
+//                    title: .body("manage_account.cloud_delete_backup_recovery_phrase".localized, color: .themeLucian),
+//                    autoDeselect: true,
+//                    isFirst: isFirst,
+//                    isLast: isLast
+//                ) { [weak self] in
+//                    self?.viewModel.onTapDeleteCloudBackup()
+//                }
+//            }
+//
+//            return tableView.universalRow48(
+//                id: "cloud-backup-recovery",
+//                image: .local(UIImage(named: "icloud_24")?.withTintColor(.themeJacob)),
+//                title: .body("manage_account.cloud_backup_recovery_phrase".localized, color: .themeJacob),
+//                accessoryType: CellBuilderNew.CellElement.ImageAccessoryType(
+//                    image: UIImage(named: "warning_2_24")?.withTintColor(.themeLucian),
+//                    visible: !isManualBackedUp
+//                ),
+//                autoDeselect: true,
+//                isFirst: isFirst,
+//                isLast: isLast
+//            ) { [weak self] in
+//                self?.viewModel.onTapCloudBackup()
+//            }
         }
     }
 

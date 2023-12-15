@@ -67,24 +67,59 @@ class ManageWalletsService {
 
     private func fetchTokens() -> [Token] {
         do {
-            if filter.trimmingCharacters(in: .whitespaces).isEmpty {
-                let list = BlockchainType.supported.map { $0.defaultTokenQuery }
-                let tokens = try marketKit.tokens(queries: list)
-                let featuredTokens = tokens.filter { account.type.supports(token: $0) }
-                let enabledTokens = wallets.map { $0.token }
-
-                return (enabledTokens + featuredTokens).removeDuplicates()
-            } else if let ethAddress = try? EvmKit.Address(hex: filter) {
-                let address = ethAddress.hex
-                let tokens = try marketKit.tokens(reference: address)
-
-                return tokens.filter { account.type.supports(token: $0) }
-            } else {
-                let allFullCoins = try marketKit.fullCoins(filter: filter, limit: 100)
-                let tokens = allFullCoins.map { $0.tokens }.flatMap { $0 }
-
-                return tokens.filter { account.type.supports(token: $0) }
+//            if filter.trimmingCharacters(in: .whitespaces).isEmpty {
+//                let list = BlockchainType.supported.map { $0.defaultTokenQuery }
+//                let tokens = try marketKit.tokens(queries: list)
+//                let featuredTokens = tokens.filter { account.type.supports(token: $0) }
+//                let enabledTokens = wallets.map { $0.token }
+//
+//                return (enabledTokens + featuredTokens).removeDuplicates()
+//            } else if let ethAddress = try? EvmKit.Address(hex: filter) {
+//                let address = ethAddress.hex
+//                let tokens = try marketKit.tokens(reference: address)
+//
+//                return tokens.filter { account.type.supports(token: $0) }
+//            } else {
+//                let allFullCoins = try marketKit.fullCoins(filter: filter, limit: 100)
+//                let tokens = allFullCoins.map { $0.tokens }.flatMap { $0 }
+//
+//                return tokens.filter { account.type.supports(token: $0) }
+//            }
+            let coinUids: [String] =
+            [
+                "ethereum",
+                "avalanche-2",
+                "matic-network",
+                "usd-coin",
+                "bitcoin"
+            ]
+            
+            let coins = try marketKit.fullCoins(coinUids: coinUids)
+            
+            let allFullCoins = coins.map { fullCoin in
+                
+                switch fullCoin.coin.code {
+                case "ETH":
+                    return FullCoin(coin: fullCoin.coin, tokens: fullCoin.tokens.filter { $0.blockchainType == .ethereum})
+                    
+                case "AVAX", "MATIC", "XLM":
+                    return FullCoin(coin: fullCoin.coin, tokens: fullCoin.tokens.filter { $0.type == .native})
+                 
+                case "BTC":
+                    return FullCoin(coin: fullCoin.coin, tokens: fullCoin.tokens.filter { $0.blockchainType == .bitcoin})
+                
+                default:
+                    
+                    let tokens = fullCoin.tokens.filter { token in
+                        (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+                    }
+                    return FullCoin(coin: fullCoin.coin, tokens: tokens)
+                }
             }
+            
+            let tokens = allFullCoins.map { $0.tokens }.flatMap { $0 }
+            return tokens.filter { account.type.supports(token: $0) }
+            
         } catch {
             return []
         }

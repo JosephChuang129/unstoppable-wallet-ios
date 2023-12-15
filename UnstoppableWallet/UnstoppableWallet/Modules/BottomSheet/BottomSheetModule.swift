@@ -68,9 +68,9 @@ extension BottomSheetModule {
 
                     sourceViewController?.present(viewController, animated: true)
                 },
-                .init(style: .gray, title: "backup_prompt.backup_cloud".localized, imageName: "icloud_24", actionType: .afterClose) { [weak sourceViewController] in
-                    sourceViewController?.present(BackupModule.cloudViewController(account: account), animated: true)
-                },
+//                .init(style: .gray, title: "backup_prompt.backup_cloud".localized, imageName: "icloud_24", actionType: .afterClose) { [weak sourceViewController] in
+//                    sourceViewController?.present(BackupModule.cloudViewController(account: account), animated: true)
+//                },
                 .init(style: .transparent, title: cancelText),
             ]
         )

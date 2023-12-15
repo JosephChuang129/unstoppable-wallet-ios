@@ -5,13 +5,13 @@ import HsToolKit
 class EvmBlockchainManager {
     static let blockchainTypes: [BlockchainType] = [
         .ethereum,
-        .binanceSmartChain,
+//        .binanceSmartChain,
         .polygon,
         .avalanche,
-        .optimism,
-        .arbitrumOne,
-        .gnosis,
-        .fantom,
+//        .optimism,
+//        .arbitrumOne,
+//        .gnosis,
+//        .fantom,
     ]
 
     private let syncSourceManager: EvmSyncSourceManager

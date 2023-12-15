@@ -55,9 +55,9 @@ class ManageAccountViewModel {
                 "manage_account.backup.has_backup_description".localized
         }
 
-        if !account.watchAccount {
-            backupActions.append(.cloudBackedUp(isCloudBackedUp, isManualBackedUp: account.backedUp))
-        }
+//        if !account.watchAccount {
+//            backupActions.append(.cloudBackedUp(isCloudBackedUp, isManualBackedUp: account.backedUp))
+//        }
 
         let backupSection = KeyActionSection(keyActions: backupActions, footerText: footerText)
         guard account.backedUp || isCloudBackedUp else {
@@ -243,7 +243,7 @@ extension ManageAccountViewModel {
         case publicKeys
         case privateKeys
         case manualBackup(Bool)
-        case cloudBackedUp(Bool, isManualBackedUp: Bool)
+//        case cloudBackedUp(Bool, isManualBackedUp: Bool)
     }
 
     struct KeyActionSection {

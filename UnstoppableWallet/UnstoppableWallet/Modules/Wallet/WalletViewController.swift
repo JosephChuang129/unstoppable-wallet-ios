@@ -108,12 +108,12 @@ class WalletViewController: ThemeViewController {
             action: #selector(onTapRestore)
         )
 
-        placeholderView.addPrimaryButton(
-            style: .transparent,
-            title: "onboarding.balance.watch".localized,
-            target: self,
-            action: #selector(onTapWatch)
-        )
+//        placeholderView.addPrimaryButton(
+//            style: .transparent,
+//            title: "onboarding.balance.watch".localized,
+//            target: self,
+//            action: #selector(onTapWatch)
+//        )
 
         view.addSubview(spinner)
         spinner.snp.makeConstraints { make in
@@ -285,7 +285,7 @@ class WalletViewController: ThemeViewController {
     }
 
     private func sync(qrScanVisible: Bool) {
-        navigationItem.rightBarButtonItem = qrScanVisible ? UIBarButtonItem(image: UIImage(named: "qr_scan_24"), style: .plain, target: self, action: #selector(onTapQrScan)) : nil
+//        navigationItem.rightBarButtonItem = qrScanVisible ? UIBarButtonItem(image: UIImage(named: "qr_scan_24"), style: .plain, target: self, action: #selector(onTapQrScan)) : nil
     }
 
     private func sync(state: WalletViewModel.State) {

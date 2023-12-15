@@ -40,8 +40,8 @@ class MainViewController: ThemeTabBarController {
         subscribe(disposeBag, viewModel.transactionsTabEnabledDriver) { [weak self] in self?.syncTransactionsTab(enabled: $0) }
         subscribe(disposeBag, viewModel.settingsBadgeDriver) { [weak self] in self?.setSettingsBadge(visible: $0.0, count: $0.1) }
 
-        subscribe(disposeBag, viewModel.showMarketDriver) { [weak self] in self?.handle(showMarket: $0) }
-        subscribe(disposeBag, viewModel.showReleaseNotesDriver) { [weak self] in self?.showReleaseNotes(url: $0) }
+//        subscribe(disposeBag, viewModel.showMarketDriver) { [weak self] in self?.handle(showMarket: $0) }
+//        subscribe(disposeBag, viewModel.showReleaseNotesDriver) { [weak self] in self?.showReleaseNotes(url: $0) }
         subscribe(disposeBag, viewModel.showJailbreakDriver) { [weak self] in self?.showJailbreakAlert() }
 
         viewModel.onLoad()
@@ -78,14 +78,14 @@ class MainViewController: ThemeTabBarController {
 
     private func sync(balanceTabState _: MainViewModel.BalanceTabState) {
         var viewControllers = [UIViewController]()
-        if viewModel.showMarket {
-            let marketModule = marketModule ?? ThemeNavigationController(rootViewController: MarketModule.viewController())
-            self.marketModule = marketModule
-
-            viewControllers.append(marketModule)
-        } else {
-            marketModule = nil
-        }
+//        if viewModel.showMarket {
+//            let marketModule = marketModule ?? ThemeNavigationController(rootViewController: MarketModule.viewController())
+//            self.marketModule = marketModule
+//
+//            viewControllers.append(marketModule)
+//        } else {
+//            marketModule = nil
+//        }
 
         viewControllers.append(contentsOf: [
             balanceModule,

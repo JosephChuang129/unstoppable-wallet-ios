@@ -392,23 +392,23 @@ extension RestoreViewController: SectionsDataSource {
                                 )
                             ]
                     ),
-                    Section(
-                            id: "non-standard-restore",
-                            footerState: .margin(height: .margin32),
-                            rows: [
-                                tableView.universalRow48(
-                                        id: "non-standard_restore",
-                                        title: .body("restore.non_standard_import".localized),
-                                        accessoryType: .disclosure,
-                                        autoDeselect: true,
-                                        isFirst: true,
-                                        isLast: true,
-                                        action: { [weak self] in
-                                            self?.onTapNonStandardRestore()
-                                        }
-                                )
-                            ]
-                    )
+//                    Section(
+//                            id: "non-standard-restore",
+//                            footerState: .margin(height: .margin32),
+//                            rows: [
+//                                tableView.universalRow48(
+//                                        id: "non-standard_restore",
+//                                        title: .body("restore.non_standard_import".localized),
+//                                        accessoryType: .disclosure,
+//                                        autoDeselect: true,
+//                                        isFirst: true,
+//                                        isLast: true,
+//                                        action: { [weak self] in
+//                                            self?.onTapNonStandardRestore()
+//                                        }
+//                                )
+//                            ]
+//                    )
                 ]
 
                 sections.append(contentsOf: advancedSections)

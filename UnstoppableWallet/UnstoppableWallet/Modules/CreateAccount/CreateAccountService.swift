@@ -38,9 +38,11 @@ class CreateAccountService {
         let tokenQueries = [
             TokenQuery(blockchainType: .bitcoin, tokenType: .derived(derivation: .bip84)), //todo: make derivation supports accountType
             TokenQuery(blockchainType: .ethereum, tokenType: .native),
-            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .native),
-            TokenQuery(blockchainType: .ethereum, tokenType: .eip20(address: "0xdac17f958d2ee523a2206206994597c13d831ec7")), // USDT
-            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .eip20(address: "0xe9e7cea3dedca5984780bafc599bd69add087d56")) // BUSD
+            TokenQuery(blockchainType: .avalanche, tokenType: .native),
+            TokenQuery(blockchainType: .polygon, tokenType: .native),
+//            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .native),
+//            TokenQuery(blockchainType: .ethereum, tokenType: .eip20(address: "0xdac17f958d2ee523a2206206994597c13d831ec7")), // USDT
+//            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .eip20(address: "0xe9e7cea3dedca5984780bafc599bd69add087d56")) // BUSD
         ]
 
         var wallets = [Wallet]()
@@ -50,9 +52,31 @@ class CreateAccountService {
             wallets.append(Wallet(token: token, account: account))
         }
 
+        let usdcTokens = fetchUSDCCoins().flatMap { fullCoin in
+            fullCoin.tokens
+        }
+        
+        let tokens = usdcTokens.filter { token in
+            (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+        }
+
+        for token in tokens {
+            wallets.append(Wallet(token: token, account: account))
+        }
+        
         walletManager.save(wallets: wallets)
     }
 
+    private func fetchUSDCCoins() -> [FullCoin] {
+        do {
+            let coinUids: [String] = ["usd-coin"]
+            let coins = try marketKit.fullCoins(coinUids: coinUids)
+            return coins
+            
+        } catch {
+            return []
+        }
+    }
 }
 
 extension CreateAccountService {

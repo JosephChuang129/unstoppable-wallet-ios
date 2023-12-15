@@ -212,40 +212,40 @@ extension ContactBookSettingsViewController: SectionsDataSource {
             )
         }
 
-        var sections: [SectionProtocol] = [
+        let sections: [SectionProtocol] = [
             Section(
                     id: "manage-contacts",
                     headerState: .margin(height: .margin12),
                     rows: manageRows
             ),
-            Section(
-                    id: "activate_section",
-                    headerState: .margin(height: .margin32),
-                    footerState: tableView.sectionFooter(text: "contacts.settings.description".localized),
-                    rows: [
-                        CellBuilderNew.row(
-                                rootElement: activationElements(on: viewModel.featureEnabled, warning: lostSynchronization),
-                                tableView: tableView,
-                                id: "activate-icloud-contacts",
-                                height: .heightCell48,
-                                autoDeselect: true,
-                                bind: { cell in
-                                    cell.set(backgroundStyle: .lawrence, isFirst: true, isLast: true)
-                                }
-                        )
-                    ]
-            )
+//            Section(
+//                    id: "activate_section",
+//                    headerState: .margin(height: .margin32),
+//                    footerState: tableView.sectionFooter(text: "contacts.settings.description".localized),
+//                    rows: [
+//                        CellBuilderNew.row(
+//                                rootElement: activationElements(on: viewModel.featureEnabled, warning: lostSynchronization),
+//                                tableView: tableView,
+//                                id: "activate-icloud-contacts",
+//                                height: .heightCell48,
+//                                autoDeselect: true,
+//                                bind: { cell in
+//                                    cell.set(backgroundStyle: .lawrence, isFirst: true, isLast: true)
+//                                }
+//                        )
+//                    ]
+//            )
         ]
 
-        if lostSynchronization {
-            sections.append(Section(
-                    id: "lost_sync_section",
-                    footerState: .margin(height: .margin32),
-                    rows: [
-                        tableView.highlightedDescriptionRow(id: "lost_connection", style: .red, text: "contacts.settings.lost_synchronization.description".localized)
-                    ]
-            ))
-        }
+//        if lostSynchronization {
+//            sections.append(Section(
+//                    id: "lost_sync_section",
+//                    footerState: .margin(height: .margin32),
+//                    rows: [
+//                        tableView.highlightedDescriptionRow(id: "lost_connection", style: .red, text: "contacts.settings.lost_synchronization.description".localized)
+//                    ]
+//            ))
+//        }
         return sections
     }
 

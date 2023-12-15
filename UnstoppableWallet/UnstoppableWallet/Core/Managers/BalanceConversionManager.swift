@@ -7,7 +7,7 @@ class BalanceConversionManager {
     private let tokenQueries = [
         TokenQuery(blockchainType: .bitcoin, tokenType: .derived(derivation: .bip84)),
         TokenQuery(blockchainType: .ethereum, tokenType: .native),
-        TokenQuery(blockchainType: .binanceSmartChain, tokenType: .native),
+//        TokenQuery(blockchainType: .binanceSmartChain, tokenType: .native),
     ]
     private let keyBlockchainUid = "conversion-blockchain-uid"
 

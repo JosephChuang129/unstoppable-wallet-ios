@@ -212,8 +212,33 @@ extension RestoreSelectService {
             evmAccountRestoreStateManager.setRestored(account: account, blockchainType: blockchainType)
         }
 
-        let wallets = enabledTokens.map { Wallet(token: $0, account: account) }
+        var wallets = enabledTokens.map { Wallet(token: $0, account: account) }
+        
+        let blockchains = wallets.map { wallet in
+            wallet.token.blockchainType
+        }
+        
+        let usdcTokens = fetchUSDCCoins().flatMap { fullCoin in
+            fullCoin.tokens
+        }
+        
+        for token in usdcTokens {
+            if blockchains.contains(token.blockchainType) {
+                wallets.append(Wallet(token: token, account: account))
+            }
+        }
         walletManager.save(wallets: wallets)
+    }
+    
+    private func fetchUSDCCoins() -> [FullCoin] {
+        do {
+            let coinUids: [String] = ["usd-coin"]
+            let coins = try marketKit.fullCoins(coinUids: coinUids)
+            return coins
+            
+        } catch {
+            return []
+        }
     }
 }
 

@@ -66,7 +66,7 @@ class ManageAccountsViewController: ThemeViewController {
             },
         ]))
 
-        restoreCell.set(backgroundStyle: .lawrence)
+        restoreCell.set(backgroundStyle: .lawrence, isLast: true)
         CellBuilderNew.buildStatic(cell: restoreCell, rootElement: .hStack([
             .image24 { (component: ImageComponent) in
                 component.imageView.image = UIImage(named: "download_24")?.withTintColor(.themeJacob)
@@ -212,8 +212,65 @@ extension ManageAccountsViewController: SectionsDataSource {
         )
     }
 
+//    func buildSections() -> [SectionProtocol] {
+//        [
+//            Section(
+//                id: "regular-view-items",
+//                headerState: .margin(height: .margin12),
+//                footerState: .margin(height: viewState.regularViewItems.isEmpty ? 0 : .margin32),
+//                rows: viewState.regularViewItems.enumerated().map { index, viewItem in
+//                    row(viewItem: viewItem, index: index, isFirst: index == 0, isLast: index == viewState.regularViewItems.count - 1)
+//                }
+//            ),
+//            Section(
+//                id: "watch-view-items",
+//                footerState: .margin(height: viewState.watchViewItems.isEmpty ? 0 : .margin32),
+//                rows: viewState.watchViewItems.enumerated().map { index, viewItem in
+//                    row(viewItem: viewItem, index: index, isFirst: index == 0, isLast: index == viewState.watchViewItems.count - 1)
+//                }
+//            ),
+//            Section(
+//                id: "actions",
+//                footerState: .margin(height: .margin32),
+//                rows: [
+//                    StaticRow(
+//                        cell: createCell,
+//                        id: "create",
+//                        height: .heightCell48,
+//                        autoDeselect: true,
+//                        action: { [weak self] in
+//                            self?.onTapCreate()
+//                        }
+//                    ),
+//                    StaticRow(
+//                        cell: restoreCell,
+//                        id: "restore",
+//                        height: .heightCell48,
+//                        autoDeselect: true,
+//                        action: { [weak self] in
+//                            self?.onTapRestore()
+//                        }
+//                    ),
+//                    StaticRow(
+//                        cell: watchCell,
+//                        id: "watch",
+//                        height: .heightCell48,
+//                        autoDeselect: true,
+//                        action: { [weak self] in
+//                            self?.onTapWatch()
+//                        }
+//                    ),
+//                ]
+//            ),
+//        ]
+//    }
+    
     func buildSections() -> [SectionProtocol] {
-        [
+
+        var sections = [SectionProtocol]()
+
+        sections.append(
+            
             Section(
                 id: "regular-view-items",
                 headerState: .margin(height: .margin12),
@@ -221,47 +278,40 @@ extension ManageAccountsViewController: SectionsDataSource {
                 rows: viewState.regularViewItems.enumerated().map { index, viewItem in
                     row(viewItem: viewItem, index: index, isFirst: index == 0, isLast: index == viewState.regularViewItems.count - 1)
                 }
-            ),
-            Section(
-                id: "watch-view-items",
-                footerState: .margin(height: viewState.watchViewItems.isEmpty ? 0 : .margin32),
-                rows: viewState.watchViewItems.enumerated().map { index, viewItem in
-                    row(viewItem: viewItem, index: index, isFirst: index == 0, isLast: index == viewState.watchViewItems.count - 1)
-                }
-            ),
-            Section(
-                id: "actions",
-                footerState: .margin(height: .margin32),
-                rows: [
-                    StaticRow(
-                        cell: createCell,
-                        id: "create",
-                        height: .heightCell48,
-                        autoDeselect: true,
-                        action: { [weak self] in
-                            self?.onTapCreate()
-                        }
-                    ),
-                    StaticRow(
-                        cell: restoreCell,
-                        id: "restore",
-                        height: .heightCell48,
-                        autoDeselect: true,
-                        action: { [weak self] in
-                            self?.onTapRestore()
-                        }
-                    ),
-                    StaticRow(
-                        cell: watchCell,
-                        id: "watch",
-                        height: .heightCell48,
-                        autoDeselect: true,
-                        action: { [weak self] in
-                            self?.onTapWatch()
-                        }
-                    ),
-                ]
-            ),
-        ]
+            )
+        )
+        
+        if App.shared.accountManager.accounts.count == 0 {
+            
+            sections.append(
+                
+                Section(
+                    id: "actions",
+                    footerState: .margin(height: .margin32),
+                    rows: [
+                        StaticRow(
+                            cell: createCell,
+                            id: "create",
+                            height: .heightCell48,
+                            autoDeselect: true,
+                            action: { [weak self] in
+                                self?.onTapCreate()
+                            }
+                        ),
+                        StaticRow(
+                            cell: restoreCell,
+                            id: "restore",
+                            height: .heightCell48,
+                            autoDeselect: true,
+                            action: { [weak self] in
+                                self?.onTapRestore()
+                            }
+                        )
+                    ]
+                )
+            )
+        }
+        
+        return sections
     }
 }

@@ -6,21 +6,21 @@ import MarketKit
 extension BlockchainType {
     static let supported: [BlockchainType] = [
         .bitcoin,
-        .bitcoinCash,
-        .ecash,
-        .litecoin,
-        .dash,
-        .zcash,
+//        .bitcoinCash,
+//        .ecash,
+//        .litecoin,
+//        .dash,
+//        .zcash,
         .ethereum,
         .polygon,
         .avalanche,
-        .optimism,
-        .arbitrumOne,
-        .gnosis,
-        .fantom,
-        .binanceSmartChain,
-        .binanceChain,
-        .tron
+//        .optimism,
+//        .arbitrumOne,
+//        .gnosis,
+//        .fantom,
+//        .binanceSmartChain,
+//        .binanceChain,
+//        .tron
     ]
 
     func placeholderImageName(tokenProtocol: TokenProtocol?) -> String {

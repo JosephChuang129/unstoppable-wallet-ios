@@ -58,8 +58,10 @@ extension RestoreTypeViewModel {
 extension RestoreTypeViewModel {
     var items: [RestoreTypeModule.RestoreType] {
         switch sourceType {
-        case .wallet: return [.recoveryOrPrivateKey, .cloudRestore, .fileRestore, .cex]
-        case .full: return [.cloudRestore, .fileRestore]
+//        case .wallet: return [.recoveryOrPrivateKey, .cloudRestore, .fileRestore, .cex]
+//        case .full: return [.cloudRestore, .fileRestore]
+        case .wallet: return [.recoveryOrPrivateKey, .fileRestore, .cex]
+        case .full: return [.fileRestore]
         }
     }
 

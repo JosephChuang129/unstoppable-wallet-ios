@@ -227,17 +227,17 @@ class MainSettingsViewController: ThemeViewController {
                     self?.navigationController?.pushViewController(viewController, animated: true)
                 }
             ),
-            tableView.universalRow48(
-                id: "backup-manager",
-                image: .local(UIImage(named: "icloud_24")),
-                title: .body("settings.backup_manager".localized),
-                accessoryType: .disclosure,
-                isLast: true,
-                action: { [weak self] in
-                    let viewController = BackupManagerModule.viewController()
-                    self?.navigationController?.pushViewController(viewController, animated: true)
-                }
-            ),
+//            tableView.universalRow48(
+//                id: "backup-manager",
+//                image: .local(UIImage(named: "icloud_24")),
+//                title: .body("settings.backup_manager".localized),
+//                accessoryType: .disclosure,
+//                isLast: true,
+//                action: { [weak self] in
+//                    let viewController = BackupManagerModule.viewController()
+//                    self?.navigationController?.pushViewController(viewController, animated: true)
+//                }
+//            ),
         ]
     }
 
@@ -286,14 +286,14 @@ class MainSettingsViewController: ThemeViewController {
                     self?.navigationController?.pushViewController(viewController, animated: true)
                 }
             ),
-            StaticRow(
-                cell: baseCurrencyCell,
-                id: "base-currency",
-                height: .heightCell48,
-                action: { [weak self] in
-                    self?.navigationController?.pushViewController(BaseCurrencySettingsModule.viewController(), animated: true)
-                }
-            ),
+//            StaticRow(
+//                cell: baseCurrencyCell,
+//                id: "base-currency",
+//                height: .heightCell48,
+//                action: { [weak self] in
+//                    self?.navigationController?.pushViewController(BaseCurrencySettingsModule.viewController(), animated: true)
+//                }
+//            ),
             StaticRow(
                 cell: languageCell,
                 id: "language",
@@ -477,40 +477,40 @@ class MainSettingsViewController: ThemeViewController {
 
 extension MainSettingsViewController: SectionsDataSource {
     func buildSections() -> [SectionProtocol] {
-        var sections: [SectionProtocol] = [
-            Section(id: "donate", headerState: .margin(height: .margin12), rows: donateRows),
+        let sections: [SectionProtocol] = [
+//            Section(id: "donate", headerState: .margin(height: .margin12), rows: donateRows),
             Section(id: "account", headerState: .margin(height: .margin32), rows: accountRows),
-            Section(id: "wallet_connect", headerState: .margin(height: .margin32), rows: walletConnectRows),
+//            Section(id: "wallet_connect", headerState: .margin(height: .margin32), rows: walletConnectRows),
             Section(id: "appearance_settings", headerState: .margin(height: .margin32), rows: appearanceRows),
-            Section(id: "experimental", headerState: .margin(height: .margin32), rows: experimentalRows),
-            Section(id: "knowledge", headerState: .margin(height: .margin32), rows: knowledgeRows),
-            Section(id: "about", headerState: .margin(height: .margin32), rows: aboutRows),
-            Section(id: "feedback", headerState: .margin(height: .margin32), rows: feedbackRows),
+//            Section(id: "experimental", headerState: .margin(height: .margin32), rows: experimentalRows),
+//            Section(id: "knowledge", headerState: .margin(height: .margin32), rows: knowledgeRows),
+//            Section(id: "about", headerState: .margin(height: .margin32), rows: aboutRows),
+//            Section(id: "feedback", headerState: .margin(height: .margin32), rows: feedbackRows),
             Section(id: "footer", headerState: .margin(height: .margin32), footerState: .margin(height: .margin32), rows: footerRows),
         ]
 
-        if showTestNetSwitcher {
-            sections.append(
-                Section(
-                    id: "test-net-switcher",
-                    footerState: .margin(height: .margin32),
-                    rows: [
-                        tableView.universalRow48(
-                            id: "test-net-switcher",
-                            title: .body("TestNet Enabled"),
-                            accessoryType: .switch(
-                                isOn: App.shared.testNetManager.testNetEnabled,
-                                onSwitch: { enabled in
-                                    App.shared.testNetManager.set(testNetEnabled: enabled)
-                                }
-                            ),
-                            isFirst: true,
-                            isLast: true
-                        ),
-                    ]
-                )
-            )
-        }
+//        if showTestNetSwitcher {
+//            sections.append(
+//                Section(
+//                    id: "test-net-switcher",
+//                    footerState: .margin(height: .margin32),
+//                    rows: [
+//                        tableView.universalRow48(
+//                            id: "test-net-switcher",
+//                            title: .body("TestNet Enabled"),
+//                            accessoryType: .switch(
+//                                isOn: App.shared.testNetManager.testNetEnabled,
+//                                onSwitch: { enabled in
+//                                    App.shared.testNetManager.set(testNetEnabled: enabled)
+//                                }
+//                            ),
+//                            isFirst: true,
+//                            isLast: true
+//                        ),
+//                    ]
+//                )
+//            )
+//        }
 
         return sections
     }
