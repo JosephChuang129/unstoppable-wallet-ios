@@ -19,6 +19,7 @@ class LocalStorage {
     private let keyUserChartIndicatorsSync = "user-chart-indicators"
     private let keyIndicatorsShown = "indicators-shown"
     private let keyTelegramSupportRequested = "telegram-support-requested"
+    private let owlTingTermsOfUseAgreeKey = "owlTing_terms_of_use_agree_key"
 
     private let storage: StorageKit.ILocalStorage
 
@@ -97,6 +98,11 @@ extension LocalStorage {
     var telegramSupportRequested: Bool {
         get { storage.value(for: keyTelegramSupportRequested) ?? false }
         set { storage.set(value: newValue, for: keyTelegramSupportRequested) }
+    }
+    
+    var owlTingTermsOfUseAgree: Bool {
+        get { storage.value(for: owlTingTermsOfUseAgreeKey) ?? false }
+        set { storage.set(value: newValue, for: owlTingTermsOfUseAgreeKey) }
     }
 }
 

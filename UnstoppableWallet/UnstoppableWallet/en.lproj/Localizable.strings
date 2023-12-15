@@ -1839,3 +1839,17 @@ Go to Settings - > %@ and allow access to the camera.";
 "cex_withdraw_confirm.network" = "Network";
 "cex_withdraw_confirm.withdraw" = "Withdraw";
 "cex_withdraw_confirm.withdraw_failed" = "Withdraw failed";
+
+
+
+/*------- OwlTing -------*/
+
+// OwlTing Lunch
+"owlTing_lunch.welcome" = "Welcome\nOwlTing Wallet";
+"owlTing_lunch.terms_of_use" = "OwlTing Wallet Terms of Use";
+"owlTing_lunch_terms_of_use_agreement" = "I have read and agree to OwlTing Wallet Terms of Use";
+"owlTing_lunch.agree_button" = "Agree";
+"owlTing_owlpay.privacy_policy" = "OwlPay™ Privacy Policy";
+"owlTing_owlpay.privacy_policy_agreement" = "I have read and agree to 「OwlPay™ Privacy Policy」";
+"owlTing_owlting.privacy_policy" = "OwlTing Privacy Policy";
+"owlTing_owlting.privacy_policy_agreement" = "I have read and agree to OwlTing Privacy Policy";

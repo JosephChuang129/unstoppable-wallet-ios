@@ -118,6 +118,7 @@ extension MainViewModel {
 
     func onLoad() {
         service.setMainShownOnce()
+        service.setOwlTingTermsOfUseAgree()
     }
 
     func onSuccessJailbreakAlert() {

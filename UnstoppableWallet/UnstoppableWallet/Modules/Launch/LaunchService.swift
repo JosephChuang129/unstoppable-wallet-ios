@@ -24,8 +24,10 @@ extension LaunchService {
             return .cannotCheckPasscode
         } else if passcodeManager.isPasscodeSet {
             return .unlock
-        } else if accountManager.accounts.isEmpty && !localStorage.mainShownOnce {
-            return .intro
+//        } else if accountManager.accounts.isEmpty && !localStorage.mainShownOnce {
+//            return .intro
+        } else if !localStorage.owlTingTermsOfUseAgree {
+            return .owlTingLunch
         } else {
             return .main
         }

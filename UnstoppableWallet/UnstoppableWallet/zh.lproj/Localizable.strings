@@ -1839,3 +1839,17 @@
 "cex_withdraw_confirm.network" = "網絡";
 "cex_withdraw_confirm.withdraw" = "提取";
 "cex_withdraw_confirm.withdraw_failed" = "提取失败";
+
+
+
+/*------- OwlTing -------*/
+
+// OwlTing Lunch
+"owlTing_lunch.welcome" = "欢迎使用\nOwlTing Wallet";
+"owlTing_lunch.terms_of_use" = "奥丁丁钱包使用条款";
+"owlTing_lunch_terms_of_use_agreement" = "我已阅读并同意奥丁丁钱包使用条款";
+"owlTing_lunch.agree_button" = "同意";
+"owlTing_owlpay.privacy_policy" = "OwlPay™ 隐私权政策";
+"owlTing_owlpay.privacy_policy_agreement" = "我已阅读并同意「OwlPay™ 隐私权政策」";
+"owlTing_owlting.privacy_policy" = "奥丁丁隐私权政策";
+"owlTing_owlting.privacy_policy_agreement" = "我已阅读并同意「奥丁丁隐私权政策」";

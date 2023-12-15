@@ -16,6 +16,7 @@ class LaunchModule {
         case .intro: return WelcomeScreenViewController()
         case .unlock: return UnlockModule.appUnlockView(appStart: true).toViewController()
         case .main: return MainModule.instance()
+        case .owlTingLunch: return OwlTingLunchModule.viewController()
         }
     }
 }
@@ -27,5 +28,6 @@ extension LaunchModule {
         case intro
         case unlock
         case main
+        case owlTingLunch
     }
 }

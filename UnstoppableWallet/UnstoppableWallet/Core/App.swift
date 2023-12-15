@@ -6,6 +6,7 @@ import LanguageKit
 import MarketKit
 import StorageKit
 import ThemeKit
+import Then
 
 class App {
     static var instance: App?

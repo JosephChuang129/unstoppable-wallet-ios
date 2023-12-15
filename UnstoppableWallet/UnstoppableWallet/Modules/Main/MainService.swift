@@ -148,6 +148,12 @@ extension MainService {
             self?.localStorage.mainShownOnce = true
         }
     }
+    
+    func setOwlTingTermsOfUseAgree() {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.localStorage.owlTingTermsOfUseAgree = true
+        }
+    }
 
     func set(tab: MainModule.Tab) {
         storage.set(value: tab.rawValue, for: keyTabIndex)
