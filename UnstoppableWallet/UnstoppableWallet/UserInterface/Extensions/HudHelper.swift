@@ -38,6 +38,7 @@ extension HudHelper {
         case success(string: String)
         case attention(string: String)
         case error(string: String)
+        case loading
 
         var icon: UIImage? {
             let image: UIImage?
@@ -68,6 +69,7 @@ extension HudHelper {
             case .success: image = UIImage(named: "circle_check_24")
             case .attention: image = UIImage(named: "warning_2_24")
             case .error: image = UIImage(named: "circle_warning_24")
+            case .loading: image = UIImage(named: "arrow_swap_24")
             }
             return image?.withRenderingMode(.alwaysTemplate)
         }
@@ -77,7 +79,7 @@ extension HudHelper {
             case .addedToWatchlist, .alreadyAddedToWallet, .notSupportedYet, .sent, .swapped, .approved, .revoked, .attention: return .themeJacob
             case .removedFromWallet, .removedFromWatchlist,  .deleted, .noInternet, .disconnectedWalletConnect, .error: return .themeLucian
             case .addedToWallet, .copied, .saved, .savedToCloud, .done, .restored, .created, .imported, .walletAdded, .enabled, .success: return .themeRemus
-            case .waitingForSession, .disconnectingWalletConnect, .enabling, .sending, .swapping, .approving, .revoking: return .themeGray
+            case .waitingForSession, .disconnectingWalletConnect, .enabling, .sending, .swapping, .approving, .revoking, .loading: return .themeGray
             }
         }
 
@@ -115,33 +117,34 @@ extension HudHelper {
             case .success(let description): return description
             case .attention(let description): return description
             case .error(let description): return description
+            case .loading: return "alert.action.loading".localized
             }
         }
 
         var showingTime: TimeInterval? {
             switch self {
-            case .waitingForSession, .disconnectingWalletConnect, .sending, .enabling: return nil
+            case .waitingForSession, .disconnectingWalletConnect, .sending, .enabling, .loading: return nil
             default: return 2
             }
         }
 
         var isLoading: Bool {
             switch self {
-            case .waitingForSession, .disconnectingWalletConnect, .enabling, .sending, .swapping, .approving, .revoking: return true
+            case .waitingForSession, .disconnectingWalletConnect, .enabling, .sending, .swapping, .approving, .revoking, .loading: return true
             default: return false
             }
         }
 
         var isUserInteractionEnabled: Bool {
             switch self {
-            case .disconnectingWalletConnect, .enabling, .sending: return false
+            case .disconnectingWalletConnect, .enabling, .sending, .loading: return false
             default: return true
             }
         }
 
         var forced: Bool {
             switch self {
-            case .attention, .disconnectedWalletConnect, .enabled, .sent, .swapped, .approved, .revoked: return false
+            case .attention, .disconnectedWalletConnect, .enabled, .sent, .swapped, .approved, .revoked, .loading: return false
             default: return true
             }
         }

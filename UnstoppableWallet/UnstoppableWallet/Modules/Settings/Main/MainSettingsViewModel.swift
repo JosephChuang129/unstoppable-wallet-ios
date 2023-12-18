@@ -18,6 +18,11 @@ class MainSettingsViewModel {
     private let aboutAlertRelay: BehaviorRelay<Bool>
     private let openWalletConnectRelay = PublishRelay<WalletConnectOpenMode>()
     private let openLinkRelay = PublishRelay<String>()
+    private let successRelay = PublishRelay<()>()
+    private let loadingRelay = PublishRelay<(Bool)>()
+    private let errorRelay = PublishRelay<()>()
+    private let updateUserStatusRelay = PublishRelay<()>()
+    private let authTerminateSuccessRelay = PublishRelay<()>()
 
     init(service: MainSettingsService) {
         self.service = service
@@ -155,5 +160,119 @@ extension MainSettingsViewModel {
     enum WalletConnectOpenMode {
         case list
         case errorDialog(error: WalletConnectAppShowView.WalletConnectOpenError)
+    }
+}
+
+extension MainSettingsViewModel {
+    
+    func logout() {
+
+        loadingRelay.accept(true)
+        
+        App.shared.networkService.request(networkClient: .otWalletLogout)
+            .subscribe(onNext: { [weak self] (response: OTWalletResponse) in
+
+                self?.service.storeCurrentLoginStateLogout()
+                self?.successRelay.accept(())
+
+            }, onError: { [weak self] error in
+
+                self?.service.storeCurrentLoginStateLogout()
+                self?.errorRelay.accept(())
+
+            }).disposed(by: disposeBag)
+    }
+    
+    func fetchAmlMeta() {
+
+        guard service.currentLoginState else { return }
+        
+        var parameter = BaseRequest()
+        parameter.lang = service.langCode
+        
+        App.shared.networkService.request(networkClient: .amlMeta(parameter: parameter.toJSON()))
+            .subscribe(onNext: { [weak self] (response: AmlUserMetaResponse) in
+                
+                self?.service.storeAmlMeta(response: response)
+                self?.updateUserStatusRelay.accept(())
+
+            }, onError: { [weak self] error in
+
+            }).disposed(by: disposeBag)
+    }
+    
+    func authTerminate() {
+        
+        loadingRelay.accept(true)
+        
+        App.shared.networkService.request(networkClient: .authTerminate)
+            .subscribe(onNext: { [weak self] (response: AmlUserMetaResponse) in
+                
+                guard response.status == true else {
+                    self?.errorRelay.accept(())
+                    return
+                }
+                
+                self?.successRelay.accept(())
+                self?.authTerminateSuccessRelay.accept(())
+
+            }, onError: { [weak self] error in
+                
+                self?.errorRelay.accept(())
+                
+            }).disposed(by: disposeBag)
+    }
+
+    func authTerminateLogout() {
+        service.storeCurrentLoginStateLogout()
+    }
+}
+
+extension MainSettingsViewModel {
+
+    var currentLoginState: Bool {
+        service.currentLoginState
+    }
+    
+    var activeWallets: [Wallet] {
+        service.activeWallets
+    }
+    
+    var enableBlockchainType: Bool {
+        
+        let blockchains = service.activeWallets.map { wallet in
+            
+            let blockchainType = wallet.token.blockchainType
+            return blockchainType == .polygon || blockchainType == .avalanche || blockchainType == .ethereum
+        }
+        
+        return blockchains.contains(true)
+    }
+    
+    var amlValidateStatus: AmlValidateStatus {
+        service.amlValidateStatus
+    }
+}
+
+extension MainSettingsViewModel {
+
+    var loadingSignal: Signal<(Bool)> {
+        loadingRelay.asSignal()
+    }
+    
+    var successSignal: Signal<()> {
+        successRelay.asSignal()
+    }
+    
+    var errorSignal: Signal<()> {
+        errorRelay.asSignal()
+    }
+    
+    var updateUserStatusSignal: Signal<()> {
+        updateUserStatusRelay.asSignal()
+    }
+    
+    var authTerminateSuccessSignal: Signal<()> {
+        authTerminateSuccessRelay.asSignal()
     }
 }

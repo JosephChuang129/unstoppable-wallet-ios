@@ -12,9 +12,9 @@ class BaseViewModel: NSObject {
     var onErrorHandling: ((ErrorResult) -> Void)?
     var updateHandler: (() -> Void)?
     
-    let successRelay = PublishRelay<()>()
+    let successRelay = PublishRelay<String>()
     let loadingRelay = PublishRelay<(Bool)>()
-    let errorRelay = PublishRelay<()>()
+    let errorRelay = PublishRelay<String>()
     let errorHandlerRelay = PublishRelay<(ErrorResult)>()
     
     let showLoginRelay = PublishRelay<()>()
@@ -26,11 +26,11 @@ extension BaseViewModel {
         loadingRelay.asSignal()
     }
     
-    var successSignal: Signal<()> {
+    var successSignal: Signal<String> {
         successRelay.asSignal()
     }
     
-    var errorSignal: Signal<()> {
+    var errorSignal: Signal<String> {
         errorRelay.asSignal()
     }
     

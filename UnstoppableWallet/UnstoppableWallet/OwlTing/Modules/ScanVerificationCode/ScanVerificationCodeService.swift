@@ -1,0 +1,4 @@
+class ScanVerificationCodeService {
+    
+    init() { }
+}

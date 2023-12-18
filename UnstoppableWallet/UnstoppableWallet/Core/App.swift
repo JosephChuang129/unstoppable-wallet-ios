@@ -7,6 +7,7 @@ import MarketKit
 import StorageKit
 import ThemeKit
 import Then
+import IQKeyboardManagerSwift
 
 class App {
     static var instance: App?
@@ -118,6 +119,8 @@ class App {
 
     let appEventHandler = EventHandler()
 
+    let networkService: NetworkService
+    
     init() throws {
         localStorage = LocalStorage(storage: StorageKit.LocalStorage.default)
 
@@ -344,5 +347,10 @@ class App {
             walletConnectSocketConnectionService: walletConnectSocketConnectionService,
             nftMetadataSyncer: nftMetadataSyncer
         )
+        
+        networkService = NetworkService(accountManager: accountManager)
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
     }
 }

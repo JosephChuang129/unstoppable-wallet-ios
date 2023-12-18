@@ -1,6 +1,8 @@
 import Combine
 import RxRelay
 import RxSwift
+import ObjectMapper
+import Foundation
 
 class AccountManager {
     private let passcodeManager: PasscodeManager
@@ -15,10 +17,22 @@ class AccountManager {
 
     private var lastCreatedAccount: Account?
 
+    private static let currentLoginStateKey = "current_login_state"
+    private static let otWalletTokenDefaultsKey = "ot_wallet_token"
+    private static let customerDefaultsKey = "ot_customer"
+    private static let amlUserMetaDefaultsKey = "aml_userMeta"
+    private static let amlValidateStatusDefaultsKey = "aml_validate_status"
+
     init(passcodeManager: PasscodeManager, accountStorage: AccountStorage, activeAccountStorage: ActiveAccountStorage) {
         self.passcodeManager = passcodeManager
 
         storage = AccountCachedStorage(level: passcodeManager.currentPasscodeLevel, accountStorage: accountStorage, activeAccountStorage: activeAccountStorage)
+        
+        currentLoginState = AccountManager.storedCurrentLoginState
+        otWalletToken = AccountManager.storedOTWalletToken
+        amlUserMeta = AccountManager.storedAmlUserMeta
+        customer = AccountManager.storedOTCustomer
+        amlValidateStatus = AccountManager.storedAmlValidateStatus
 
         passcodeManager.$currentPasscodeLevel
             .sink { [weak self] level in
@@ -65,6 +79,36 @@ class AccountManager {
         }
     }
 
+    
+    public var currentLoginState: Bool {
+        didSet {
+            setCurrentLoginState()
+        }
+    }
+    
+    public var otWalletToken: OTWalletToken? {
+        didSet {
+            setOTWalletToken()
+        }
+    }
+    
+    var customer : Customer? {
+        didSet {
+            setOTCustomer()
+        }
+    }
+    
+    var amlUserMeta : AmlUserMeta? {
+        didSet {
+            setAmlUserMeta()
+        }
+    }
+    
+    var amlValidateStatus: AmlValidateStatus {
+        didSet {
+            setAmlValidateStatus()
+        }
+    }
 }
 
 extension AccountManager {
@@ -294,5 +338,82 @@ class AccountCachedStorage {
         accountStorage.clear()
         _allAccounts = [:]
         _accounts = [:]
+    }
+}
+
+extension AccountManager {
+    
+    private func setCurrentLoginState() {
+        UserDefaults.standard.set(currentLoginState, forKey: AccountManager.currentLoginStateKey)
+    }
+
+    private func setOTWalletToken() {
+        UserDefaults.standard.set(otWalletToken?.toJSONString(), forKey: AccountManager.otWalletTokenDefaultsKey)
+    }
+    
+    private func setOTCustomer() {
+        UserDefaults.standard.set(customer?.toJSONString(), forKey: AccountManager.customerDefaultsKey)
+    }
+    
+    private func setAmlUserMeta() {
+        UserDefaults.standard.set(amlUserMeta?.toJSONString(), forKey: AccountManager.amlUserMetaDefaultsKey)
+    }
+    
+    private func setAmlValidateStatus() {
+        UserDefaults.standard.set(amlValidateStatus.rawValue, forKey: AccountManager.amlValidateStatusDefaultsKey)
+    }
+    
+    func saveAmlUserMeta(response: AmlUserMetaResponse) {
+        
+        amlUserMeta = response.data
+        
+        if response.code == AmlValidateStatus.userNotFound.statusCode() {
+            amlValidateStatus = .userNotFound
+        } else {
+            
+            let status = AmlValidateStatus(rawValue: response.data?.integratedStatus ?? "") ?? .userNotFound
+            amlValidateStatus = status
+        }
+    }
+    
+    func otAccountLogout() {
+        currentLoginState = false
+        otWalletToken = nil
+        customer = nil
+        amlUserMeta = nil
+        amlValidateStatus = .userNotFound
+    }
+}
+
+extension AccountManager {
+    
+    private static var storedCurrentLoginState: Bool {
+        
+        guard let state = UserDefaults.standard.value(forKey: currentLoginStateKey) as? Bool else {
+            return false
+        }
+        
+        return state
+    }
+    
+    private static var storedOTWalletToken: OTWalletToken? {
+        guard let jsonString = UserDefaults.standard.value(forKey: otWalletTokenDefaultsKey) as? String else { return nil }
+        return Mapper<OTWalletToken>().map(JSONString: jsonString)
+    }
+    
+    private static var storedOTCustomer: Customer? {
+        guard let jsonString = UserDefaults.standard.value(forKey: customerDefaultsKey) as? String else { return nil }
+        return Mapper<Customer>().map(JSONString: jsonString)
+    }
+    
+    private static var storedAmlUserMeta: AmlUserMeta? {
+        guard let jsonString = UserDefaults.standard.value(forKey: amlUserMetaDefaultsKey) as? String else { return nil }
+        return Mapper<AmlUserMeta>().map(JSONString: jsonString)
+    }
+    
+    private static var storedAmlValidateStatus: AmlValidateStatus {
+        guard let string = UserDefaults.standard.value(forKey: amlValidateStatusDefaultsKey) as? String, let status = AmlValidateStatus(rawValue: string) else { return .userNotFound }
+        
+        return status
     }
 }

@@ -189,25 +189,26 @@ extension ExtendedKeyService {
     }
 
     var supportedBlockchains: [Blockchain] {
-        var coinTypesDerivableFromKey = [HDExtendedKeyVersion.ExtendedKeyCoinType]()
-        if case .hdExtendedKey(let key) = accountType {
-            coinTypesDerivableFromKey.append(contentsOf: key.coinTypes)
-        }
-
-        switch derivation {
-        case .bip44:
-            if coinTypesDerivableFromKey.count == 1, coinTypesDerivableFromKey[0] == .litecoin {
-                return [.litecoin]
-            } else {
-                return [.bitcoin, .bitcoinCash, .litecoin, .dash]
-            }
-        default:
-            if coinTypesDerivableFromKey.count == 1, coinTypesDerivableFromKey[0] == .litecoin {
-                return [.litecoin]
-            } else {
-                return [.bitcoin, .litecoin]
-            }
-        }
+//        var coinTypesDerivableFromKey = [HDExtendedKeyVersion.ExtendedKeyCoinType]()
+//        if case .hdExtendedKey(let key) = accountType {
+//            coinTypesDerivableFromKey.append(contentsOf: key.coinTypes)
+//        }
+//
+//        switch derivation {
+//        case .bip44:
+//            if coinTypesDerivableFromKey.count == 1, coinTypesDerivableFromKey[0] == .litecoin {
+//                return [.litecoin]
+//            } else {
+//                return [.bitcoin, .bitcoinCash, .litecoin, .dash]
+//            }
+//        default:
+//            if coinTypesDerivableFromKey.count == 1, coinTypesDerivableFromKey[0] == .litecoin {
+//                return [.litecoin]
+//            } else {
+//                return [.bitcoin, .litecoin]
+//            }
+//        }
+        [.bitcoin]
     }
 
     func set(derivation: MnemonicDerivation) {

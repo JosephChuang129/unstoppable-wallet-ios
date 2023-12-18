@@ -5,6 +5,7 @@ import RxRelay
 import RxSwift
 import ThemeKit
 import WalletConnectV1
+import UIKit
 
 class MainSettingsService {
     private let disposeBag = DisposeBag()
@@ -21,12 +22,13 @@ class MainSettingsService {
     private let walletConnectSessionManager: WalletConnectSessionManager
     private let subscriptionManager: SubscriptionManager
     private let rateAppManager: RateAppManager
-
+    private let walletManager: WalletManager
+    
     private let iCloudAvailableErrorRelay = BehaviorRelay<Bool>(value: false)
     private let noWalletRequiredActionsRelay = BehaviorRelay<Bool>(value: false)
 
     init(backupManager: BackupManager, cloudAccountBackupManager: CloudBackupManager, accountRestoreWarningManager: AccountRestoreWarningManager, accountManager: AccountManager, contactBookManager: ContactBookManager, passcodeManager: PasscodeManager, termsManager: TermsManager,
-         systemInfoManager: SystemInfoManager, currencyKit: CurrencyKit.Kit, walletConnectSessionManager: WalletConnectSessionManager, subscriptionManager: SubscriptionManager, rateAppManager: RateAppManager)
+         systemInfoManager: SystemInfoManager, currencyKit: CurrencyKit.Kit, walletConnectSessionManager: WalletConnectSessionManager, subscriptionManager: SubscriptionManager, rateAppManager: RateAppManager, walletManager: WalletManager)
     {
         self.cloudAccountBackupManager = cloudAccountBackupManager
         self.backupManager = backupManager
@@ -40,6 +42,7 @@ class MainSettingsService {
         self.walletConnectSessionManager = walletConnectSessionManager
         self.subscriptionManager = subscriptionManager
         self.rateAppManager = rateAppManager
+        self.walletManager = walletManager
 
         subscribe(disposeBag, contactBookManager.iCloudErrorObservable) { [weak self] error in
             if error != nil, self?.contactBookManager.remoteSync ?? false {
@@ -163,5 +166,33 @@ extension MainSettingsService {
         case backedUp
         case nonSupportedAccountType(accountType: AccountType)
         case unBackedUpAccount(account: Account)
+    }
+}
+
+extension MainSettingsService {
+    
+    var currentLoginState: Bool {
+        accountManager.currentLoginState
+    }
+
+    var amlValidateStatus: AmlValidateStatus {
+        accountManager.amlValidateStatus
+    }
+    
+    func storeCurrentLoginStateLogout() {
+        accountManager.otAccountLogout()
+        UIApplication.shared.windows.first { $0.isKeyWindow }?.set(newRootController: MainModule.instance(presetTab: .settings))
+    }
+    
+    var activeWallets: [Wallet] {
+        walletManager.activeWallets
+    }
+    
+    func storeAmlMeta(response: AmlUserMetaResponse) {
+        accountManager.saveAmlUserMeta(response: response)
+    }
+    
+    var langCode: String {
+        LanguageManager.shared.currentLanguage.langCode
     }
 }

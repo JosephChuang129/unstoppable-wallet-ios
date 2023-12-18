@@ -1844,6 +1844,18 @@
 
 /*------- OwlTing -------*/
 
+// Member Login
+"member.title" = "登入";
+"member.button.login" = "登入";
+"member.button.register" = "注册";
+"member.button.forgetpassword" = "忘记密码？";
+"member.button.scan" = "扫描";
+"member.placeholder.account" = "帐号";
+"member.placeholder.email" = "信箱";
+"member.placeholder.password" = "密码";
+"login_account_deleted_error" = "该用户已终止使用此服务";
+"owlpay_scan_token_expired" = "验证码已失效，请更新验证QRCode";
+
 // OwlTing Lunch
 "owlTing_lunch.welcome" = "欢迎使用\nOwlTing Wallet";
 "owlTing_lunch.terms_of_use" = "奥丁丁钱包使用条款";
@@ -1853,3 +1865,99 @@
 "owlTing_owlpay.privacy_policy_agreement" = "我已阅读并同意「OwlPay™ 隐私权政策」";
 "owlTing_owlting.privacy_policy" = "奥丁丁隐私权政策";
 "owlTing_owlting.privacy_policy_agreement" = "我已阅读并同意「奥丁丁隐私权政策」";
+
+// Binding Form
+"binding_wording.verified" = "您的个人真实基本资料已验证";
+"binding_wording.default" = "将你的 OwlPay 帐号绑定 OwlTing Wallet\n请填写您个人真实基本资料提供绑定审核";
+"binding_form.title" = "帐号绑定";
+"binding_form.send_button" = "送出";
+"binding_form.registered.alert.title" = "送出审核";
+"binding_form.registered.alert.msg" = "请耐心等待审核，我们将尽速处理";
+"binding_form_kyc_name" = "姓名";
+"binding_form_kyc_nationality" = "国籍";
+"binding_form_kyc_birth" = "出生日期";
+"binding_form_wallet_selection_title" = "选择你要绑定的链";
+"binding_form.reject_waring" = "您的资料被判定驳回，请重新填写";
+"binding_form.evm_waring" = "目前仅支援兼容乙太坊虚拟机(EVM)之项目同步至 OwlTing，因此部分选项无法选取";
+"nationality_list.title" = "国籍";
+"nationality_list.search.hint" = "搜寻国家";
+
+// Binding Status
+"binding_chain_status.binding" = "已绑定";
+"binding_chain_status.unBinding" = "未绑定";
+"binding_chain_status.not_in_this_wallet" = "不在此钱包";
+"binding_status.title" = "帐号绑定";
+"binding_status.unbind_alert.title" = "确定要解除绑定？";
+"binding_status.unbind_button.title" = "解除绑定";
+"binding_status.cancel_button.title" = "取消";
+"binding_status.rebind_alert.title" = "重新绑定";
+"binding_status.rebind_alert.msg" = "需重新填写审核\n包含已确认的你确定进行？";
+"binding_status.rebind_alert.back_button.title" = "返回";
+"binding_status.rebind_button.title" = "将帐号重新绑定？";
+
+// Register
+"register_title" = "注册 OwlTing 会员";
+"register_button.title" = "注册";
+"register_display_name" = "会员显示名称";
+"register_display_name_hint" = "登入后的显示";
+"register_email" = "Email";
+"register_email_hint" = "登入使用";
+"register_password" = "密码";
+"register_password.hint" = "登入密码";
+"register_confirm_password.hint" = "再次确认";
+"register_password_rule" = "需至少八位字符，并混合 [字母] 与 [数字]";
+"register_birth" = "生日";
+"register_birth_hint" = "出生日期";
+"register_gender" = "性别";
+"register_gender_male" = "男性";
+"register_gender_female" = "女性";
+"register_gender_unknown" = "不愿透露";
+"register_password.not_same_error" = "密码栏位的输入不一致";
+
+// Member Forgot Password
+"forgot_password.title" = "忘记密码";
+"forgeot_password_send_button" = "送出";
+"forgeot_password_email_hint" = "您注册的 Email";
+"forgeot_password_email_note" = "输入注册使用的 Email";
+"forgeot_password_email" = "Email";
+
+// Member Reset Password
+"reset_password_success.title" = "完成送出";
+"reset_password_success.msg" = "重设指示已成功传送到您的 E-mail";
+
+// Main Settings
+"settings.account.binding" = "帐号绑定";
+"no_wallet_alert.title" = "尚未创建或新增代币";
+"no_wallet_alert.msg" = "请先创建钱包并新增代币后再次尝试";
+"no_wallet_alert.button.confirm" = "前往";
+"no_wallet_alert.button.cancel" = "取消";
+"main_settings.delete_account_alert.title" = "删除帐号";
+"main_settings.delete_account_alert.msg" = "删除后会员资料将永远无法回覆\n你确定删除？";
+"main_settings.delete_account_button_delete" = "删除";
+"main_settings.delete_account_button_cancel" = "取消";
+"main_settings.account_deleted" = "您的帐户已被删除";
+"main_settings.logged_out_and_redirected" = "您现在将被登出并且重新回到主页面。";
+"main_settings.delete_account" = "删除帐号";
+"main_settings.logout" = "登出";
+"main_settings.login_binding" = "登入并绑定";
+"no_evm_wallet_alert.title" = "无法进行绑定";
+"no_evm_wallet_alert.msg" = "目前仅支援兼容乙太坊虚拟机(EVM)之项目同步至 OwlTing，请先新增后再次操作";
+"validator_errors.email" = "Email 格式错误";
+"validator_errors.password" = "密码格式错误";
+"settings.login" = "登入";
+"settings.logout" = "登出";
+"aml_validate_status.verified" = "已绑定";
+"aml_validate_status.unverified" = "审核中";
+"aml_validate_status.unfinished" = "未绑定";
+"aml_validate_status.rejected" = "驳回";
+"aml_validate_status.user_not_found" = "未绑定";
+
+// Alert
+"alert.login_success" = "登入成功";
+"alert.login_failed" = "登入失败";
+"alert.register_success" = "註冊成功";
+"alert.register_failed" = "註冊失敗";
+"alert.error.try_again_later" = "发生错误请稍后重试";
+"alert.send_password_reset_email" = "发送密码重设信件";
+"alert.action.loading" = "正在加载...";
+"alert.wallet_sync.success" = "同步成功";

@@ -28,6 +28,7 @@ class MainSettingsViewController: ThemeViewController {
     private let themeModeCell = BaseSelectableThemeCell()
     private let aboutCell = BaseSelectableThemeCell()
     private let footerCell = MainSettingsFooterCell()
+    private let owltingAccountCell = BaseSelectableThemeCell()
 
     private let showTestNetSwitcher: Bool
 
@@ -87,9 +88,21 @@ class MainSettingsViewController: ThemeViewController {
         aboutCell.set(backgroundStyle: .lawrence, isFirst: true, isLast: true)
         syncAboutCell()
 
+        owltingAccountCell.set(backgroundStyle: .lawrence, isFirst: true, isLast: true)
+        syncOwltingAccountCell()
+        
         footerCell.set(appVersion: viewModel.appVersion)
-        footerCell.onTapLogo = { [weak self] in
-            self?.viewModel.onTapCompanyLink()
+//        footerCell.onTapLogo = { [weak self] in
+//            self?.viewModel.onTapCompanyLink()
+//        }
+        footerCell.onTapLogin = { [weak self] in
+            self?.handleTapLogin()
+        }
+        footerCell.onTapLogout = { [weak self] in
+            self?.viewModel.logout()
+        }
+        footerCell.onTapDeleteAccount = { [weak self] in
+            self?.showDeleteAccountAlert()
         }
 
         subscribe(disposeBag, viewModel.manageWalletsAlertDriver) { [weak self] in self?.syncManageAccountCell(alert: $0) }
@@ -107,6 +120,26 @@ class MainSettingsViewController: ThemeViewController {
             self?.urlManager.open(url: url, from: self)
         }
 
+        subscribe(disposeBag, viewModel.loadingSignal) {
+            $0 ? HudHelper.instance.show(banner: .loading) : HudHelper.instance.hide()
+        }
+        
+        subscribe(disposeBag, viewModel.successSignal) {
+            HudHelper.instance.hide()
+        }
+        
+        subscribe(disposeBag, viewModel.errorSignal) {
+            HudHelper.instance.hide()
+        }
+        
+        subscribe(disposeBag, viewModel.updateUserStatusSignal) { [weak self] in
+            self?.syncOwltingAccountCell()
+        }
+        
+        subscribe(disposeBag, viewModel.authTerminateSuccessSignal) { [weak self] in
+            self?.showTerminateSuccessAlert()
+        }
+        
         tableView.buildSections()
     }
 
@@ -413,6 +446,20 @@ class MainSettingsViewController: ThemeViewController {
         ]
     }
 
+    private var owltingAccountRows: [RowProtocol] {
+        [
+            StaticRow(
+                    cell: owltingAccountCell,
+                    id: "owlting_account",
+                    height: .heightCell48,
+                    autoDeselect: true,
+                    action: { [weak self] in
+                        self?.handleTapBinding()
+                    }
+            )
+        ]
+    }
+    
     private var footerRows: [RowProtocol] {
         [
             StaticRow(
@@ -482,6 +529,7 @@ extension MainSettingsViewController: SectionsDataSource {
             Section(id: "account", headerState: .margin(height: .margin32), rows: accountRows),
 //            Section(id: "wallet_connect", headerState: .margin(height: .margin32), rows: walletConnectRows),
             Section(id: "appearance_settings", headerState: .margin(height: .margin32), rows: appearanceRows),
+            Section(id: "owlting_account_settings", headerState: .margin(height: .margin32), rows: owltingAccountRows),
 //            Section(id: "experimental", headerState: .margin(height: .margin32), rows: experimentalRows),
 //            Section(id: "knowledge", headerState: .margin(height: .margin32), rows: knowledgeRows),
 //            Section(id: "about", headerState: .margin(height: .margin32), rows: aboutRows),
@@ -519,5 +567,147 @@ extension MainSettingsViewController: SectionsDataSource {
 extension MainSettingsViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith _: MFMailComposeResult, error _: Error?) {
         controller.dismiss(animated: true)
+    }
+}
+
+extension MainSettingsViewController {
+    
+    private func handleTapLogin() {
+        
+        guard viewModel.activeWallets.count > 0 else {
+            showNoWalletAlert()
+            return
+        }
+        
+        guard viewModel.enableBlockchainType else {
+            showNoSupportBlockchainTypeAlert()
+            return
+        }
+        
+        let viewController = LoginModule.viewController()
+        self.present(ThemeNavigationController(rootViewController: viewController), animated: true)
+    }
+    
+    private func handleTapBinding() {
+        
+        guard viewModel.activeWallets.count > 0 else {
+            showNoWalletAlert()
+            return
+        }
+        
+        switch viewModel.amlValidateStatus {
+
+        case .verified:
+            navigationController?.pushViewController(BindingStatusModule.viewController(), animated: true)
+
+        case .unverified: break
+            
+        case .rejected:
+            
+            let viewController = BindingFormModule.viewController()
+            present(ThemeNavigationController(rootViewController: viewController), animated: true)
+            
+        case .unfinished:
+            let viewController = BindingFormModule.viewController()
+            present(ThemeNavigationController(rootViewController: viewController), animated: true)
+            
+        case .userNotFound:
+
+            guard viewModel.activeWallets.count > 0 else {
+                showNoWalletAlert()
+                return
+            }
+            
+            guard viewModel.enableBlockchainType else {
+                showNoSupportBlockchainTypeAlert()
+                return
+            }
+            
+            guard viewModel.currentLoginState else {
+                let viewController = LoginModule.viewController()
+                present(ThemeNavigationController(rootViewController: viewController), animated: true)
+                return
+            }
+            
+            let viewController = BindingFormModule.viewController()
+            present(ThemeNavigationController(rootViewController: viewController), animated: true)
+        }
+    }
+    
+    private func showNoWalletAlert() {
+        
+        let controller = UIAlertController(title: "no_wallet_alert.title".localized, message: "no_wallet_alert.msg".localized, preferredStyle: .alert)
+        controller.addAction(
+            UIAlertAction(title: "no_wallet_alert.button.confirm".localized, style: .destructive) { [weak self] action in
+                UIApplication.shared.windows.first { $0.isKeyWindow }?.set(newRootController: MainModule.instance(presetTab: .balance))
+            }
+        )
+        controller.addAction(UIAlertAction(title: "no_wallet_alert.button.cancel".localized, style: .cancel))
+        self.present(controller, animated: true)
+    }
+    
+    private func showNoSupportBlockchainTypeAlert() {
+        
+        let controller = UIAlertController(title: "no_evm_wallet_alert.title".localized, message: "no_evm_wallet_alert.msg".localized, preferredStyle: .alert)
+        controller.addAction(
+            UIAlertAction(title: "no_wallet_alert.button.confirm".localized, style: .destructive) { [weak self] action in
+                UIApplication.shared.windows.first { $0.isKeyWindow }?.set(newRootController: MainModule.instance(presetTab: .balance))
+            }
+        )
+        controller.addAction(UIAlertAction(title: "no_wallet_alert.button.cancel".localized, style: .cancel))
+        self.present(controller, animated: true)
+    }
+    
+    private func showDeleteAccountAlert() {
+        
+        let controller = UIAlertController(title: "main_settings.delete_account_alert.title".localized, message: "main_settings.delete_account_alert.msg".localized, preferredStyle: .alert)
+        controller.addAction(
+            UIAlertAction(title: "main_settings.delete_account_button_delete".localized, style: .destructive) { [weak self] action in
+                self?.viewModel.authTerminate()
+            }
+        )
+        controller.addAction(UIAlertAction(title: "main_settings.delete_account_button_cancel".localized, style: .cancel))
+        self.present(controller, animated: true)
+    }
+    
+    private func showTerminateSuccessAlert() {
+        
+        let controller = UIAlertController(title: "main_settings.account_deleted".localized, message: "main_settings.logged_out_and_redirected".localized, preferredStyle: .alert)
+        controller.addAction(
+            UIAlertAction(title: "button.ok".localized, style: .default) { [weak self] action in
+                self?.viewModel.authTerminateLogout()
+            }
+        )
+        present(controller, animated: true, completion: nil)
+    }
+    
+    
+    func syncOwltingAccountCell() {
+        
+        let status = viewModel.amlValidateStatus
+        buildTitleValueColor(cell: owltingAccountCell, image: UIImage(named: "link_24"), title: "settings.account.binding".localized, value: status.title(), color: status.color())
+    }
+    
+    private func buildTitleValueColor(cell: BaseThemeCell, image: UIImage?, title: String, value: String? = nil, color: UIColor) {
+        CellBuilderNew.buildStatic(cell: cell, rootElement: .hStack([
+            .image24 { (component: ImageComponent) in
+                component.imageView.image = image
+            },
+            .text { (component: TextComponent) -> () in
+                component.font = .body
+                component.textColor = .themeLeah
+                component.text = title
+            },
+            .text { (component: TextComponent) -> () in
+                component.font = .subhead1
+                component.textColor = color
+                component.text = value
+                component.textAlignment = .right
+            },
+            .margin8,
+            .image20 { (component: ImageComponent) -> () in
+                component.imageView.image = UIImage(named: "arrow_big_forward_20")
+            }
+        ]))
     }
 }
