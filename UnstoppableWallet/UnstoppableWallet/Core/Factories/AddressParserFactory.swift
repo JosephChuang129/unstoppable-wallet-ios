@@ -20,6 +20,7 @@ class AddressParserFactory {
         case .ethereum: return AddressUriParser(validScheme: "ethereum", removeScheme: true)
         case .binanceChain: return AddressUriParser(validScheme: "binance", removeScheme: true)
         case .zcash: return AddressUriParser(validScheme: "zcash", removeScheme: true)
+        case .stellar: return AddressUriParser(validScheme: "stellar", removeScheme: true)
         default: return AddressUriParser(validScheme: nil, removeScheme: false)
         }
     }
@@ -109,6 +110,7 @@ class AddressParserFactory {
 
             return addressParserChain
         case .solana: return AddressParserChain()
+        case .stellar: return AddressParserChain()
         case .unsupported: return AddressParserChain()
         }
 

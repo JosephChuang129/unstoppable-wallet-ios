@@ -28,6 +28,8 @@ class SendModule {
             return SendEvmModule.viewController(token: token, mode: mode, adapter: adapter)
         case let adapter as ISendTronAdapter:
             return SendTronModule.viewController(token: token, mode: mode, adapter: adapter)
+        case let adapter as StellarAdapter:
+            return SendStellarModule.viewController(token: token, mode: mode, adapter: adapter)
         default: return nil
         }
     }

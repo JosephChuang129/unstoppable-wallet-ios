@@ -17,6 +17,7 @@ extension TokenType {
         case .eip20: return .eip20
         case .bep2: return .bep2
         case .spl: return .spl
+        case .creditAlphanum4: return .creditAlphanum4
         case .unsupported: return .unsupported
         }
     }

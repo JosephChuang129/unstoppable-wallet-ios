@@ -394,6 +394,40 @@ class TransactionsViewItemFactory {
             title = record.transaction.contract?.label ?? "transactions.unknown_transaction.title".localized
             subTitle = "transactions.unknown_transaction.description".localized()
 
+        case let record as StellarIncomingTransactionRecord:
+            
+            iconType = singleValueIconType(source: record.source, value: record.value)
+            title = "transactions.receive".localized
+            subTitle = "transactions.from".localized(mapped(address: record.from, blockchainType: record.source.blockchainType))
+            
+            primaryValue = TransactionsViewModel.Value(text: coinString(from: record.value), type: type(value: record.value, .incoming))
+            
+            if let currencyValue = item.currencyValue {
+                secondaryValue = TransactionsViewModel.Value(text: currencyString(from: currencyValue), type: .secondary)
+            }
+            
+        case let record as StellarOutgoingTransactionRecord:
+            
+            iconType = singleValueIconType(source: record.source, value: record.value)
+            title = "transactions.send".localized
+            subTitle = "transactions.to".localized(mapped(address: record.to, blockchainType: record.source.blockchainType))
+            
+            primaryValue = TransactionsViewModel.Value(text: coinString(from: record.value), type: type(value: record.value, .outgoing))
+            if let currencyValue = item.currencyValue {
+                secondaryValue = TransactionsViewModel.Value(text: currencyString(from: currencyValue), type: .secondary)
+            }
+            
+        case let record as StellarCreateAccountTransactionRecord:
+            
+            iconType = singleValueIconType(source: record.source, value: record.value)
+            title = "Create Account"
+            subTitle = ""
+            
+            primaryValue = TransactionsViewModel.Value(text: coinString(from: record.value), type: type(value: record.value, .incoming))
+            if let currencyValue = item.currencyValue {
+                secondaryValue = TransactionsViewModel.Value(text: currencyString(from: currencyValue), type: .secondary)
+            }
+            
         default:
             iconType = .localIcon(imageName: item.record.source.blockchainType.iconPlain32)
             title = "transactions.unknown_transaction.title".localized

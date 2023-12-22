@@ -100,6 +100,11 @@ class CoinOverviewViewItemFactory {
                 subtitle = address.shortened
                 reference = address
                 url = blockchain.explorerUrl(reference: address)
+            case .creditAlphanum4(let assetIssuer):
+                title = blockchain.name
+                subtitle = assetIssuer
+                reference = assetIssuer
+                url = blockchain.explorerUrl(reference: assetIssuer)
             case let .unsupported(_, _reference):
                 title = blockchain.name
                 subtitle = _reference?.shortened

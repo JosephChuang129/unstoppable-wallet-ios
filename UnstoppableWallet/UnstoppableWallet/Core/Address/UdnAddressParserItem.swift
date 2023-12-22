@@ -104,6 +104,7 @@ extension UdnAddressParserItem {
         case .fantom: return "ETH"
         case .tron: return "TRX"
         case .solana: return "SOL"
+        case .stellar: return "XLM"
         case .unsupported(let uid): return uid
         }
     }
@@ -114,6 +115,7 @@ extension UdnAddressParserItem {
         case (.binanceSmartChain, .native), (.binanceSmartChain, .eip20): return "BEP20"
         case (.polygon, .native), (.polygon, .eip20): return "MATIC"
         case (.avalanche, .native), (.avalanche, .eip20): return "AVAX"
+        case (.stellar, .native), (.stellar, .creditAlphanum4): return "XLM"
         default: return nil
         }
     }

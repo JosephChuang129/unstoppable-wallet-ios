@@ -43,6 +43,7 @@ class CreateAccountService {
 //            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .native),
 //            TokenQuery(blockchainType: .ethereum, tokenType: .eip20(address: "0xdac17f958d2ee523a2206206994597c13d831ec7")), // USDT
 //            TokenQuery(blockchainType: .binanceSmartChain, tokenType: .eip20(address: "0xe9e7cea3dedca5984780bafc599bd69add087d56")) // BUSD
+            TokenQuery(blockchainType: .stellar, tokenType: .native)
         ]
 
         var wallets = [Wallet]()
@@ -57,7 +58,7 @@ class CreateAccountService {
         }
         
         let tokens = usdcTokens.filter { token in
-            (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+            (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche) || (token.blockchainType == .stellar)
         }
 
         for token in tokens {

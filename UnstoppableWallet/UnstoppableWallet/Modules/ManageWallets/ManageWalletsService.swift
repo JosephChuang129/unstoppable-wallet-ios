@@ -91,7 +91,8 @@ class ManageWalletsService {
                 "avalanche-2",
                 "matic-network",
                 "usd-coin",
-                "bitcoin"
+                "bitcoin",
+                "stellar"
             ]
             
             let coins = try marketKit.fullCoins(coinUids: coinUids)
@@ -111,7 +112,8 @@ class ManageWalletsService {
                 default:
                     
                     let tokens = fullCoin.tokens.filter { token in
-                        (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+                        (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche) || (token.blockchainType == .stellar)
+
                     }
                     return FullCoin(coin: fullCoin.coin, tokens: tokens)
                 }

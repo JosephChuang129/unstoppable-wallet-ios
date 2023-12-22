@@ -21,6 +21,7 @@ extension BlockchainType {
 //        .binanceSmartChain,
 //        .binanceChain,
 //        .tron
+        .stellar
     ]
 
     func placeholderImageName(tokenProtocol: TokenProtocol?) -> String {
@@ -61,6 +62,7 @@ extension BlockchainType {
         case .fantom: return 14
         case .arbitrumOne: return 15
         case .optimism: return 16
+        case .stellar: return 17
         default: return Int.max
         }
     }
@@ -142,6 +144,7 @@ extension BlockchainType {
         case .litecoin: return "LTC (BIP44, BIP49, BIP84, BIP86)"
         case .binanceChain: return "BNB, BEP2 tokens"
         case .tron: return "TRX, TRC20 tokens"
+        case .stellar: return "XLM"
         default: return ""
         }
     }

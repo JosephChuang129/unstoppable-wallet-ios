@@ -1987,6 +1987,49 @@
 		6BDA29AB29D6F37C003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AA29D6F37C003847ED /* ECashKit */; };
 		6BDA29AD29D6F384003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AC29D6F384003847ED /* ECashKit */; };
 		6BDA29B029D6F934003847ED /* HsToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AF29D6F934003847ED /* HsToolKit */; };
+		7CD45D302B3189B00058B2B2 /* stellarsdk in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD45D2F2B3189B00058B2B2 /* stellarsdk */; };
+		7CD45D462B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */; };
+		7CD45D472B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */; };
+		7CD45D482B318CE70058B2B2 /* SendStellarConfirmationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */; };
+		7CD45D492B318CE70058B2B2 /* SendStellarConfirmationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */; };
+		7CD45D4A2B318CE70058B2B2 /* StellarKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D342B318CE70058B2B2 /* StellarKitManager.swift */; };
+		7CD45D4B2B318CE70058B2B2 /* StellarKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D342B318CE70058B2B2 /* StellarKitManager.swift */; };
+		7CD45D4C2B318CE70058B2B2 /* StellarTransactionsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D352B318CE70058B2B2 /* StellarTransactionsAdapter.swift */; };
+		7CD45D4D2B318CE70058B2B2 /* StellarTransactionsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D352B318CE70058B2B2 /* StellarTransactionsAdapter.swift */; };
+		7CD45D4E2B318CE70058B2B2 /* StellarKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D362B318CE70058B2B2 /* StellarKitWrapper.swift */; };
+		7CD45D4F2B318CE70058B2B2 /* StellarKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D362B318CE70058B2B2 /* StellarKitWrapper.swift */; };
+		7CD45D502B318CE70058B2B2 /* SendStellarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */; };
+		7CD45D512B318CE70058B2B2 /* SendStellarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */; };
+		7CD45D522B318CE70058B2B2 /* StellarKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D382B318CE70058B2B2 /* StellarKitProvider.swift */; };
+		7CD45D532B318CE70058B2B2 /* StellarKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D382B318CE70058B2B2 /* StellarKitProvider.swift */; };
+		7CD45D542B318CE70058B2B2 /* StellarAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D392B318CE70058B2B2 /* StellarAdapter.swift */; };
+		7CD45D552B318CE70058B2B2 /* StellarAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D392B318CE70058B2B2 /* StellarAdapter.swift */; };
+		7CD45D562B318CE70058B2B2 /* StellarKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3A2B318CE70058B2B2 /* StellarKit.swift */; };
+		7CD45D572B318CE70058B2B2 /* StellarKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3A2B318CE70058B2B2 /* StellarKit.swift */; };
+		7CD45D582B318CE70058B2B2 /* StellarTransactionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3B2B318CE70058B2B2 /* StellarTransactionStorage.swift */; };
+		7CD45D592B318CE70058B2B2 /* StellarTransactionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3B2B318CE70058B2B2 /* StellarTransactionStorage.swift */; };
+		7CD45D5A2B318CE70058B2B2 /* StellarTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3C2B318CE70058B2B2 /* StellarTransactionManager.swift */; };
+		7CD45D5B2B318CE70058B2B2 /* StellarTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3C2B318CE70058B2B2 /* StellarTransactionManager.swift */; };
+		7CD45D5C2B318CE70058B2B2 /* StellarSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3D2B318CE70058B2B2 /* StellarSyncer.swift */; };
+		7CD45D5D2B318CE70058B2B2 /* StellarSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3D2B318CE70058B2B2 /* StellarSyncer.swift */; };
+		7CD45D5E2B318CE70058B2B2 /* SendStellarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */; };
+		7CD45D5F2B318CE70058B2B2 /* SendStellarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */; };
+		7CD45D602B318CE70058B2B2 /* SendStellarConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */; };
+		7CD45D612B318CE70058B2B2 /* SendStellarConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */; };
+		7CD45D622B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */; };
+		7CD45D632B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */; };
+		7CD45D642B318CE70058B2B2 /* StellarSyncTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D412B318CE70058B2B2 /* StellarSyncTimer.swift */; };
+		7CD45D652B318CE70058B2B2 /* StellarSyncTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D412B318CE70058B2B2 /* StellarSyncTimer.swift */; };
+		7CD45D662B318CE70058B2B2 /* SendStellarConfirmationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */; };
+		7CD45D672B318CE70058B2B2 /* SendStellarConfirmationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */; };
+		7CD45D682B318CE70058B2B2 /* StellarSendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D432B318CE70058B2B2 /* StellarSendData.swift */; };
+		7CD45D692B318CE70058B2B2 /* StellarSendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D432B318CE70058B2B2 /* StellarSendData.swift */; };
+		7CD45D6A2B318CE70058B2B2 /* StellarSyncerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D442B318CE70058B2B2 /* StellarSyncerStorage.swift */; };
+		7CD45D6B2B318CE70058B2B2 /* StellarSyncerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D442B318CE70058B2B2 /* StellarSyncerStorage.swift */; };
+		7CD45D6C2B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D452B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift */; };
+		7CD45D6D2B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D452B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift */; };
+		7CD45D6F2B32D53A0058B2B2 /* StellarAddressParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D6E2B32D53A0058B2B2 /* StellarAddressParser.swift */; };
+		7CD45D702B32D53A0058B2B2 /* StellarAddressParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D6E2B32D53A0058B2B2 /* StellarAddressParser.swift */; };
 		7CE559232B2C036C00552B1C /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE559222B2C036C00552B1C /* Moya */; };
 		7CE559252B2C036C00552B1C /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE559242B2C036C00552B1C /* RxMoya */; };
 		7CE559282B2C037A00552B1C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE559272B2C037A00552B1C /* Then */; };
@@ -2149,6 +2192,8 @@
 		7CE55A2B2B2C313300552B1C /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D02B2C313200552B1C /* LoginService.swift */; };
 		7CE55A2C2B2C313300552B1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D12B2C313200552B1C /* LoginViewController.swift */; };
 		7CE55A2D2B2C313300552B1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D12B2C313200552B1C /* LoginViewController.swift */; };
+		7CE55A332B31478700552B1C /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE55A322B31478700552B1C /* MarketKit */; };
+		7CE55A362B3147C000552B1C /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE55A352B3147C000552B1C /* EvmKit */; };
 		ABC9A001F335B695CD066218 /* NftAssetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9AD35D41AEEBD38AA08B5 /* NftAssetModule.swift */; };
 		ABC9A005F31836B4EBAB1C97 /* DonateDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9AD0848221B0EC25C37F3 /* DonateDescriptionCell.swift */; };
 		ABC9A0073333D3DEC2797D15 /* BackupCloudPassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9A8E4CDD143171A1F9C46 /* BackupCloudPassphraseViewController.swift */; };
@@ -2751,8 +2796,6 @@
 		D3447DEB25E38300009928D9 /* WalletConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B35B968B299A67FC7FEAE3 /* WalletConnectManager.swift */; };
 		D35B518B21942E7A00504FBA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35B518821942E7A00504FBA /* TermsViewController.swift */; };
 		D35B518C21942E7A00504FBA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35B518821942E7A00504FBA /* TermsViewController.swift */; };
-		D3604E4328F02A020066C366 /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E4228F02A020066C366 /* EvmKit */; };
-		D3604E4528F02A260066C366 /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E4428F02A260066C366 /* EvmKit */; };
 		D3604E4A28F02A8C0066C366 /* Eip20Kit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E4928F02A8C0066C366 /* Eip20Kit */; };
 		D3604E4D28F02AB40066C366 /* NftKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E4C28F02AB40066C366 /* NftKit */; };
 		D3604E5028F02AE70066C366 /* UniswapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E4F28F02AE70066C366 /* UniswapKit */; };
@@ -2764,7 +2807,6 @@
 		D3604E6628F02D9A0066C366 /* BitcoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E6528F02D9A0066C366 /* BitcoinKit */; };
 		D3604E6928F02DF30066C366 /* BitcoinCashKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E6828F02DF30066C366 /* BitcoinCashKit */; };
 		D3604E6C28F02E3F0066C366 /* LitecoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E6B28F02E3F0066C366 /* LitecoinKit */; };
-		D3604E7028F03AC80066C366 /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E6F28F03AC80066C366 /* MarketKit */; };
 		D3604E7328F03B0A0066C366 /* ScanQrKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E7228F03B0A0066C366 /* ScanQrKit */; };
 		D3604E7928F03B9F0066C366 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E7828F03B9F0066C366 /* ModuleKit */; };
 		D3604E7C28F03BD20066C366 /* CurrencyKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E7B28F03BD20066C366 /* CurrencyKit */; };
@@ -2775,7 +2817,6 @@
 		D3604E8A28F03DBF0066C366 /* BitcoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E8928F03DBF0066C366 /* BitcoinKit */; };
 		D3604E8C28F03DBF0066C366 /* BitcoinCashKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E8B28F03DBF0066C366 /* BitcoinCashKit */; };
 		D3604E8E28F03DBF0066C366 /* LitecoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E8D28F03DBF0066C366 /* LitecoinKit */; };
-		D3604E9028F03DC00066C366 /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E8F28F03DC00066C366 /* MarketKit */; };
 		D3604E9228F03DC00066C366 /* ScanQrKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E9128F03DC00066C366 /* ScanQrKit */; };
 		D3604E9628F03DC00066C366 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E9528F03DC00066C366 /* ModuleKit */; };
 		D3604E9828F03DC00066C366 /* CurrencyKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3604E9728F03DC00066C366 /* CurrencyKit */; };
@@ -3966,6 +4007,27 @@
 		6BCD53112A161F4800993F20 /* BackupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupViewController.swift; sourceTree = "<group>"; };
 		6BCD53182A161F9100993F20 /* BackupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
 		6BCD531B2A16203F00993F20 /* CloudBackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudBackupManager.swift; sourceTree = "<group>"; };
+		7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarTransactionConverter.swift; sourceTree = "<group>"; };
+		7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarConfirmationModule.swift; sourceTree = "<group>"; };
+		7CD45D342B318CE70058B2B2 /* StellarKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarKitManager.swift; sourceTree = "<group>"; };
+		7CD45D352B318CE70058B2B2 /* StellarTransactionsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarTransactionsAdapter.swift; sourceTree = "<group>"; };
+		7CD45D362B318CE70058B2B2 /* StellarKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarKitWrapper.swift; sourceTree = "<group>"; };
+		7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarViewController.swift; sourceTree = "<group>"; };
+		7CD45D382B318CE70058B2B2 /* StellarKitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarKitProvider.swift; sourceTree = "<group>"; };
+		7CD45D392B318CE70058B2B2 /* StellarAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarAdapter.swift; sourceTree = "<group>"; };
+		7CD45D3A2B318CE70058B2B2 /* StellarKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarKit.swift; sourceTree = "<group>"; };
+		7CD45D3B2B318CE70058B2B2 /* StellarTransactionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarTransactionStorage.swift; sourceTree = "<group>"; };
+		7CD45D3C2B318CE70058B2B2 /* StellarTransactionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarTransactionManager.swift; sourceTree = "<group>"; };
+		7CD45D3D2B318CE70058B2B2 /* StellarSyncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarSyncer.swift; sourceTree = "<group>"; };
+		7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarModule.swift; sourceTree = "<group>"; };
+		7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarConfirmationViewController.swift; sourceTree = "<group>"; };
+		7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarConfirmationViewModel.swift; sourceTree = "<group>"; };
+		7CD45D412B318CE70058B2B2 /* StellarSyncTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarSyncTimer.swift; sourceTree = "<group>"; };
+		7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendStellarConfirmationService.swift; sourceTree = "<group>"; };
+		7CD45D432B318CE70058B2B2 /* StellarSendData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarSendData.swift; sourceTree = "<group>"; };
+		7CD45D442B318CE70058B2B2 /* StellarSyncerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarSyncerStorage.swift; sourceTree = "<group>"; };
+		7CD45D452B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StellarRecipientAddressViewModel.swift; sourceTree = "<group>"; };
+		7CD45D6E2B32D53A0058B2B2 /* StellarAddressParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarAddressParser.swift; sourceTree = "<group>"; };
 		7CE5592E2B2C044400552B1C /* OwlTingLunchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlTingLunchViewModel.swift; sourceTree = "<group>"; };
 		7CE5592F2B2C044400552B1C /* OwlTingLunchModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlTingLunchModule.swift; sourceTree = "<group>"; };
 		7CE559302B2C044400552B1C /* OwlTingLunchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlTingLunchService.swift; sourceTree = "<group>"; };
@@ -4394,12 +4456,14 @@
 				D3AF5A9129FFD87500C1399E /* RxRelay in Frameworks */,
 				D3993DB028F4256F008720FB /* WalletConnect in Frameworks */,
 				D3C187E8290FD00E00FE1900 /* SectionsTableView in Frameworks */,
+				7CE55A332B31478700552B1C /* MarketKit in Frameworks */,
 				D3993DAE28F4256F008720FB /* WalletConnectV1 in Frameworks */,
 				500F1D1327AA87D1002AA419 /* AlignedCollectionViewFlowLayout in Frameworks */,
 				6BDA29AB29D6F37C003847ED /* ECashKit in Frameworks */,
 				7CE559252B2C036C00552B1C /* RxMoya in Frameworks */,
 				D3604E8C28F03DBF0066C366 /* BitcoinCashKit in Frameworks */,
 				D3993DC428F429AA008720FB /* UnstoppableDomainsResolution in Frameworks */,
+				7CE55A362B3147C000552B1C /* EvmKit in Frameworks */,
 				D3604E9E28F03DC00066C366 /* BinanceChainKit in Frameworks */,
 				D023D2652A24B9DC004F65B0 /* TronKit in Frameworks */,
 				D3C187BC2907CFC200FE1900 /* Checkpoints in Frameworks */,
@@ -4412,8 +4476,6 @@
 				D3BF1E5E274CAF1C00229A00 /* Down in Frameworks */,
 				D3604E5528F02B280066C366 /* Eip20Kit in Frameworks */,
 				D3C187EA290FD00E00FE1900 /* StorageKit in Frameworks */,
-				D3604E4528F02A260066C366 /* EvmKit in Frameworks */,
-				D3604E9028F03DC00066C366 /* MarketKit in Frameworks */,
 				D36E0C2C28D084CB00B622B9 /* CollectionViewCenteredFlowLayout in Frameworks */,
 				D3604E8A28F03DBF0066C366 /* BitcoinKit in Frameworks */,
 				D3E1D00D2990DA0400C68F00 /* Hodler in Frameworks */,
@@ -4432,6 +4494,7 @@
 				D3BF1E65274CBBE400229A00 /* DeepDiff in Frameworks */,
 				D3993DA728F422BD008720FB /* ZcashLightClientKit in Frameworks */,
 				D3604E9828F03DC00066C366 /* CurrencyKit in Frameworks */,
+				7CD45D302B3189B00058B2B2 /* stellarsdk in Frameworks */,
 				D0DA7411272A6F180072BE86 /* IDNSDK in Frameworks */,
 				D3C187E4290FD00E00FE1900 /* HUD in Frameworks */,
 				D3604E9C28F03DC00066C366 /* FeeRateKit in Frameworks */,
@@ -4469,9 +4532,7 @@
 				D3BF1E5C274BC29D00229A00 /* Down in Frameworks */,
 				D3604E4A28F02A8C0066C366 /* Eip20Kit in Frameworks */,
 				D3C187DE290FCFE400FE1900 /* StorageKit in Frameworks */,
-				D3604E4328F02A020066C366 /* EvmKit in Frameworks */,
 				D0EC34DB2A4450B100BB308B /* HCaptcha in Frameworks */,
-				D3604E7028F03AC80066C366 /* MarketKit in Frameworks */,
 				D36E0C2A28D084AB00B622B9 /* CollectionViewCenteredFlowLayout in Frameworks */,
 				D3604E6628F02D9A0066C366 /* BitcoinKit in Frameworks */,
 				D3604E7F28F03C1D0066C366 /* Chart in Frameworks */,
@@ -7168,9 +7229,38 @@
 			path = Manual;
 			sourceTree = "<group>";
 		};
+		7CD45D312B318CE70058B2B2 /* Stellar */ = {
+			isa = PBXGroup;
+			children = (
+				7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */,
+				7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */,
+				7CD45D342B318CE70058B2B2 /* StellarKitManager.swift */,
+				7CD45D352B318CE70058B2B2 /* StellarTransactionsAdapter.swift */,
+				7CD45D362B318CE70058B2B2 /* StellarKitWrapper.swift */,
+				7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */,
+				7CD45D382B318CE70058B2B2 /* StellarKitProvider.swift */,
+				7CD45D392B318CE70058B2B2 /* StellarAdapter.swift */,
+				7CD45D3A2B318CE70058B2B2 /* StellarKit.swift */,
+				7CD45D3B2B318CE70058B2B2 /* StellarTransactionStorage.swift */,
+				7CD45D3C2B318CE70058B2B2 /* StellarTransactionManager.swift */,
+				7CD45D3D2B318CE70058B2B2 /* StellarSyncer.swift */,
+				7CD45D6E2B32D53A0058B2B2 /* StellarAddressParser.swift */,
+				7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */,
+				7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */,
+				7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */,
+				7CD45D412B318CE70058B2B2 /* StellarSyncTimer.swift */,
+				7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */,
+				7CD45D432B318CE70058B2B2 /* StellarSendData.swift */,
+				7CD45D442B318CE70058B2B2 /* StellarSyncerStorage.swift */,
+				7CD45D452B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift */,
+			);
+			path = Stellar;
+			sourceTree = "<group>";
+		};
 		7CE559152B2C030B00552B1C /* OwlTing */ = {
 			isa = PBXGroup;
 			children = (
+				7CD45D312B318CE70058B2B2 /* Stellar */,
 				7CE5597E2B2C2EB000552B1C /* Managers */,
 				7CE559832B2C2EB000552B1C /* Models */,
 				7CE559772B2C063700552B1C /* Common */,
@@ -8434,7 +8524,6 @@
 				D3BF1E64274CBBE400229A00 /* DeepDiff */,
 				500F1D1227AA87D1002AA419 /* AlignedCollectionViewFlowLayout */,
 				D36E0C2B28D084CB00B622B9 /* CollectionViewCenteredFlowLayout */,
-				D3604E4428F02A260066C366 /* EvmKit */,
 				D3604E5428F02B280066C366 /* Eip20Kit */,
 				D3604E5628F02B280066C366 /* NftKit */,
 				D3604E5828F02B280066C366 /* UniswapKit */,
@@ -8442,7 +8531,6 @@
 				D3604E8928F03DBF0066C366 /* BitcoinKit */,
 				D3604E8B28F03DBF0066C366 /* BitcoinCashKit */,
 				D3604E8D28F03DBF0066C366 /* LitecoinKit */,
-				D3604E8F28F03DC00066C366 /* MarketKit */,
 				D3604E9128F03DC00066C366 /* ScanQrKit */,
 				D3604E9528F03DC00066C366 /* ModuleKit */,
 				D3604E9728F03DC00066C366 /* CurrencyKit */,
@@ -8476,6 +8564,9 @@
 				7CE559242B2C036C00552B1C /* RxMoya */,
 				7CE559272B2C037A00552B1C /* Then */,
 				7CE5592A2B2C038A00552B1C /* IQKeyboardManagerSwift */,
+				7CE55A322B31478700552B1C /* MarketKit */,
+				7CE55A352B3147C000552B1C /* EvmKit */,
+				7CD45D2F2B3189B00058B2B2 /* stellarsdk */,
 			);
 			productName = Wallet;
 			productReference = D38405CE218317DF007D50AD /* Unstoppable D.app */;
@@ -8501,7 +8592,6 @@
 				D3BF1E62274CBBCE00229A00 /* DeepDiff */,
 				500F1D1027AA87BC002AA419 /* AlignedCollectionViewFlowLayout */,
 				D36E0C2928D084AB00B622B9 /* CollectionViewCenteredFlowLayout */,
-				D3604E4228F02A020066C366 /* EvmKit */,
 				D3604E4928F02A8C0066C366 /* Eip20Kit */,
 				D3604E4C28F02AB40066C366 /* NftKit */,
 				D3604E4F28F02AE70066C366 /* UniswapKit */,
@@ -8509,7 +8599,6 @@
 				D3604E6528F02D9A0066C366 /* BitcoinKit */,
 				D3604E6828F02DF30066C366 /* BitcoinCashKit */,
 				D3604E6B28F02E3F0066C366 /* LitecoinKit */,
-				D3604E6F28F03AC80066C366 /* MarketKit */,
 				D3604E7228F03B0A0066C366 /* ScanQrKit */,
 				D3604E7828F03B9F0066C366 /* ModuleKit */,
 				D3604E7B28F03BD20066C366 /* CurrencyKit */,
@@ -8589,7 +8678,6 @@
 				D3BF1E61274CBBCE00229A00 /* XCRemoteSwiftPackageReference "DeepDiff" */,
 				500F1D0F27AA87BC002AA419 /* XCRemoteSwiftPackageReference "AlignedCollectionViewFlowLayout" */,
 				D36E0C2828D084AB00B622B9 /* XCRemoteSwiftPackageReference "CollectionViewCenteredFlowLayout" */,
-				D3604E4128F02A020066C366 /* XCRemoteSwiftPackageReference "EvmKit" */,
 				D3604E4828F02A8B0066C366 /* XCRemoteSwiftPackageReference "Eip20Kit" */,
 				D3604E4B28F02AB40066C366 /* XCRemoteSwiftPackageReference "NftKit" */,
 				D3604E4E28F02AE60066C366 /* XCRemoteSwiftPackageReference "UniswapKit" */,
@@ -8597,7 +8685,6 @@
 				D3604E6428F02D9A0066C366 /* XCRemoteSwiftPackageReference "BitcoinKit" */,
 				D3604E6728F02DF30066C366 /* XCRemoteSwiftPackageReference "BitcoinCashKit" */,
 				D3604E6A28F02E3F0066C366 /* XCRemoteSwiftPackageReference "LitecoinKit" */,
-				D3604E6E28F03AC70066C366 /* XCRemoteSwiftPackageReference "MarketKit" */,
 				D3604E7128F03B0A0066C366 /* XCRemoteSwiftPackageReference "ScanQrKit" */,
 				D3604E7728F03B9F0066C366 /* XCRemoteSwiftPackageReference "ModuleKit" */,
 				D3604E7A28F03BD20066C366 /* XCRemoteSwiftPackageReference "CurrencyKit" */,
@@ -8630,6 +8717,9 @@
 				7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */,
 				7CE559262B2C037A00552B1C /* XCRemoteSwiftPackageReference "Then" */,
 				7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */,
+				7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */,
+				7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */,
 			);
 			productRefGroup = D3285F4320BD158E00644076 /* Products */;
 			projectDirPath = "";
@@ -8799,6 +8889,7 @@
 				7CE559952B2C2EB000552B1C /* OTWallet.swift in Sources */,
 				11B3557CB2595D2884C94498 /* MultiTextMetricsView.swift in Sources */,
 				1A564F73B7FE144D39DEA34F /* UIDevice.swift in Sources */,
+				7CD45D652B318CE70058B2B2 /* StellarSyncTimer.swift in Sources */,
 				1A5648D7D29951DC4762B392 /* AppVersion.swift in Sources */,
 				1A5649F72A0116C66DCBA153 /* AppVersionManager.swift in Sources */,
 				58AAA44FC19684B426489776 /* ChartIntervalConverter.swift in Sources */,
@@ -8840,6 +8931,7 @@
 				11B356E555F3ACDA6324FA77 /* AlertItemCell.swift in Sources */,
 				D023D2682A24BBC6004F65B0 /* TronAddressParserItem.swift in Sources */,
 				D36DE0C1272FD864000BC916 /* UniswapService.swift in Sources */,
+				7CD45D532B318CE70058B2B2 /* StellarKitProvider.swift in Sources */,
 				11B35CB5A90FCD0B53D59140 /* AlertViewController.swift in Sources */,
 				11B35C8A76BB5C69263E9757 /* AlertModule.swift in Sources */,
 				7CE559742B2C053E00552B1C /* CustomLabel.swift in Sources */,
@@ -8889,6 +8981,7 @@
 				11B358137165A40C30218032 /* TermsModule.swift in Sources */,
 				3AB682A625BADC20002197A5 /* MarketDiscoveryModule.swift in Sources */,
 				11B3533941A80D693369E9C0 /* BrandFooterCell.swift in Sources */,
+				7CD45D632B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift in Sources */,
 				58AAAAF8C20AB0E0299A36B8 /* CoinSelectModule.swift in Sources */,
 				58AAA9AEFE1043B01BEC2D6A /* CoinSelectViewController.swift in Sources */,
 				3A73FC75258B1ADB00FE4D34 /* MarketViewController.swift in Sources */,
@@ -9041,6 +9134,7 @@
 				11B35D10A6A15EFA47FCE6D0 /* TextCell.swift in Sources */,
 				D38C70E22705D82F00B6FDE9 /* MarketDiscoveryTitleCell.swift in Sources */,
 				6BCD53012A161F4100993F20 /* BackupCloudModule.swift in Sources */,
+				7CD45D4D2B318CE70058B2B2 /* StellarTransactionsAdapter.swift in Sources */,
 				D36DE0E8272FD887000BC916 /* OneInchModule.swift in Sources */,
 				D0C226112A66A3BD007101F7 /* PersonalSupportModule.swift in Sources */,
 				58AAA1EC97682F9347B8CA32 /* ChartModule.swift in Sources */,
@@ -9066,6 +9160,7 @@
 				11B350860CB79E9C5F032166 /* ManageAccountViewModel.swift in Sources */,
 				11B3563E71C4AC16DFE8AB76 /* ActiveAccount.swift in Sources */,
 				6BCD530D2A161F4100993F20 /* ICloudBackupNameViewModel.swift in Sources */,
+				7CD45D4F2B318CE70058B2B2 /* StellarKitWrapper.swift in Sources */,
 				11B35056B69A06C8CFF3CBB6 /* BackupModule.swift in Sources */,
 				11B3598BE9C7A456A70B5DFD /* BackupVerifyWordsViewModel.swift in Sources */,
 				11B35828C42630241AE8D0E0 /* BackupVerifyWordsService.swift in Sources */,
@@ -9175,6 +9270,7 @@
 				D36DE0ED272FD89B000BC916 /* SwapSettingsModule.swift in Sources */,
 				58AAA696C47479181333FBA5 /* UniswapSettingsDataSource.swift in Sources */,
 				7CE559F12B2C313300552B1C /* RegisterService.swift in Sources */,
+				7CD45D6B2B318CE70058B2B2 /* StellarSyncerStorage.swift in Sources */,
 				58AAA604A4728EF375F8937D /* OneInchSettingsDataSource.swift in Sources */,
 				58AAA5D1FB4312F714C1D097 /* OneInchSettingsModule.swift in Sources */,
 				D0D5BCBD2976CB9F00587FDB /* PasswordInputView.swift in Sources */,
@@ -9204,6 +9300,7 @@
 				58AAA1AAD335F236D130FCBB /* SwapConfirmationModule.swift in Sources */,
 				58AAAA3F2EF03D83A5500228 /* SwapConfirmationViewController.swift in Sources */,
 				58AAA3A6458CB87F359F6366 /* SwapConfirmationAmountCell.swift in Sources */,
+				7CD45D692B318CE70058B2B2 /* StellarSendData.swift in Sources */,
 				2FA5D584622BFDB5E3A55771 /* TransactionInfoModule.swift in Sources */,
 				2FA5D8B40E95A9F8617EB4CA /* TransactionInfoService.swift in Sources */,
 				6B146A9C2A52A69400648C10 /* ChartIndicatorSettingsModule.swift in Sources */,
@@ -9286,6 +9383,7 @@
 				11B35F28C21E228AB3158716 /* MarketOverviewMetricsCell.swift in Sources */,
 				11B357FDC1C6BD6C39FE6853 /* MarketAdvancedSearchResultModule.swift in Sources */,
 				11B35F8FB24AB02560A1D018 /* MarketAdvancedSearchResultViewController.swift in Sources */,
+				7CD45D5B2B318CE70058B2B2 /* StellarTransactionManager.swift in Sources */,
 				7CE55A132B2C313300552B1C /* BindingFormCell.swift in Sources */,
 				11B35E255AF804AEE43FF46A /* MarketAdvancedSearchResultService.swift in Sources */,
 				11B35D3E3B10A4E92FD01172 /* MarketAdvancedSearchViewController.swift in Sources */,
@@ -9296,6 +9394,8 @@
 				11B350F36947CF278CDB436B /* MarketListMarketFieldDecorator.swift in Sources */,
 				58AAACF322E073F1DDA1FBDC /* MarketTvlSortHeaderViewModel.swift in Sources */,
 				58AAAF56EF620164D797D60F /* MarketTvlSortHeaderView.swift in Sources */,
+				7CD45D472B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */,
+				7CD45D612B318CE70058B2B2 /* SendStellarConfirmationViewController.swift in Sources */,
 				D087627729815DAE00E6FFD4 /* ChooseWatchViewModel.swift in Sources */,
 				11B358E508ECA92493A9A3FD /* CoinPageService.swift in Sources */,
 				11B35FBC1AFDCF0DB8362C88 /* CoinAnalyticsModule.swift in Sources */,
@@ -9439,7 +9539,9 @@
 				11B358164F9FBBE78CBC806A /* NftActivityModule.swift in Sources */,
 				7CE55A032B2C313300552B1C /* BindingStatusActionCellViewModel.swift in Sources */,
 				11B357ED24AA2E6ED1AE51FD /* NftActivityViewController.swift in Sources */,
+				7CD45D492B318CE70058B2B2 /* SendStellarConfirmationModule.swift in Sources */,
 				11B35BDC20A4965D1793B97A /* NftActivityViewModel.swift in Sources */,
+				7CD45D5D2B318CE70058B2B2 /* StellarSyncer.swift in Sources */,
 				D061A5332AA846FA009AAD57 /* SecuritySettingsView.swift in Sources */,
 				11B358033DAB0FF23CF0E309 /* NftActivityService.swift in Sources */,
 				11B3584017622E1F2B3BA464 /* NftAssetButtonCell.swift in Sources */,
@@ -9559,6 +9661,7 @@
 				11B359A4F6C0F8A705FDE18E /* Pool.swift in Sources */,
 				11B35E384019FD71D387C9A3 /* NonSpamPoolProvider.swift in Sources */,
 				11B35A81973F6FB70B24AF7A /* PoolProvider.swift in Sources */,
+				7CD45D5F2B318CE70058B2B2 /* SendStellarModule.swift in Sources */,
 				11B3525DD29BC2286526669F /* PoolGroup.swift in Sources */,
 				11B35AB989198F423D880695 /* PoolGroupFactory.swift in Sources */,
 				7CE5599B2B2C2EB000552B1C /* SSOProvider.swift in Sources */,
@@ -9584,6 +9687,7 @@
 				1A56463FADAB4646BA106A5D /* TopPlatformMarketCapFetcher.swift in Sources */,
 				11B35BADA9ACC9921545BAD9 /* SecondaryButtonCell.swift in Sources */,
 				11B357DDBC0536428B997FE5 /* InputSecondaryCircleButtonWrapperView.swift in Sources */,
+				7CD45D672B318CE70058B2B2 /* SendStellarConfirmationService.swift in Sources */,
 				11B35567A098667C9955F1F9 /* RecoveryPhraseModule.swift in Sources */,
 				11B35289269C634BC9219362 /* RecoveryPhraseViewController.swift in Sources */,
 				11B351D9E1CAF8AA5BCE39F5 /* RecoveryPhraseViewModel.swift in Sources */,
@@ -9630,6 +9734,7 @@
 				ABC9A4E323FF7AAD86FA8E75 /* MarketCardView.swift in Sources */,
 				7CE559F32B2C313300552B1C /* RegisterInfoCell.swift in Sources */,
 				11B35124AA099FB6EF1DC64A /* LogoHeaderCell.swift in Sources */,
+				7CD45D572B318CE70058B2B2 /* StellarKit.swift in Sources */,
 				11B35494E4BA9BF6A3DAA6D6 /* NftMetadataService.swift in Sources */,
 				11B35A4CBD60780E0870E77C /* NftAssetBriefMetadata.swift in Sources */,
 				ABC9A63EC83A82A76E67778B /* SendNftModule.swift in Sources */,
@@ -9729,6 +9834,7 @@
 				2FA5D43131923C094E518B94 /* EvmRollupGasDataService.swift in Sources */,
 				2FA5DB16A7E67A97A08D43DC /* NonceDataSource.swift in Sources */,
 				2FA5D8E83DFBD235B805C79C /* NonceService.swift in Sources */,
+				7CD45D4B2B318CE70058B2B2 /* StellarKitManager.swift in Sources */,
 				2FA5D01D1C1E23AC162B267B /* NonceViewModel.swift in Sources */,
 				7CE55A1B2B2C313300552B1C /* BindingFormViewModel.swift in Sources */,
 				2FA5D6E8F9B4E66D9FC52C37 /* LegacyGasPriceService.swift in Sources */,
@@ -9744,6 +9850,7 @@
 				11B3524EBBAC04F202622104 /* PrivateKeysViewController.swift in Sources */,
 				11B35E075BBD2BBCF2F650D4 /* EvmAddressViewController.swift in Sources */,
 				11B35C25C220A84A08A3CEBA /* EvmAddressModule.swift in Sources */,
+				7CD45D512B318CE70058B2B2 /* SendStellarViewController.swift in Sources */,
 				11B3580696C6391D4C125245 /* EvmAddressService.swift in Sources */,
 				11B358623111DC1A8ED499DC /* EvmAddressViewModel.swift in Sources */,
 				11B351FC393EDD17C3487796 /* SelectorModule.swift in Sources */,
@@ -9861,6 +9968,7 @@
 				11B35C4A0250F05179488A91 /* CexWithdrawNetworkRaw.swift in Sources */,
 				11B357573D364030813F231C /* CexAssetManager.swift in Sources */,
 				11B350BFC559991F9BA7A63F /* CexAssetRecordStorage.swift in Sources */,
+				7CD45D552B318CE70058B2B2 /* StellarAdapter.swift in Sources */,
 				11B357EE5114E13940C0D631 /* CexAssetResponse.swift in Sources */,
 				11B35E163CB471C55269E7EB /* QrCodeCell.swift in Sources */,
 				ABC9AF9D42B60D05030D43F3 /* ChartIndicatorsViewController.swift in Sources */,
@@ -9952,6 +10060,7 @@
 				ABC9A00CF4BC7368D8EFEFB1 /* WalletTokenModule.swift in Sources */,
 				ABC9AD841550A5A686BE72C3 /* WalletTokenViewModel.swift in Sources */,
 				ABC9A75740E0048A695C36E8 /* WalletTokenService.swift in Sources */,
+				7CD45D702B32D53A0058B2B2 /* StellarAddressParser.swift in Sources */,
 				ABC9A3FEF48388A60B8BACB5 /* DataSourceChain.swift in Sources */,
 				ABC9A55A98D2FB37A3351FF1 /* WalletTokenBalanceDataSource.swift in Sources */,
 				ABC9AD46AE6B5F432E0D2085 /* WalletTokenBalanceViewModel.swift in Sources */,
@@ -9973,6 +10082,7 @@
 				11B3501EA3658BFDC67DEB1F /* ThemeView.swift in Sources */,
 				11B35E39575CDBB7BB551702 /* SimpleActivateViewModel.swift in Sources */,
 				11B35A95CB02F027266BA1FD /* SimpleActivateModule.swift in Sources */,
+				7CD45D6D2B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift in Sources */,
 				ABC9A097A0BDD99777D5374D /* DonateDescriptionCell.swift in Sources */,
 				ABC9A02C18AACAA8CC930665 /* WalletTokenListDataSource.swift in Sources */,
 				ABC9A096B05E5491A40A327C /* DonateDescriptionDataSource.swift in Sources */,
@@ -10077,6 +10187,7 @@
 				11B3596AE38880C5899769D5 /* CoinOverviewView.swift in Sources */,
 				11B357BA09F0FA21477F0A59 /* CoinOverviewViewModelNew.swift in Sources */,
 				ABC9AE262936C29D89DC61C8 /* BackupManagerModule.swift in Sources */,
+				7CD45D592B318CE70058B2B2 /* StellarTransactionStorage.swift in Sources */,
 				7CE559722B2C053E00552B1C /* RowViewModel.swift in Sources */,
 				ABC9ACFCC63CDB6C7712E512 /* BackupManagerViewController.swift in Sources */,
 				11B3560F69D84432665A2BAA /* CoinPageViewModelNew.swift in Sources */,
@@ -10215,6 +10326,7 @@
 				7CE559942B2C2EB000552B1C /* OTWallet.swift in Sources */,
 				D02A67BF272A7460009B2C1C /* TweetsProvider.swift in Sources */,
 				58AAA5FDC26FC291E9E82928 /* ChartIntervalConverter.swift in Sources */,
+				7CD45D642B318CE70058B2B2 /* StellarSyncTimer.swift in Sources */,
 				2FA5D2A2E81E947B2CF15889 /* BitcoinCore+Hodler.swift in Sources */,
 				D36DE0E1272FD887000BC916 /* OneInchProvider.swift in Sources */,
 				2FA5DCD660736071655E8059 /* SelectableValueView.swift in Sources */,
@@ -10256,6 +10368,7 @@
 				D38C70E12705D82E00B6FDE9 /* MarketDiscoveryTitleCell.swift in Sources */,
 				11B3557D484786A0D41E16AF /* AlertViewController.swift in Sources */,
 				D023D2672A24BBC6004F65B0 /* TronAddressParserItem.swift in Sources */,
+				7CD45D522B318CE70058B2B2 /* StellarKitProvider.swift in Sources */,
 				11B35C16BE16B6AEEA0690EC /* AlertModule.swift in Sources */,
 				11B3557E460F3BA25ED9F6CC /* AlertPresenter.swift in Sources */,
 				7CE559732B2C053E00552B1C /* CustomLabel.swift in Sources */,
@@ -10305,6 +10418,7 @@
 				11B359AA65D8E9BE25175DAF /* TermsService.swift in Sources */,
 				11B35180EBCC01488C99C660 /* TermsViewModel.swift in Sources */,
 				11B3510BC26128273E969C7F /* TermsModule.swift in Sources */,
+				7CD45D622B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift in Sources */,
 				3AB682A525BADC20002197A5 /* MarketDiscoveryModule.swift in Sources */,
 				11B356448BC036CD117EB7DC /* BrandFooterCell.swift in Sources */,
 				58AAA670C62548F1A92D680B /* CoinSelectModule.swift in Sources */,
@@ -10457,6 +10571,7 @@
 				11B35769EB5389A80BAF11FE /* CoinMarketsViewController.swift in Sources */,
 				11B35D7420EF4FB9C4DDF0B9 /* BrandFooterView.swift in Sources */,
 				58AAA4F6DE67EE385EA955C6 /* CoinOverviewViewItemFactory.swift in Sources */,
+				7CD45D4C2B318CE70058B2B2 /* StellarTransactionsAdapter.swift in Sources */,
 				6BCD53002A161F4100993F20 /* BackupCloudModule.swift in Sources */,
 				D0C226102A66A3BC007101F7 /* PersonalSupportModule.swift in Sources */,
 				11B359A3D67610D8E2E07A0B /* TextCell.swift in Sources */,
@@ -10482,6 +10597,7 @@
 				11B359F4651EA254E5B0AD00 /* ManageAccountViewController.swift in Sources */,
 				11B354D8DCBDAA82A6C51205 /* ManageAccountViewModel.swift in Sources */,
 				11B356C6E9FC6594917B3FF6 /* ActiveAccount.swift in Sources */,
+				7CD45D4E2B318CE70058B2B2 /* StellarKitWrapper.swift in Sources */,
 				D02A67C8272A7460009B2C1C /* CoinTweetsViewController.swift in Sources */,
 				D02A67C2272A7460009B2C1C /* TwitterText.swift in Sources */,
 				11B359F73F1D626BF832977F /* BackupModule.swift in Sources */,
@@ -10591,6 +10707,7 @@
 				58AAA50BFCE894B7650F28B0 /* OneInchSettingsDataSource.swift in Sources */,
 				58AAA9771EA29EC8CDA33C58 /* OneInchSettingsModule.swift in Sources */,
 				7CE559F02B2C313300552B1C /* RegisterService.swift in Sources */,
+				7CD45D6A2B318CE70058B2B2 /* StellarSyncerStorage.swift in Sources */,
 				58AAA96EA2327421BB3A115B /* SwapDeadlineViewModel.swift in Sources */,
 				D09D768E2A2E06D6004311E6 /* SendTronConfirmationViewController.swift in Sources */,
 				58AAA289FEAE983739189B8D /* RecipientAddressViewModel.swift in Sources */,
@@ -10620,6 +10737,7 @@
 				58AAAC9A4813120F3B786D18 /* SwapConfirmationAmountCell.swift in Sources */,
 				2FA5DEDEAF3C1D6251B47CB4 /* TransactionInfoModule.swift in Sources */,
 				2FA5DE68EF4783154A53CCEB /* TransactionInfoService.swift in Sources */,
+				7CD45D682B318CE70058B2B2 /* StellarSendData.swift in Sources */,
 				2FA5D5FCFC8A89956755FAA3 /* TransactionInfoViewController.swift in Sources */,
 				2FA5D5E5AD1073BFE7A027C8 /* TransactionInfoViewItemFactory.swift in Sources */,
 				6B146A9B2A52A69400648C10 /* ChartIndicatorSettingsModule.swift in Sources */,
@@ -10702,6 +10820,7 @@
 				58AAA35AF4F4454E0E9C7C60 /* MarketSingleSortHeaderViewModel.swift in Sources */,
 				11B353CB3021FA5266D07607 /* MarketWatchlistToggleService.swift in Sources */,
 				11B35F1152FB1004E554B922 /* MarketOverviewMetricsCell.swift in Sources */,
+				7CD45D5A2B318CE70058B2B2 /* StellarTransactionManager.swift in Sources */,
 				7CE55A122B2C313300552B1C /* BindingFormCell.swift in Sources */,
 				11B3521427196CEE9057D6A0 /* MarketAdvancedSearchResultModule.swift in Sources */,
 				11B358CB129212E2A0E455E4 /* MarketAdvancedSearchResultViewController.swift in Sources */,
@@ -10712,6 +10831,8 @@
 				11B359DDFEAF887EEE3063A7 /* MarketAdvancedSearchService.swift in Sources */,
 				11B350FF14C22F4CE7FB153F /* MarketAdvancedSearchModule.swift in Sources */,
 				11B35C5E7A90AA7B302EB0CD /* MarketListMarketFieldDecorator.swift in Sources */,
+				7CD45D462B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */,
+				7CD45D602B318CE70058B2B2 /* SendStellarConfirmationViewController.swift in Sources */,
 				58AAA08E3204C7E7326E1DF9 /* MarketTvlSortHeaderViewModel.swift in Sources */,
 				58AAA626C0B12976749A948E /* MarketTvlSortHeaderView.swift in Sources */,
 				11B35411C817EDE73D4E6242 /* CoinPageService.swift in Sources */,
@@ -10855,7 +10976,9 @@
 				11B35AB6026D794BAFEC094E /* NftCollectionAssetsService.swift in Sources */,
 				7CE55A022B2C313300552B1C /* BindingStatusActionCellViewModel.swift in Sources */,
 				11B358AA46441AF0A7DCAA89 /* NftActivityModule.swift in Sources */,
+				7CD45D482B318CE70058B2B2 /* SendStellarConfirmationModule.swift in Sources */,
 				11B35EBDDAB95E919600AE72 /* NftActivityViewController.swift in Sources */,
+				7CD45D5C2B318CE70058B2B2 /* StellarSyncer.swift in Sources */,
 				D061A5322AA846FA009AAD57 /* SecuritySettingsView.swift in Sources */,
 				11B35CCAC0A3C35C1B9BD918 /* NftActivityViewModel.swift in Sources */,
 				11B35AC60BE4DC210C3C2312 /* NftActivityService.swift in Sources */,
@@ -10975,6 +11098,7 @@
 				11B35AB0C3F757E23D249330 /* TransactionTypeFilter.swift in Sources */,
 				11B35A3FD624D80C6D98A1CF /* TransactionSource.swift in Sources */,
 				11B3515A1106B2AE8509263E /* Pool.swift in Sources */,
+				7CD45D5E2B318CE70058B2B2 /* SendStellarModule.swift in Sources */,
 				11B3541BC8A0EF1066EBA464 /* NonSpamPoolProvider.swift in Sources */,
 				11B3594DD9B54E11190B4CD5 /* PoolProvider.swift in Sources */,
 				7CE5599A2B2C2EB000552B1C /* SSOProvider.swift in Sources */,
@@ -11000,6 +11124,7 @@
 				1A564C1395A1264F1A9B3AB5 /* TopPlatformModule.swift in Sources */,
 				1A5648B10B34B402167EEA84 /* TopPlatformService.swift in Sources */,
 				1A5640DE72AC306799695F48 /* TopPlatformMarketCapFetcher.swift in Sources */,
+				7CD45D662B318CE70058B2B2 /* SendStellarConfirmationService.swift in Sources */,
 				11B357D1A2BD673DAB7B4C61 /* SecondaryButtonCell.swift in Sources */,
 				11B35B3C7A60FEE011EFBF73 /* InputSecondaryCircleButtonWrapperView.swift in Sources */,
 				11B35C1ACD5B3874921CEFDE /* RecoveryPhraseModule.swift in Sources */,
@@ -11046,6 +11171,7 @@
 				11B3554B34C3A01745AC473B /* NftCollectionMetadata.swift in Sources */,
 				7CE559F22B2C313300552B1C /* RegisterInfoCell.swift in Sources */,
 				11B35970257A865B76C0BBB9 /* NftEventMetadata.swift in Sources */,
+				7CD45D562B318CE70058B2B2 /* StellarKit.swift in Sources */,
 				ABC9AF4D82ACDFBFBDC2D23C /* MarketCardView.swift in Sources */,
 				11B35DC7CD9E62F3B47ECB98 /* LogoHeaderCell.swift in Sources */,
 				11B3516976C6C67E1EFFBD56 /* NftMetadataService.swift in Sources */,
@@ -11145,6 +11271,7 @@
 				2FA5D01A5570C6DE5D07E2C4 /* EvmFeeViewItemFactory.swift in Sources */,
 				2FA5DE1153742388007774D3 /* EvmRollupGasDataService.swift in Sources */,
 				2FA5DE2D347DBC660830CB41 /* NonceDataSource.swift in Sources */,
+				7CD45D4A2B318CE70058B2B2 /* StellarKitManager.swift in Sources */,
 				2FA5D1F6979A345597788DE9 /* NonceService.swift in Sources */,
 				7CE55A1A2B2C313300552B1C /* BindingFormViewModel.swift in Sources */,
 				2FA5D62FF4A9D8F54848D2C0 /* NonceViewModel.swift in Sources */,
@@ -11160,6 +11287,7 @@
 				11B35F7DB194FB9F41EBF7B8 /* EvmAddressViewController.swift in Sources */,
 				11B35731646CF45FD1A564AB /* EvmAddressModule.swift in Sources */,
 				11B3588E7AD4092A7120514C /* EvmAddressService.swift in Sources */,
+				7CD45D502B318CE70058B2B2 /* SendStellarViewController.swift in Sources */,
 				11B3513AC9A4C945E6432475 /* EvmAddressViewModel.swift in Sources */,
 				11B3530E7755A4882F7E0C0A /* SelectorModule.swift in Sources */,
 				11B356762C9C6E62706B874B /* BottomSheetModule.swift in Sources */,
@@ -11277,6 +11405,7 @@
 				11B35841E0B353B727DCD9CF /* CexAssetManager.swift in Sources */,
 				11B35C95EA77972246D5F3BD /* CexAssetRecordStorage.swift in Sources */,
 				11B35A5B8DC265D419E69B05 /* CexAssetResponse.swift in Sources */,
+				7CD45D542B318CE70058B2B2 /* StellarAdapter.swift in Sources */,
 				11B35CA25E02E397E167EEC3 /* QrCodeCell.swift in Sources */,
 				ABC9AE3F4B99ABE949945A3A /* ChartIndicatorsViewController.swift in Sources */,
 				ABC9A8D91CFED1961B618241 /* ChartIndicatorsService.swift in Sources */,
@@ -11368,6 +11497,7 @@
 				ABC9A86937792D2BE777B431 /* WalletTokenModule.swift in Sources */,
 				ABC9AF6C4612BAFF25DF3560 /* WalletTokenViewModel.swift in Sources */,
 				ABC9A338C63FEB1DF42D3D6E /* WalletTokenService.swift in Sources */,
+				7CD45D6F2B32D53A0058B2B2 /* StellarAddressParser.swift in Sources */,
 				ABC9AFAB3BB4A1D2BFD4283B /* DataSourceChain.swift in Sources */,
 				ABC9A30A4C740609D0898809 /* WalletTokenBalanceDataSource.swift in Sources */,
 				ABC9A427B3166B8A0630EC8A /* WalletTokenBalanceViewModel.swift in Sources */,
@@ -11389,6 +11519,7 @@
 				11B35503B3E84FEFCDF1AFED /* ThemeView.swift in Sources */,
 				11B35DE80BDECA16EF0C74EA /* SimpleActivateViewModel.swift in Sources */,
 				11B3542D112D915738AB1045 /* SimpleActivateModule.swift in Sources */,
+				7CD45D6C2B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift in Sources */,
 				ABC9A005F31836B4EBAB1C97 /* DonateDescriptionCell.swift in Sources */,
 				ABC9AD85EF6798DF4302FD0E /* WalletTokenListDataSource.swift in Sources */,
 				ABC9AEB71EB75575A97408BC /* DonateDescriptionDataSource.swift in Sources */,
@@ -11493,6 +11624,7 @@
 				11B353E4793549B6A4F23997 /* CoinOverviewView.swift in Sources */,
 				11B35FDF03CD52FEC5B1745A /* CoinOverviewViewModelNew.swift in Sources */,
 				ABC9AC170807B409634706E6 /* BackupManagerModule.swift in Sources */,
+				7CD45D582B318CE70058B2B2 /* StellarTransactionStorage.swift in Sources */,
 				7CE559712B2C053E00552B1C /* RowViewModel.swift in Sources */,
 				ABC9A37B5FAB65E7AB66547E /* BackupManagerViewController.swift in Sources */,
 				11B35916211F5D5EA0DBD207 /* CoinPageViewModelNew.swift in Sources */,
@@ -11842,6 +11974,14 @@
 				version = 2.0.4;
 			};
 		};
+		7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Soneso/stellar-ios-mac-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
 		7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -11864,6 +12004,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.5.16;
+			};
+		};
+		7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JosephChuang129/MarketKit.Swift";
+			requirement = {
+				branch = "v2.2.5-testnet";
+				kind = branch;
+			};
+		};
+		7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JosephChuang129/EvmKit.Swift.git";
+			requirement = {
+				branch = "v2.0.7-testnet";
+				kind = branch;
 			};
 		};
 		D023D2612A249E59004F65B0 /* XCRemoteSwiftPackageReference "TronKit.Swift" */ = {
@@ -11896,14 +12052,6 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.2.1;
-			};
-		};
-		D3604E4128F02A020066C366 /* XCRemoteSwiftPackageReference "EvmKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/horizontalsystems/EvmKit.Swift";
-			requirement = {
-				kind = exactVersion;
-				version = 2.0.7;
 			};
 		};
 		D3604E4828F02A8B0066C366 /* XCRemoteSwiftPackageReference "Eip20Kit" */ = {
@@ -11960,14 +12108,6 @@
 			requirement = {
 				kind = exactVersion;
 				version = 2.1.0;
-			};
-		};
-		D3604E6E28F03AC70066C366 /* XCRemoteSwiftPackageReference "MarketKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/horizontalsystems/MarketKit.Swift";
-			requirement = {
-				kind = exactVersion;
-				version = 2.2.5;
 			};
 		};
 		D3604E7128F03B0A0066C366 /* XCRemoteSwiftPackageReference "ScanQrKit" */ = {
@@ -12216,6 +12356,11 @@
 			package = 6BDA29AE29D6F934003847ED /* XCRemoteSwiftPackageReference "HsToolKit.Swift" */;
 			productName = HsToolKit;
 		};
+		7CD45D2F2B3189B00058B2B2 /* stellarsdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */;
+			productName = stellarsdk;
+		};
 		7CE559222B2C036C00552B1C /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */;
@@ -12235,6 +12380,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		7CE55A322B31478700552B1C /* MarketKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */;
+			productName = MarketKit;
+		};
+		7CE55A352B3147C000552B1C /* EvmKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */;
+			productName = EvmKit;
 		};
 		D023D2622A249E59004F65B0 /* TronKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -12285,16 +12440,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D339A93B29126D0E00B895BE /* XCRemoteSwiftPackageReference "HsCryptoKit" */;
 			productName = HsCryptoKit;
-		};
-		D3604E4228F02A020066C366 /* EvmKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3604E4128F02A020066C366 /* XCRemoteSwiftPackageReference "EvmKit" */;
-			productName = EvmKit;
-		};
-		D3604E4428F02A260066C366 /* EvmKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3604E4128F02A020066C366 /* XCRemoteSwiftPackageReference "EvmKit" */;
-			productName = EvmKit;
 		};
 		D3604E4928F02A8C0066C366 /* Eip20Kit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -12351,11 +12496,6 @@
 			package = D3604E6A28F02E3F0066C366 /* XCRemoteSwiftPackageReference "LitecoinKit" */;
 			productName = LitecoinKit;
 		};
-		D3604E6F28F03AC80066C366 /* MarketKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3604E6E28F03AC70066C366 /* XCRemoteSwiftPackageReference "MarketKit" */;
-			productName = MarketKit;
-		};
 		D3604E7228F03B0A0066C366 /* ScanQrKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3604E7128F03B0A0066C366 /* XCRemoteSwiftPackageReference "ScanQrKit" */;
@@ -12405,11 +12545,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D3604E6A28F02E3F0066C366 /* XCRemoteSwiftPackageReference "LitecoinKit" */;
 			productName = LitecoinKit;
-		};
-		D3604E8F28F03DC00066C366 /* MarketKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3604E6E28F03AC70066C366 /* XCRemoteSwiftPackageReference "MarketKit" */;
-			productName = MarketKit;
 		};
 		D3604E9128F03DC00066C366 /* ScanQrKit */ = {
 			isa = XCSwiftPackageProductDependency;

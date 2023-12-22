@@ -214,6 +214,8 @@ class App {
         let syncerStateStorage = SyncerStateStorage(dbPool: dbPool)
         evmLabelManager = EvmLabelManager(provider: hsLabelProvider, storage: evmLabelStorage, syncerStateStorage: syncerStateStorage)
 
+        let stellarKitManager = StellarKitManager()
+
         let adapterFactory = AdapterFactory(
             evmBlockchainManager: evmBlockchainManager,
             evmSyncSourceManager: evmSyncSourceManager,
@@ -222,7 +224,8 @@ class App {
             tronKitManager: tronKitManager,
             restoreSettingsManager: restoreSettingsManager,
             coinManager: coinManager,
-            evmLabelManager: evmLabelManager
+            evmLabelManager: evmLabelManager,
+            stellarKitManager: stellarKitManager
         )
         adapterManager = AdapterManager(
             adapterFactory: adapterFactory,

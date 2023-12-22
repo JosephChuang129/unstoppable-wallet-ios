@@ -34,7 +34,7 @@ class WalletTokenBalanceViewItemFactory {
             buttons[.deposit] = cexAsset.depositEnabled ? .enabled : .disabled
         }
 
-        buttons[.chart] = item.priceItem != nil ? .enabled : .disabled
+//        buttons[.chart] = item.priceItem != nil ? .enabled : .disabled
 
         return buttons
     }

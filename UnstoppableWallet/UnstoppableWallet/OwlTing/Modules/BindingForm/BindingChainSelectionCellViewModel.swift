@@ -25,7 +25,7 @@ class BindingChainSelectionCellViewModel: RowViewModel, BindingChainSelectionCel
         self.item = item
         
         let blockchainType = item.wallet.token.blockchainType
-        enableSelection = blockchainType == .polygon || blockchainType == .avalanche || blockchainType == .ethereum
+        enableSelection = blockchainType == .polygon || blockchainType == .avalanche || blockchainType == .ethereum || blockchainType == .stellar
     }
     
     var item: BindingFormService.Item

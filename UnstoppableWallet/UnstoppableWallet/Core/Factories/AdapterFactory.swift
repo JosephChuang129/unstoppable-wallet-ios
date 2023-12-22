@@ -13,9 +13,10 @@ class AdapterFactory {
     private let restoreSettingsManager: RestoreSettingsManager
     private let coinManager: CoinManager
     private let evmLabelManager: EvmLabelManager
+    private let stellarKitManager: StellarKitManager
 
     init(evmBlockchainManager: EvmBlockchainManager, evmSyncSourceManager: EvmSyncSourceManager, binanceKitManager: BinanceKitManager, btcBlockchainManager: BtcBlockchainManager, tronKitManager: TronKitManager,
-         restoreSettingsManager: RestoreSettingsManager, coinManager: CoinManager, evmLabelManager: EvmLabelManager) {
+         restoreSettingsManager: RestoreSettingsManager, coinManager: CoinManager, evmLabelManager: EvmLabelManager, stellarKitManager: StellarKitManager) {
         self.evmBlockchainManager = evmBlockchainManager
         self.evmSyncSourceManager = evmSyncSourceManager
         self.binanceKitManager = binanceKitManager
@@ -24,6 +25,7 @@ class AdapterFactory {
         self.restoreSettingsManager = restoreSettingsManager
         self.coinManager = coinManager
         self.evmLabelManager = evmLabelManager
+        self.stellarKitManager = stellarKitManager
     }
 
     private func evmAdapter(wallet: Wallet) -> IAdapter? {
@@ -67,6 +69,12 @@ class AdapterFactory {
         return try? Trc20Adapter(tronKitWrapper: tronKitWrapper, contractAddress: address, wallet: wallet)
     }
 
+    private func stellarAdapter(wallet: Wallet) -> IAdapter? {
+        guard let wrapper = try? stellarKitManager.stellarKitWrapper(wallet: wallet, account: wallet.account, blockchainType: wallet.token.blockchainType) else {
+            return nil
+        }
+        return StellarAdapter(stellarKitWrapper: wrapper)
+    }
 }
 
 extension AdapterFactory {
@@ -93,6 +101,16 @@ extension AdapterFactory {
         return nil
     }
 
+    func stellarTransactionsAdapter(transactionSource: TransactionSource) -> ITransactionsAdapter? {
+        let query = TokenQuery(blockchainType: .stellar, tokenType: .native)
+        
+        if let wrapper = stellarKitManager.stellarKitWrapper, let baseToken = try? coinManager.token(query: query) {
+            return StellarTransactionsAdapter(stellarKitWrapper: wrapper, source: transactionSource, baseToken: baseToken, coinManager: coinManager, evmLabelManager: evmLabelManager)
+        }
+        
+        return nil
+    }
+    
     func adapter(wallet: Wallet) -> IAdapter? {
         switch (wallet.token.type, wallet.token.blockchain.type) {
 
@@ -138,6 +156,12 @@ extension AdapterFactory {
         case (.eip20(let address), .tron):
             return trc20Adapter(address: address, wallet: wallet)
 
+        case (.native, .stellar):
+            return stellarAdapter(wallet: wallet)
+            
+        case (.creditAlphanum4( _), .stellar):
+            return stellarAdapter(wallet: wallet)
+            
         default: ()
         }
 

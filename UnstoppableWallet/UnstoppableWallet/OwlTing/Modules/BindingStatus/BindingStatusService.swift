@@ -9,7 +9,7 @@ class BindingStatusService {
     let networkService: NetworkService
     var items: [BindingStatusService.Item] = []
     private(set) var activeSsoUserChain: [SSOUserChain] = []
-    private var chainImageUrlMap: [String: String] = ["USDC": "usd-coin", "ETH": "ethereum", "MATIC": "matic-network", "AVAX": "avalanche-2"]
+    private var chainImageUrlMap: [String: String] = ["USDC": "usd-coin", "ETH": "ethereum", "MATIC": "matic-network", "AVAX": "avalanche-2", "XLM": "stellar"]
     
     init(walletManager: WalletManager, accountManager: AccountManager, networkService: NetworkService, marketKit: MarketKit.Kit) {
         self.accountManager = accountManager
@@ -53,7 +53,7 @@ extension BindingStatusService {
         }
 
         let tokens = supportedTokens.filter { token in
-            (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+            (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche) || (token.blockchainType == .stellar)
         }
 
         let unBindingItems = unBindingChains.map { chain in
@@ -114,7 +114,7 @@ extension BindingStatusService {
         
         do {
             
-            let coinUids: [String] = ["ethereum", "avalanche-2", "matic-network", "usd-coin"]
+            let coinUids: [String] = ["ethereum", "avalanche-2", "matic-network", "usd-coin", "stellar"]
             let coins = try marketKit.fullCoins(coinUids: coinUids)
             
             let fullCoins = coins.map { fullCoin in
@@ -123,13 +123,13 @@ extension BindingStatusService {
                 case "ETH":
                     return FullCoin(coin: fullCoin.coin, tokens: fullCoin.tokens.filter { $0.blockchainType == .ethereum})
                     
-                case "AVAX", "MATIC":
+                case "AVAX", "MATIC", "XLM":
                     return FullCoin(coin: fullCoin.coin, tokens: fullCoin.tokens.filter { $0.type == .native})
                 
                 default:
                     
                     let tokens = fullCoin.tokens.filter { token in
-                        (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche)
+                        (token.blockchainType == .polygon) || (token.blockchainType == .ethereum) || (token.blockchainType == .avalanche) || (token.blockchainType == .stellar)
                     }
                     return FullCoin(coin: fullCoin.coin, tokens: tokens)
                 }
