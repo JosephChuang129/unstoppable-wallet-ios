@@ -1084,7 +1084,7 @@
 
 // Settings -> Tell Friends
 
-"settings_tell_friends.text" = "Be Unstoppable";
+"settings_tell_friends.text" = "Be Owlting";
 
 // Settings -> Blockchain Settings
 
@@ -1292,7 +1292,7 @@
 
 "appearance.balance_value" = "余额值";
 "appearance.balance_value.coin_value" = "币值";
-"appearance.balance_value.fiat_value" = "纤维值";
+"appearance.balance_value.fiat_value" = "法币值";
 
 // Settings -> Contacts
 
