@@ -35,7 +35,6 @@ class SendStellarConfirmationViewModel {
         
         sync(state: service.state)
         sync(sendState: service.sendState)
-        sync(state: .ready)
     }
     
     private func reSyncServiceState() {
@@ -60,14 +59,15 @@ class SendStellarConfirmationViewModel {
                         
                         return TitledCaution(
                             title: "fee_settings.errors.insufficient_balance".localized,
-                            text: "fee_settings.errors.insufficient_balance.info".localized(balanceString ?? ""),
+//                            text: "fee_settings.errors.insufficient_balance.info".localized(balanceString ?? ""),
+                            text: "fee_settings.errors.insufficient_balance.info".localized(service.token.coin.code),
                             type: .error
                         )
                         
                     case .zeroAmount:
                         return TitledCaution(
                             title: "alert.error".localized,
-                            text: "fee_settings.errors.zero_amount.info".localized,
+                            text: "fee_settings.errors.insufficient_balance".localized,
                             type: .error
                         )
                     }

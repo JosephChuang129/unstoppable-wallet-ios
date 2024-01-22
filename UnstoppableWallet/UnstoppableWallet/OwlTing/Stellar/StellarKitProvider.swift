@@ -39,6 +39,8 @@ class StellarKitProvider {
         }
     }
     
+    var nativeBalance: BigUInt = .zero
+    
     init(keyPair: KeyPair, network: Network, tokenType: TokenType) {
         self.network = network
         self.keyPair = keyPair
@@ -74,18 +76,25 @@ extension StellarKitProvider {
                 
                 for balance in accountResponse.balances {
                     
+//                    print("balance balance: \(balance.balance)")
+//                    print("balance assetType: \(balance.assetType)")
+//                    print("self.tokenType: \(self.tokenType)")
+                    
                     switch balance.assetType {
                     case AssetTypeAsString.NATIVE:
                         
-                        //print("balance: \(balance.balance) XLM")
-                        guard self.tokenType == .native else { continue }
-                        self.balance = BigUInt((Double(balance.balance) ?? 0) * 10000000)
+//                        print("balance: \(balance.balance) XLM")
+                        if self.tokenType == .native {
+                            self.balance = BigUInt((Double(balance.balance) ?? .zero) * 10_000_000)
+                        }
+                        self.nativeBalance = BigUInt((Double(balance.balance) ?? .zero) * 10_000_000)
                         
                     default:
                         
-                        //print("balance: \(balance.balance) \(balance.assetCode!) issuer: \(balance.assetIssuer!)")
+//                        print("balance: \(balance.balance) \(balance.assetCode!) issuer: \(balance.assetIssuer!)")
                         guard case .creditAlphanum4( _) = self.tokenType else { continue }
-                        self.balance = BigUInt((Double(balance.balance) ?? 0) * 10000000)
+                        self.balance = BigUInt((Double(balance.balance) ?? .zero) * 10_000_000)
+
                     }
                 }
                 
@@ -153,6 +162,15 @@ extension StellarKitProvider {
             let sourceAccountKeyPair = self.keyPair
             let sourceAccountId = self.keyPair.accountId
             
+//            print("asset.issuer?.accountId = \(asset.issuer?.accountId)")
+//            print("asset.type = \(asset.type)")
+//            print("asset.code = \(asset.code)")
+//            print("amount = \(amount)")
+//            print("usdcAssetIssuer = \(self.usdcAssetIssuer)")
+//            print("sourceAccountId = \(sourceAccountId)")
+//            print("destinationAccountId = \(destinationAccountId)")
+            
+            
             self.sdk.accounts.getAccountDetails(accountId: sourceAccountId) { response in
                 switch response {
                 case .success(let accountResponse):
@@ -179,7 +197,10 @@ extension StellarKitProvider {
                                 single(.success(()))
                                 
                             case .failure(let error):
+                                
                                 single(.error(error))
+                                print("submitTransaction error = \(error.localizedDescription)")
+                                StellarSDKLog.printHorizonRequestErrorMessage(tag:"mainnet", horizonRequestError: error)
                                 
                             case .destinationRequiresMemo(destinationAccountId: let destinationAccountId):
                                 //print("Destination account \(destinationAccountId) requires memo.")
@@ -188,13 +209,13 @@ extension StellarKitProvider {
                         }
                     } catch {
                         // handle other errors
-                        // print("catch error = \(error.localizedDescription)")
+                         print("catch error = \(error.localizedDescription)")
                         single(.error(error))
                     }
                     
                 case .failure(let error):
                     // handle account details retrieval error
-                    // print("failure error = \(error.localizedDescription)")
+                     print("failure error = \(error.localizedDescription)")
                     single(.error(error))
                 }
                 

@@ -31,6 +31,10 @@ extension StellarAdapter: IBalanceAdapter {
     var balanceData: BalanceData {
         balanceData(balance: stellarKit.balance)
     }
+    
+    var nativeBalanceData: BalanceData {
+        balanceData(balance: stellarKit.nativeBalance)
+    }
 
     var balanceDataUpdatedObservable: Observable<BalanceData> {
         stellarKit.balancePublisher.asObservable().map { [weak self] in

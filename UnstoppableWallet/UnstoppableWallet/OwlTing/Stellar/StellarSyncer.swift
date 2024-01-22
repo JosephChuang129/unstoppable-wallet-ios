@@ -58,6 +58,7 @@ class StellarSyncer {
 
     private func saveLastBlockHeight(transactionResponses: [TransactionResponse]) {
         if let ledger = transactionResponses.first?.ledger {
+            lastBlockHeight = ledger
             storage.save(lastBlockHeight: ledger)
         }
     }

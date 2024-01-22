@@ -5,21 +5,21 @@ import ComponentKit
 import RxSwift
 
 class MainSettingsFooterCell: UITableViewCell {
-    let cellHeight: CGFloat = 155
-//    let cellHeight: CGFloat = 30
+//    let cellHeight: CGFloat = 155
+    let cellHeight: CGFloat = 30
     
     let disposeBag = DisposeBag()
     private let versionLabel = UILabel()
     private lazy var loginButton = Primary2Button().then {
         $0.setTitle("main_settings.login_binding".localized, for: .normal)
-//        $0.isHidden = true
+        $0.isHidden = true
     }
     
     private lazy var deleteAccountButton = UIButton().then {
         $0.setTitleColor(.themeGray, for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         $0.setTitle("main_settings.delete_account".localized, for: .normal)
-//        $0.isHidden = true
+        $0.isHidden = true
     }
 
     var onTapLogin: (() -> ())?

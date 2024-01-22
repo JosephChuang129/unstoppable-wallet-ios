@@ -1987,6 +1987,14 @@
 		6BDA29AB29D6F37C003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AA29D6F37C003847ED /* ECashKit */; };
 		6BDA29AD29D6F384003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AC29D6F384003847ED /* ECashKit */; };
 		6BDA29B029D6F934003847ED /* HsToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AF29D6F934003847ED /* HsToolKit */; };
+		7C0182BE2B3ABFB0000B9602 /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182BD2B3ABFB0000B9602 /* MarketKit */; };
+		7C0182C12B3AC292000B9602 /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C02B3AC292000B9602 /* EvmKit */; };
+		7C0182C32B3AC30F000B9602 /* stellarsdk in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C22B3AC30F000B9602 /* stellarsdk */; };
+		7C0182C52B3AC3E8000B9602 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C42B3AC3E8000B9602 /* IQKeyboardManagerSwift */; };
+		7C0182C72B3AC3EF000B9602 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C62B3AC3EF000B9602 /* Then */; };
+		7C0182C92B3AC3F8000B9602 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C82B3AC3F8000B9602 /* Moya */; };
+		7C0182CB2B3AC3F9000B9602 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CA2B3AC3F9000B9602 /* RxMoya */; };
+		7C0182CD2B3AC456000B9602 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CC2B3AC456000B9602 /* ModuleKit */; };
 		7C7409BE2B359F0400E3DA86 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7409BD2B359F0400E3DA86 /* ModuleKit */; };
 		7CD45D302B3189B00058B2B2 /* stellarsdk in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD45D2F2B3189B00058B2B2 /* stellarsdk */; };
 		7CD45D462B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */; };
@@ -2193,8 +2201,6 @@
 		7CE55A2B2B2C313300552B1C /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D02B2C313200552B1C /* LoginService.swift */; };
 		7CE55A2C2B2C313300552B1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D12B2C313200552B1C /* LoginViewController.swift */; };
 		7CE55A2D2B2C313300552B1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE559D12B2C313200552B1C /* LoginViewController.swift */; };
-		7CE55A332B31478700552B1C /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE55A322B31478700552B1C /* MarketKit */; };
-		7CE55A362B3147C000552B1C /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE55A352B3147C000552B1C /* EvmKit */; };
 		ABC9A001F335B695CD066218 /* NftAssetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9AD35D41AEEBD38AA08B5 /* NftAssetModule.swift */; };
 		ABC9A005F31836B4EBAB1C97 /* DonateDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9AD0848221B0EC25C37F3 /* DonateDescriptionCell.swift */; };
 		ABC9A0073333D3DEC2797D15 /* BackupCloudPassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC9A8E4CDD143171A1F9C46 /* BackupCloudPassphraseViewController.swift */; };
@@ -4444,14 +4450,12 @@
 				D3993DB028F4256F008720FB /* WalletConnect in Frameworks */,
 				D3C187E8290FD00E00FE1900 /* SectionsTableView in Frameworks */,
 				7C7409BE2B359F0400E3DA86 /* ModuleKit in Frameworks */,
-				7CE55A332B31478700552B1C /* MarketKit in Frameworks */,
 				D3993DAE28F4256F008720FB /* WalletConnectV1 in Frameworks */,
 				500F1D1327AA87D1002AA419 /* AlignedCollectionViewFlowLayout in Frameworks */,
 				6BDA29AB29D6F37C003847ED /* ECashKit in Frameworks */,
 				7CE559252B2C036C00552B1C /* RxMoya in Frameworks */,
 				D3604E8C28F03DBF0066C366 /* BitcoinCashKit in Frameworks */,
 				D3993DC428F429AA008720FB /* UnstoppableDomainsResolution in Frameworks */,
-				7CE55A362B3147C000552B1C /* EvmKit in Frameworks */,
 				D3604E9E28F03DC00066C366 /* BinanceChainKit in Frameworks */,
 				D023D2652A24B9DC004F65B0 /* TronKit in Frameworks */,
 				D3C187BC2907CFC200FE1900 /* Checkpoints in Frameworks */,
@@ -4504,14 +4508,17 @@
 				D3C187DB290FCFBC00FE1900 /* SectionsTableView in Frameworks */,
 				D3AF5A8929FFD85800C1399E /* RxCocoa in Frameworks */,
 				D3993DB628F42595008720FB /* WalletConnectV1 in Frameworks */,
+				7C0182C92B3AC3F8000B9602 /* Moya in Frameworks */,
 				500F1D1127AA87BC002AA419 /* AlignedCollectionViewFlowLayout in Frameworks */,
 				D3604E6928F02DF30066C366 /* BitcoinCashKit in Frameworks */,
 				D3993DC228F42992008720FB /* UnstoppableDomainsResolution in Frameworks */,
 				D3604E8528F03CDC0066C366 /* BinanceChainKit in Frameworks */,
+				7C0182CB2B3AC3F9000B9602 /* RxMoya in Frameworks */,
 				D3E6756E2AA9A21300F2BF60 /* SDWebImageSwiftUI in Frameworks */,
 				D3C187BA2907CFAB00FE1900 /* Checkpoints in Frameworks */,
 				6BDA29AD29D6F384003847ED /* ECashKit in Frameworks */,
 				D3604E4D28F02AB40066C366 /* NftKit in Frameworks */,
+				7C0182BE2B3ABFB0000B9602 /* MarketKit in Frameworks */,
 				D3C187CF290FCF2D00FE1900 /* ThemeKit in Frameworks */,
 				D0DA740F272A6EFC0072BE86 /* UnicodeURL in Frameworks */,
 				D38406A721831B3D007D50AD /* LocalAuthentication.framework in Frameworks */,
@@ -4519,6 +4526,7 @@
 				D3BF1E5C274BC29D00229A00 /* Down in Frameworks */,
 				D3604E4A28F02A8C0066C366 /* Eip20Kit in Frameworks */,
 				D3C187DE290FCFE400FE1900 /* StorageKit in Frameworks */,
+				7C0182C12B3AC292000B9602 /* EvmKit in Frameworks */,
 				D0EC34DB2A4450B100BB308B /* HCaptcha in Frameworks */,
 				D36E0C2A28D084AB00B622B9 /* CollectionViewCenteredFlowLayout in Frameworks */,
 				D3604E6628F02D9A0066C366 /* BitcoinKit in Frameworks */,
@@ -4530,12 +4538,16 @@
 				D3604E8828F03D9E0066C366 /* DashKit in Frameworks */,
 				D3C187B32907A60800FE1900 /* HdWalletKit in Frameworks */,
 				D3604E5028F02AE70066C366 /* UniswapKit in Frameworks */,
+				7C0182C72B3AC3EF000B9602 /* Then in Frameworks */,
 				D3604E7328F03B0A0066C366 /* ScanQrKit in Frameworks */,
+				7C0182C52B3AC3E8000B9602 /* IQKeyboardManagerSwift in Frameworks */,
 				D3BF1E63274CBBCE00229A00 /* DeepDiff in Frameworks */,
 				D3993DA528F4229F008720FB /* ZcashLightClientKit in Frameworks */,
+				7C0182C32B3AC30F000B9602 /* stellarsdk in Frameworks */,
 				D023D2632A249E59004F65B0 /* TronKit in Frameworks */,
 				D3604E7C28F03BD20066C366 /* CurrencyKit in Frameworks */,
 				D0DA740D272A6EFC0072BE86 /* IDNSDK in Frameworks */,
+				7C0182CD2B3AC456000B9602 /* ModuleKit in Frameworks */,
 				D3C187D5290FCF7D00FE1900 /* HUD in Frameworks */,
 				D3604E8228F03C6B0066C366 /* FeeRateKit in Frameworks */,
 				D3C187D2290FCF3D00FE1900 /* ComponentKit in Frameworks */,
@@ -8549,8 +8561,6 @@
 				7CE559242B2C036C00552B1C /* RxMoya */,
 				7CE559272B2C037A00552B1C /* Then */,
 				7CE5592A2B2C038A00552B1C /* IQKeyboardManagerSwift */,
-				7CE55A322B31478700552B1C /* MarketKit */,
-				7CE55A352B3147C000552B1C /* EvmKit */,
 				7CD45D2F2B3189B00058B2B2 /* stellarsdk */,
 				7C7409BD2B359F0400E3DA86 /* ModuleKit */,
 			);
@@ -8615,6 +8625,14 @@
 				D0EC34DA2A4450B100BB308B /* HCaptcha */,
 				6B5546202A6E73190054B524 /* UIExtensions */,
 				D3E6756D2AA9A21300F2BF60 /* SDWebImageSwiftUI */,
+				7C0182BD2B3ABFB0000B9602 /* MarketKit */,
+				7C0182C02B3AC292000B9602 /* EvmKit */,
+				7C0182C22B3AC30F000B9602 /* stellarsdk */,
+				7C0182C42B3AC3E8000B9602 /* IQKeyboardManagerSwift */,
+				7C0182C62B3AC3EF000B9602 /* Then */,
+				7C0182C82B3AC3F8000B9602 /* Moya */,
+				7C0182CA2B3AC3F9000B9602 /* RxMoya */,
+				7C0182CC2B3AC456000B9602 /* ModuleKit */,
 			);
 			productName = Wallet;
 			productReference = D38406BE21831B3D007D50AD /* Unstoppable.app */;
@@ -8695,10 +8713,10 @@
 				7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */,
 				7CE559262B2C037A00552B1C /* XCRemoteSwiftPackageReference "Then" */,
 				7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */,
-				7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */,
 				7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */,
 				7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */,
+				7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */,
+				7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */,
 			);
 			productRefGroup = D3285F4320BD158E00644076 /* Products */;
 			projectDirPath = "";
@@ -11839,7 +11857,10 @@
 				CODE_SIGN_ENTITLEMENTS = UnstoppableWallet/Configuration/Production.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KFPRDHK2VR;
+				MARKETING_VERSION = 1.3.0;
+				OfficeMode = false;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owlting.app.wallet;
 				PRODUCT_MODULE_NAME = Unstoppable;
 				PRODUCT_NAME = Unstoppable;
@@ -11857,7 +11878,9 @@
 				CODE_SIGN_ENTITLEMENTS = UnstoppableWallet/Configuration/Production.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = KFPRDHK2VR;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.owlting.app.wallet;
 				PRODUCT_MODULE_NAME = Unstoppable;
 				PRODUCT_NAME = Unstoppable;
@@ -11941,6 +11964,22 @@
 				version = 2.0.4;
 			};
 		};
+		7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JosephChuang129/MarketKit.Swift";
+			requirement = {
+				branch = v2.2.5;
+				kind = branch;
+			};
+		};
+		7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/horizontalsystems/EvmKit.Swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.7;
+			};
+		};
 		7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JosephChuang129/ModuleKit.Swift.git";
@@ -11979,22 +12018,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.5.16;
-			};
-		};
-		7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JosephChuang129/MarketKit.Swift";
-			requirement = {
-				branch = "v2.2.5-testnet";
-				kind = branch;
-			};
-		};
-		7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JosephChuang129/EvmKit.Swift.git";
-			requirement = {
-				branch = "v2.0.7-testnet";
-				kind = branch;
 			};
 		};
 		D023D2612A249E59004F65B0 /* XCRemoteSwiftPackageReference "TronKit.Swift" */ = {
@@ -12323,6 +12346,46 @@
 			package = 6BDA29AE29D6F934003847ED /* XCRemoteSwiftPackageReference "HsToolKit.Swift" */;
 			productName = HsToolKit;
 		};
+		7C0182BD2B3ABFB0000B9602 /* MarketKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */;
+			productName = MarketKit;
+		};
+		7C0182C02B3AC292000B9602 /* EvmKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */;
+			productName = EvmKit;
+		};
+		7C0182C22B3AC30F000B9602 /* stellarsdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */;
+			productName = stellarsdk;
+		};
+		7C0182C42B3AC3E8000B9602 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		7C0182C62B3AC3EF000B9602 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE559262B2C037A00552B1C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		7C0182C82B3AC3F8000B9602 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		7C0182CA2B3AC3F9000B9602 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CE559212B2C036C00552B1C /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		7C0182CC2B3AC456000B9602 /* ModuleKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */;
+			productName = ModuleKit;
+		};
 		7C7409BD2B359F0400E3DA86 /* ModuleKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */;
@@ -12352,16 +12415,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		7CE55A322B31478700552B1C /* MarketKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7CE55A312B31478700552B1C /* XCRemoteSwiftPackageReference "MarketKit" */;
-			productName = MarketKit;
-		};
-		7CE55A352B3147C000552B1C /* EvmKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7CE55A342B3147C000552B1C /* XCRemoteSwiftPackageReference "EvmKit.Swift" */;
-			productName = EvmKit;
 		};
 		D023D2622A249E59004F65B0 /* TronKit */ = {
 			isa = XCSwiftPackageProductDependency;

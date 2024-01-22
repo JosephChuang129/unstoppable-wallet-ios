@@ -117,6 +117,10 @@ extension StellarKit {
         stellarKitProvider.balance
     }
     
+    public var nativeBalance: BigUInt {
+        stellarKitProvider.nativeBalance
+    }
+    
     public var balancePublisher: AnyPublisher<BigUInt, Never> {
         stellarKitProvider.balancePublisher
     }

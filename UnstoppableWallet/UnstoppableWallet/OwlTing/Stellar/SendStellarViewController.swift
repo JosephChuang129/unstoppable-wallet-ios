@@ -100,14 +100,6 @@ class SendStellarViewController: ThemeViewController {
             self?.recipientCautionCell.set(caution: caution)
         }
         subscribe(disposeBag, viewModel.proceedSignal) { [weak self] in self?.openConfirm(sendData: $0) }
-//        subscribe(disposeBag, viewModel.proceedSignal) { [weak self] in
-//
-//            guard let self = self else { return }
-//            guard let viewController = SendStellarConfirmationModule.viewController(stellarKitWrapper: self.stellarKitWrapper) else {
-//                return
-//            }
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }
 
         tableView.buildSections()
         isLoaded = true

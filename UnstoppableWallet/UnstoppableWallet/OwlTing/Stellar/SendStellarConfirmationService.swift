@@ -67,8 +67,103 @@ class SendStellarConfirmationService {
     }
     
     private func syncFees() {
+        
         feeState = .completed(Decimal(0.1))
-        state = .ready
+        
+        let totalFee = BigUInt(1000000)
+        let balance = stellarKit.balance
+        let nativeBalance = stellarKit.nativeBalance
+        
+//        print("token.type = \(token.type)")
+//        print("totalFee = \(totalFee)")
+//        print("balance = \(balance)")
+//        print("nativeBalance = \(nativeBalance)")
+//        print("default BigUInt(sendData.value) = \(BigUInt(sendData.value))")
+        
+        if token.type == .native {
+            
+            var totalAmount = BigUInt(0)
+            
+            var sentAmount = BigUInt(sendData.value)
+            let minimumExistBalance = BigUInt(10000000)
+            let subentriesBalance = BigUInt(5000000)
+            
+            let minBalance = minimumExistBalance + subentriesBalance + totalFee
+//            let maxBalance = nativeBalance - minimumExistBalance - subentriesBalance - totalFee
+            var maxBalance: BigUInt = 0
+            if minBalance < nativeBalance {
+                maxBalance = nativeBalance - minBalance
+            }
+
+            if sentAmount > maxBalance {
+
+                sentAmount = maxBalance
+                guard sentAmount > 0 else {
+//                    state = .notReady(errors: [TransactionError.zeroAmount])
+                    state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
+                    return
+                }
+                
+                sendData.value = Int(sentAmount)
+                dataState = DataState(sendData: sendData)
+            }
+            
+            totalAmount += sentAmount
+
+            if maxBalance < totalAmount {
+//                state = .notReady(errors: [TransactionError.insufficientBalance(balance: nativeBalance)])
+                state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
+                return
+            }
+            
+            state = .ready
+            
+            // 1
+//            var sentAmount = BigUInt(sendData.value)
+//            
+//            if (sentAmount + totalFee) > nativeBalance {
+////                state = .notReady(errors: [TransactionError.zeroAmount])
+//                state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
+//            } else {
+//                state = .ready
+//            }
+            
+            // 2
+//            let maxBalance = nativeBalance - minimumExistBalance - subentriesBalance - totalFee
+//
+//            if nativeBalance == sentAmount {
+//
+////                sentAmount = sentAmount - minimumExistBalance - subentriesBalance - totalFee
+//                sentAmount = maxBalance
+//                guard sentAmount > 0 else {
+//                    state = .notReady(errors: [TransactionError.zeroAmount])
+//                    return
+//                }
+//
+//                sendData.value = Int(sentAmount)
+//                dataState = DataState(sendData: sendData)
+//            }
+//
+//            totalAmount += sentAmount
+//            totalAmount += totalFee
+//
+//            if nativeBalance < totalAmount {
+////                state = .notReady(errors: [TransactionError.insufficientBalance(balance: nativeBalance)])
+//                state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
+//                return
+//            }
+//
+//            state = .ready
+            
+        } else {
+            
+            if totalFee > nativeBalance {
+//                state = .notReady(errors: [TransactionError.insufficientBalance(balance: totalFee)])
+                state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
+            } else {
+                state = .ready
+            }
+        }
     }
     
     private func syncAddress() {
