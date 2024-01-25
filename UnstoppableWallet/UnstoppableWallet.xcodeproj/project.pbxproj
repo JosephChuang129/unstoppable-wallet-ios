@@ -1987,7 +1987,6 @@
 		6BDA29AB29D6F37C003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AA29D6F37C003847ED /* ECashKit */; };
 		6BDA29AD29D6F384003847ED /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AC29D6F384003847ED /* ECashKit */; };
 		6BDA29B029D6F934003847ED /* HsToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BDA29AF29D6F934003847ED /* HsToolKit */; };
-		7C0182BE2B3ABFB0000B9602 /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182BD2B3ABFB0000B9602 /* MarketKit */; };
 		7C0182C12B3AC292000B9602 /* EvmKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C02B3AC292000B9602 /* EvmKit */; };
 		7C0182C32B3AC30F000B9602 /* stellarsdk in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C22B3AC30F000B9602 /* stellarsdk */; };
 		7C0182C52B3AC3E8000B9602 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C42B3AC3E8000B9602 /* IQKeyboardManagerSwift */; };
@@ -1996,6 +1995,7 @@
 		7C0182CB2B3AC3F9000B9602 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CA2B3AC3F9000B9602 /* RxMoya */; };
 		7C0182CD2B3AC456000B9602 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CC2B3AC456000B9602 /* ModuleKit */; };
 		7C7409BE2B359F0400E3DA86 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7409BD2B359F0400E3DA86 /* ModuleKit */; };
+		7CBA67E22B626F7F008D564B /* MarketKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CBA67E12B626F7F008D564B /* MarketKit */; };
 		7CD45D302B3189B00058B2B2 /* stellarsdk in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD45D2F2B3189B00058B2B2 /* stellarsdk */; };
 		7CD45D462B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */; };
 		7CD45D472B318CE70058B2B2 /* StellarTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */; };
@@ -4518,7 +4518,6 @@
 				D3C187BA2907CFAB00FE1900 /* Checkpoints in Frameworks */,
 				6BDA29AD29D6F384003847ED /* ECashKit in Frameworks */,
 				D3604E4D28F02AB40066C366 /* NftKit in Frameworks */,
-				7C0182BE2B3ABFB0000B9602 /* MarketKit in Frameworks */,
 				D3C187CF290FCF2D00FE1900 /* ThemeKit in Frameworks */,
 				D0DA740F272A6EFC0072BE86 /* UnicodeURL in Frameworks */,
 				D38406A721831B3D007D50AD /* LocalAuthentication.framework in Frameworks */,
@@ -4546,6 +4545,7 @@
 				7C0182C32B3AC30F000B9602 /* stellarsdk in Frameworks */,
 				D023D2632A249E59004F65B0 /* TronKit in Frameworks */,
 				D3604E7C28F03BD20066C366 /* CurrencyKit in Frameworks */,
+				7CBA67E22B626F7F008D564B /* MarketKit in Frameworks */,
 				D0DA740D272A6EFC0072BE86 /* IDNSDK in Frameworks */,
 				7C0182CD2B3AC456000B9602 /* ModuleKit in Frameworks */,
 				D3C187D5290FCF7D00FE1900 /* HUD in Frameworks */,
@@ -8625,7 +8625,6 @@
 				D0EC34DA2A4450B100BB308B /* HCaptcha */,
 				6B5546202A6E73190054B524 /* UIExtensions */,
 				D3E6756D2AA9A21300F2BF60 /* SDWebImageSwiftUI */,
-				7C0182BD2B3ABFB0000B9602 /* MarketKit */,
 				7C0182C02B3AC292000B9602 /* EvmKit */,
 				7C0182C22B3AC30F000B9602 /* stellarsdk */,
 				7C0182C42B3AC3E8000B9602 /* IQKeyboardManagerSwift */,
@@ -8633,6 +8632,7 @@
 				7C0182C82B3AC3F8000B9602 /* Moya */,
 				7C0182CA2B3AC3F9000B9602 /* RxMoya */,
 				7C0182CC2B3AC456000B9602 /* ModuleKit */,
+				7CBA67E12B626F7F008D564B /* MarketKit */,
 			);
 			productName = Wallet;
 			productReference = D38406BE21831B3D007D50AD /* Unstoppable.app */;
@@ -8715,8 +8715,8 @@
 				7CE559292B2C038A00552B1C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				7CD45D2E2B3189B00058B2B2 /* XCRemoteSwiftPackageReference "stellar-ios-mac-sdk" */,
 				7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */,
-				7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */,
 				7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */,
+				7CBA67E02B626F7F008D564B /* XCRemoteSwiftPackageReference "MarketKit.Swift" */,
 			);
 			productRefGroup = D3285F4320BD158E00644076 /* Products */;
 			projectDirPath = "";
@@ -11964,14 +11964,6 @@
 				version = 2.0.4;
 			};
 		};
-		7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JosephChuang129/MarketKit.Swift";
-			requirement = {
-				branch = v2.2.5;
-				kind = branch;
-			};
-		};
 		7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/horizontalsystems/EvmKit.Swift.git";
@@ -11985,6 +11977,14 @@
 			repositoryURL = "https://github.com/JosephChuang129/ModuleKit.Swift.git";
 			requirement = {
 				branch = dev;
+				kind = branch;
+			};
+		};
+		7CBA67E02B626F7F008D564B /* XCRemoteSwiftPackageReference "MarketKit.Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JosephChuang129/MarketKit.Swift.git";
+			requirement = {
+				branch = v2.2.5.1;
 				kind = branch;
 			};
 		};
@@ -12346,11 +12346,6 @@
 			package = 6BDA29AE29D6F934003847ED /* XCRemoteSwiftPackageReference "HsToolKit.Swift" */;
 			productName = HsToolKit;
 		};
-		7C0182BD2B3ABFB0000B9602 /* MarketKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C0182BC2B3ABFB0000B9602 /* XCRemoteSwiftPackageReference "MarketKit" */;
-			productName = MarketKit;
-		};
 		7C0182C02B3AC292000B9602 /* EvmKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7C0182BF2B3AC292000B9602 /* XCRemoteSwiftPackageReference "EvmKit.Swift" */;
@@ -12390,6 +12385,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C7409BC2B359F0400E3DA86 /* XCRemoteSwiftPackageReference "ModuleKit.Swift" */;
 			productName = ModuleKit;
+		};
+		7CBA67E12B626F7F008D564B /* MarketKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CBA67E02B626F7F008D564B /* XCRemoteSwiftPackageReference "MarketKit.Swift" */;
+			productName = MarketKit;
 		};
 		7CD45D2F2B3189B00058B2B2 /* stellarsdk */ = {
 			isa = XCSwiftPackageProductDependency;
