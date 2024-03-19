@@ -131,12 +131,16 @@ class SendStellarConfirmationViewModel {
             ),
         ]
         
-        return [SectionViewItem(viewItems: viewItems)]
+        return [SectionViewItem(viewItems: viewItems + addressActiveViewItems())]
     }
     
     
     private func addressActiveViewItems() -> [ViewItem] {
-        [
+        guard !service.sendAdressActive else {
+            return []
+        }
+
+        return [
             .warning(text: "tron.send.inactive_address".localized, title: "tron.send.activation_fee".localized, info: "tron.send.activation_fee.info".localized)
         ]
     }

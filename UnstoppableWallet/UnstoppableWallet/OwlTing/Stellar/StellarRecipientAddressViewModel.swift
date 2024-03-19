@@ -16,16 +16,16 @@ class StellarRecipientAddressViewModel: RecipientAddressViewModel {
         if active {
             cautionRelay.accept(nil)
         } else {
-            cautionRelay.accept(Caution(text: "stellar.send.inactive_address".localized, type: .warning))
+            cautionRelay.accept(Caution(text: "tron.send.inactive_address".localized, type: .warning))
         }
     }
     
     override func sync(state: AddressService.State? = nil, customError: Error? = nil) {
         super.sync(state: state, customError: customError)
         
-        //        if case let .success(address) = state {
-        //            sendService.sync(address: address.raw)
-        //        }
+        if case let .success(address) = state {
+            sendService.sync(address: address.raw)
+        }
     }
     
 }

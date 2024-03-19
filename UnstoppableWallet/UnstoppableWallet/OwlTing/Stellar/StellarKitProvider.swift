@@ -145,7 +145,7 @@ extension StellarKitProvider {
         }
     }
     
-    func send(destinationAccountId: String, amount: Decimal, token: Token) -> Single<Void> {
+    func send(destinationAccountId: String, amount: Decimal, token: Token, isSendAdressActive: Bool) -> Single<Void> {
         
         return Single.create { single in
             
@@ -162,30 +162,24 @@ extension StellarKitProvider {
             let sourceAccountKeyPair = self.keyPair
             let sourceAccountId = self.keyPair.accountId
             
-//            print("asset.issuer?.accountId = \(asset.issuer?.accountId)")
-//            print("asset.type = \(asset.type)")
-//            print("asset.code = \(asset.code)")
-//            print("amount = \(amount)")
-//            print("usdcAssetIssuer = \(self.usdcAssetIssuer)")
-//            print("sourceAccountId = \(sourceAccountId)")
-//            print("destinationAccountId = \(destinationAccountId)")
-            
-            
             self.sdk.accounts.getAccountDetails(accountId: sourceAccountId) { response in
                 switch response {
                 case .success(let accountResponse):
                     
                     do {
-                        // build the payment operation
-                        let paymentOperation = try PaymentOperation(sourceAccountId: sourceAccountId,
-                                                                    destinationAccountId: destinationAccountId,
-                                                                    asset: asset,
-                                                                    amount: amount)
                         
-                        // build the transaction containing our payment operation.
+                        let operation = isSendAdressActive ?
+                        try PaymentOperation(sourceAccountId: sourceAccountId,
+                                             destinationAccountId: destinationAccountId,
+                                             asset: asset,
+                                             amount: amount) :
+                        try CreateAccountOperation(sourceAccountId: sourceAccountId, destinationAccountId: destinationAccountId, startBalance: amount)
+                        
+                        // build the transaction containing operation.
                         let transaction = try Transaction(sourceAccount: accountResponse,
-                                                          operations: [paymentOperation],
+                                                          operations: [operation],
                                                           memo: Memo.none)
+                        
                         // sign the transaction
                         try transaction.sign(keyPair: sourceAccountKeyPair, network: self.network)
                         
@@ -200,7 +194,7 @@ extension StellarKitProvider {
                                 
                                 single(.error(error))
                                 print("submitTransaction error = \(error.localizedDescription)")
-                                StellarSDKLog.printHorizonRequestErrorMessage(tag:"mainnet", horizonRequestError: error)
+                                StellarSDKLog.printHorizonRequestErrorMessage(tag:"testnet", horizonRequestError: error)
                                 
                             case .destinationRequiresMemo(destinationAccountId: let destinationAccountId):
                                 //print("Destination account \(destinationAccountId) requires memo.")

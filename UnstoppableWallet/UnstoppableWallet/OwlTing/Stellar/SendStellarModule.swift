@@ -228,11 +228,29 @@ extension SendStellarService: IAmountInputService {
 
     func sync(address: String) {
 
-        guard address != adapter.stellarKitWrapper.stellarKit.keyPair.accountId else {
-            state = .notReady
-            addressError = AddressError.ownAddress
-            return
-        }
+//        guard address != adapter.stellarKitWrapper.stellarKit.keyPair.accountId else {
+//            state = .notReady
+//            addressError = AddressError.ownAddress
+//            return
+//        }
+        Single<Bool>
+            .create { [weak self] observer in
+                let task = Task { [weak self] in
+                    self?.adapter.accountActive(address: address, completion: { result in
+                        observer(.success(result))
+                    })
+                }
+
+                return Disposables.create {
+                    task.cancel()
+                }
+            }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .subscribe(onSuccess: { [weak self] active in
+                self?.activeAddressRelay.accept(active)
+            })
+            .disposed(by: disposeBag)
     }
 
 }
