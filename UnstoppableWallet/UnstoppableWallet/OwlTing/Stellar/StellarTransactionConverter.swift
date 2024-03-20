@@ -72,20 +72,20 @@ extension StellarTransactionConverter {
                 value = baseCoinValue(value: amount, sign: sign)
             }
             
-            if let from = operation?.from, wrapper.stellarKit.keyPair.accountId == from {
+            if let to = operation?.to, wrapper.stellarKit.keyPair.accountId == operation?.from {
                 
                 return StellarOutgoingTransactionRecord(
                     source: source,
                     transaction: transaction,
-                    to: from,
+                    to: to,
                     value: value
                 )
-            } else if let to = operation?.to, wrapper.stellarKit.keyPair.accountId == to {
+            } else if let from = operation?.from {
                 
                 return StellarIncomingTransactionRecord(
                     source: source,
                     transaction: transaction,
-                    from: to,
+                    from: from,
                     value: value
                 )
                 
@@ -101,12 +101,18 @@ extension StellarTransactionConverter {
             
             if let startingBalance = operation?.startingBalance {
                 
-                value = baseCoinValue(value: startingBalance, sign: .plus)
+                let isSender = operation?.sourceAccount == wrapper.stellarKit.keyPair.accountId
+                
+                let sign: FloatingPointSign = isSender ? .minus : .plus
+                value = baseCoinValue(value: startingBalance, sign: sign)
                 
                 return StellarCreateAccountTransactionRecord(
                     source: source,
                     transaction: transaction,
-                    value: value
+                    to: operation?.to ?? "",
+                    from: operation?.sourceAccount ?? "",
+                    value: value,
+                    isSender: isSender
                 )
             } else {
 
@@ -191,10 +197,16 @@ class StellarOutgoingTransactionRecord: StellarTransactionRecord {
 
 class StellarCreateAccountTransactionRecord: StellarTransactionRecord {
     
+    let to: String
+    let from: String
     let value: TransactionValue
+    let isSender: Bool
     
-    init(source: TransactionSource, transaction: StellarTransaction, value: TransactionValue) {
+    init(source: TransactionSource, transaction: StellarTransaction, to: String, from: String, value: TransactionValue, isSender: Bool) {
         self.value = value
+        self.to = to
+        self.from = from
+        self.isSender = isSender
 
         super.init(source: source, transaction: transaction)
     }

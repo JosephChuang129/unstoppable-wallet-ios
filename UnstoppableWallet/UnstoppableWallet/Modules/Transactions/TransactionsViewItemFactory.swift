@@ -421,9 +421,13 @@ class TransactionsViewItemFactory {
             
             iconType = singleValueIconType(source: record.source, value: record.value)
             title = "Create Account"
-            subTitle = ""
             
-            primaryValue = TransactionsViewModel.Value(text: coinString(from: record.value), type: type(value: record.value, .incoming))
+            let transactionsString = record.isSender ? "transactions.to" : "transactions.from"
+            let transactionType: TransactionsViewModel.ValueType = record.isSender ? .outgoing : .incoming
+            let address = record.isSender ? record.to : record.from
+            subTitle = transactionsString.localized(mapped(address: address, blockchainType: record.source.blockchainType))
+            
+            primaryValue = TransactionsViewModel.Value(text: coinString(from: record.value), type: type(value: record.value, transactionType))
             if let currencyValue = item.currencyValue {
                 secondaryValue = TransactionsViewModel.Value(text: currencyString(from: currencyValue), type: .secondary)
             }
