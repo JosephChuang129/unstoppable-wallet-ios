@@ -78,7 +78,8 @@ extension StellarTransactionConverter {
                     source: source,
                     transaction: transaction,
                     to: to,
-                    value: value
+                    value: value,
+                    sentToSelf: wrapper.stellarKit.keyPair.accountId == operation?.to
                 )
             } else if let from = operation?.from {
                 
@@ -177,15 +178,16 @@ class StellarIncomingTransactionRecord: StellarTransactionRecord {
     }
 }
 
-
 class StellarOutgoingTransactionRecord: StellarTransactionRecord {
     
     let to: String
     let value: TransactionValue
+    let sentToSelf: Bool
     
-    init(source: TransactionSource, transaction: StellarTransaction, to: String, value: TransactionValue) {
+    init(source: TransactionSource, transaction: StellarTransaction, to: String, value: TransactionValue, sentToSelf: Bool) {
         self.to = to
         self.value = value
+        self.sentToSelf = sentToSelf
 
         super.init(source: source, transaction: transaction)
     }
