@@ -76,6 +76,9 @@ class TransactionInfoService {
             tokens.append(tx.fee.token)
             tokens.append(tx.value.token)
 
+        case let tx as StellarOutgoingTransactionRecord: tokens.append(tx.value.token)
+        case let tx as StellarIncomingTransactionRecord: tokens.append(tx.value.token)
+        case let tx as StellarCreateAccountTransactionRecord: tokens.append(tx.value.token)
         default: ()
         }
 

@@ -167,7 +167,15 @@ class SendStellarConfirmationService {
     }
     
     private func syncAddress() {
-        sendAdressActive = true
+        
+        self.stellarKitWrapper.stellarKit.stellarKitProvider.isValidAccount(id: sendData.to) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.sendAdressActive = true
+            case .failure(_):
+                self?.sendAdressActive = false
+            }
+        }
     }
 }
 
@@ -195,9 +203,8 @@ extension SendStellarConfirmationService {
     func send() {
         
         sendState = .sending
-        
         let amount = Decimal(bigUInt: BigUInt(sendData.value), decimals: token.decimals) ?? 0
-        stellarKit.stellarKitProvider.send(destinationAccountId: sendData.to, amount: amount, token: token)
+        stellarKit.stellarKitProvider.send(destinationAccountId: sendData.to, amount: amount, token: token, isSendAdressActive: sendAdressActive)
             .subscribe(onSuccess: { [weak self] in
                 self?.sendState = .sent
                 

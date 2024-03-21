@@ -41,6 +41,17 @@ extension StellarAdapter: IBalanceAdapter {
             return self?.balanceData(balance: $0) ?? BalanceData(available: 0)
         }
     }
+    
+    func accountActive(address: String, completion: @escaping (Bool) -> Void) {
+        self.stellarKitWrapper.stellarKit.stellarKitProvider.isValidAccount(id: address) { result in
+            switch result {
+            case .success(_):
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
+        }
+    }
 }
 
 extension StellarAdapter {

@@ -526,6 +526,22 @@ class TransactionInfoViewItemFactory {
 
             feeViewItem = .fee(title: "tx_info.fee".localized, value: feeString(transactionValue: record.fee, rate: _rate(record.fee)))
 
+        case let record as StellarOutgoingTransactionRecord:
+            
+            sections.append(sendSection(source: record.source, transactionValue: record.value, to: record.to, rates: item.rates, nftMetadata: item.nftMetadata, sentToSelf: record.sentToSelf))
+            
+            if record.sentToSelf {
+                sections.append([.sentToSelf])
+            }
+            
+        case let record as StellarIncomingTransactionRecord:
+            sections.append(receiveSection(source: record.source, transactionValue: record.value, from: record.from, rates: item.rates))
+
+        case let record as StellarCreateAccountTransactionRecord:
+            record.isSender ?
+            sections.append(sendSection(source: record.source, transactionValue: record.value, to: record.to, rates: item.rates, nftMetadata: item.nftMetadata)) :
+            sections.append(receiveSection(source: record.source, transactionValue: record.value, from: record.from, rates: item.rates))
+            
         default: ()
         }
 
