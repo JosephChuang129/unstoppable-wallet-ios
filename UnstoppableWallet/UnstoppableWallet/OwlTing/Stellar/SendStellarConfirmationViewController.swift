@@ -171,6 +171,7 @@ class SendStellarConfirmationViewController: ThemeViewController {
                     component.button.set(style: .transparent2, image: UIImage(named: "circle_information_20"))
                     component.button.setTitle(text, for: .normal)
                     component.button.setTitleColor(.themeJacob, for: .normal)
+                    component.button.isUserInteractionEnabled = false
                     component.onTap = { [weak self] in
                         self?.openInfo(title: title, description: info)
                     }
