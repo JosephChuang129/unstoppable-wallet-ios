@@ -8,6 +8,8 @@ import StorageKit
 import ThemeKit
 import Then
 import IQKeyboardManagerSwift
+import FirebaseCore
+import FirebaseAnalytics
 
 class App {
     static var instance: App?
@@ -120,6 +122,7 @@ class App {
     let appEventHandler = EventHandler()
 
     let networkService: NetworkService
+    let analyticsManager: AnalyticsManager
     
     init() throws {
         localStorage = LocalStorage(storage: StorageKit.LocalStorage.default)
@@ -352,6 +355,7 @@ class App {
         )
         
         networkService = NetworkService(accountManager: accountManager)
+        analyticsManager = AnalyticsManager()
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
