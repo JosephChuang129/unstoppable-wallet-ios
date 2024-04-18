@@ -22,6 +22,7 @@ class SendStellarConfirmationViewController: ThemeViewController {
 
     private let sendButton = SliderButton()
     private let feeCell: FeeCell
+    private let memoCell = BaseThemeCell()
 
     private var sectionViewItems = [SendStellarConfirmationViewModel.SectionViewItem]()
     private var feeViewItems = [SendStellarConfirmationViewModel.StellarFeeViewItem]()
@@ -85,6 +86,24 @@ class SendStellarConfirmationViewController: ThemeViewController {
             self?.reloadTable()
         }
 
+        memoCell.set(backgroundStyle: .lawrence, isFirst: true, isLast: true)
+        
+        CellBuilderNew.buildStatic(cell: memoCell, rootElement: .hStack([
+            .text { (component: TextComponent) in
+                component.font = .subhead2
+                component.textColor = .themeGray
+                component.text = "tx_info.memo".localized
+                component.setContentHuggingPriority(.required, for: .horizontal)
+            },
+            .text { (component: TextComponent) in
+                component.font = .subhead2
+                component.textColor = .themeLeah
+                component.textAlignment = .right
+                component.numberOfLines = 0
+                component.text =  self.transactionViewModel.sendData.memo
+            }
+        ]))
+        
         tableView.buildSections()
         isLoaded = true
     }
@@ -257,6 +276,19 @@ extension SendStellarConfirmationViewController: SectionsDataSource {
                 )] + feeRows
             )
         )
+        
+        var memoSections: [SectionProtocol] = []
+        memoSections.append(
+            Section(
+                id: "memo",
+                headerState: .margin(height: .margin16),
+                rows: [StaticRow(
+                    cell: memoCell,
+                    id: "memo",
+                    height: .heightDoubleLineCell
+                )]
+            )
+        )
 
         let cautionsSections: [SectionProtocol] = [
             Section(
@@ -274,6 +306,11 @@ extension SendStellarConfirmationViewController: SectionsDataSource {
             )
         ]
 
+
+        if let memo = transactionViewModel.sendData.memo, !memo.isEmpty {
+            return transactionSections + feeSections + memoSections + cautionsSections
+        }
+        
         return transactionSections + feeSections + cautionsSections
     }
 

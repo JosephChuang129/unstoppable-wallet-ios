@@ -215,6 +215,9 @@ extension SendStellarConfirmationViewModel {
         service.send()
     }
     
+    var sendData: StellarSendData {
+        service.sendData
+    }
 }
 
 extension SendStellarConfirmationViewModel {

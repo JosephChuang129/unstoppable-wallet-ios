@@ -5,6 +5,7 @@ import RxCocoa
 import BigInt
 import HsExtensions
 import Combine
+import stellarsdk
 
 class SendStellarConfirmationService {
     private var tasks = Set<AnyTask>()
@@ -120,7 +121,7 @@ class SendStellarConfirmationService {
             
             // 1
 //            var sentAmount = BigUInt(sendData.value)
-//            
+//
 //            if (sentAmount + totalFee) > nativeBalance {
 ////                state = .notReady(errors: [TransactionError.zeroAmount])
 //                state = .notReady(errors: [TransactionError.insufficientBalance(balance: "")])
@@ -186,6 +187,8 @@ extension SendStellarConfirmationService: ISendXFeeValueService {
     }
 }
 
+extension String: Error {}
+
 extension SendStellarConfirmationService {
     
     var stateObservable: Observable<State> {
@@ -202,13 +205,26 @@ extension SendStellarConfirmationService {
     
     func send() {
         
+        var memo: Memo?
+        if let memoString = sendData.memo, !memoString.isEmpty {
+            do {
+                memo = try Memo(text: memoString)
+                
+            } catch {
+                sendState = .failed(error: "send_stellar_memo_length_alert.msg".localized)
+                return
+            }
+        }
+
         sendState = .sending
         let amount = Decimal(bigUInt: BigUInt(sendData.value), decimals: token.decimals) ?? 0
-        stellarKit.stellarKitProvider.send(destinationAccountId: sendData.to, amount: amount, token: token, isSendAdressActive: sendAdressActive)
+        stellarKit.stellarKitProvider.send(destinationAccountId: sendData.to, amount: amount, token: token, memo: memo ?? .none, isSendAdressActive: sendAdressActive)
             .subscribe(onSuccess: { [weak self] in
                 self?.sendState = .sent
                 
             }, onError: { [weak self] error in
+                
+                print("error error = \(error.localizedDescription)")
                 self?.sendState = .failed(error: error)
             })
             .disposed(by: disposeBag)

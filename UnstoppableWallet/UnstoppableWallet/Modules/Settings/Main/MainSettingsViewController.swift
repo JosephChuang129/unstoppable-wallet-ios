@@ -254,7 +254,7 @@ class MainSettingsViewController: ThemeViewController {
                 image: .local(UIImage(named: "blocks_24")),
                 title: .body("settings.blockchain_settings".localized),
                 accessoryType: .disclosure,
-                isLast: false,
+                isLast: true,
                 action: { [weak self] in
                     let viewController = BlockchainSettingsModule.view().toViewController(title: "blockchain_settings.title".localized)
                     self?.navigationController?.pushViewController(viewController, animated: true)
