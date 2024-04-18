@@ -1957,6 +1957,9 @@ Go to Settings - > %@ and allow access to the camera.";
 "aml_validate_status.rejected" = "Rejected";
 "aml_validate_status.user_not_found" = "Not bound";
 
+// Send Stellar
+"send_stellar_memo_length_alert.msg" = "Memo exceeds maximum length.";
+
 // Alert
 "alert.login_success" = "Login success";
 "alert.login_failed" = "Login failed";

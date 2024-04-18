@@ -1952,6 +1952,9 @@
 "aml_validate_status.rejected" = "駁回";
 "aml_validate_status.user_not_found" = "未綁定";
 
+// Send Stellar
+"send_stellar_memo_length_alert.msg" = "Memo超過最大長度限制。";
+
 // Alert
 "alert.login_success" = "登入成功";
 "alert.login_failed" = "登入失敗";

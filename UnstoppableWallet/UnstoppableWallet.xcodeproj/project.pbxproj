@@ -1994,6 +1994,10 @@
 		7C0182C92B3AC3F8000B9602 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182C82B3AC3F8000B9602 /* Moya */; };
 		7C0182CB2B3AC3F9000B9602 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CA2B3AC3F9000B9602 /* RxMoya */; };
 		7C0182CD2B3AC456000B9602 /* ModuleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0182CC2B3AC456000B9602 /* ModuleKit */; };
+		7C4BCBB92BD0C24000AC4652 /* SendStellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCBB82BD0C24000AC4652 /* SendStellarService.swift */; };
+		7C4BCBBA2BD0C24000AC4652 /* SendStellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCBB82BD0C24000AC4652 /* SendStellarService.swift */; };
+		7C4BCBBC2BD0C60300AC4652 /* SendStellarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCBBB2BD0C60300AC4652 /* SendStellarViewModel.swift */; };
+		7C4BCBBD2BD0C60300AC4652 /* SendStellarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4BCBBB2BD0C60300AC4652 /* SendStellarViewModel.swift */; };
 		7C6C97BE2BAD99CB00FC3A58 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6C97BD2BAD99CB00FC3A58 /* FirebaseAnalytics */; };
 		7C6C97C02BAD99EC00FC3A58 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C97BF2BAD99EB00FC3A58 /* AnalyticsManager.swift */; };
 		7C6C97C12BAD99EC00FC3A58 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C97BF2BAD99EB00FC3A58 /* AnalyticsManager.swift */; };
@@ -4009,6 +4013,8 @@
 		6BCD53112A161F4800993F20 /* BackupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupViewController.swift; sourceTree = "<group>"; };
 		6BCD53182A161F9100993F20 /* BackupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
 		6BCD531B2A16203F00993F20 /* CloudBackupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudBackupManager.swift; sourceTree = "<group>"; };
+		7C4BCBB82BD0C24000AC4652 /* SendStellarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendStellarService.swift; sourceTree = "<group>"; };
+		7C4BCBBB2BD0C60300AC4652 /* SendStellarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendStellarViewModel.swift; sourceTree = "<group>"; };
 		7C6C97BF2BAD99EB00FC3A58 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		7C6C97C42BAD9A0300FC3A58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C6C97C62BAD9A0300FC3A58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -7236,6 +7242,28 @@
 			path = Manual;
 			sourceTree = "<group>";
 		};
+		7C4BCBB72BD0C22400AC4652 /* SendStellar */ = {
+			isa = PBXGroup;
+			children = (
+				7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */,
+				7C4BCBB82BD0C24000AC4652 /* SendStellarService.swift */,
+				7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */,
+				7C4BCBBB2BD0C60300AC4652 /* SendStellarViewModel.swift */,
+			);
+			path = SendStellar;
+			sourceTree = "<group>";
+		};
+		7C4BCBBE2BD0C75100AC4652 /* SendStellarConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */,
+				7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */,
+				7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */,
+				7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */,
+			);
+			path = SendStellarConfirmation;
+			sourceTree = "<group>";
+		};
 		7C6C97C22BAD9A0300FC3A58 /* GoogleService-Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -7265,11 +7293,9 @@
 			isa = PBXGroup;
 			children = (
 				7CD45D322B318CE70058B2B2 /* StellarTransactionConverter.swift */,
-				7CD45D332B318CE70058B2B2 /* SendStellarConfirmationModule.swift */,
 				7CD45D342B318CE70058B2B2 /* StellarKitManager.swift */,
 				7CD45D352B318CE70058B2B2 /* StellarTransactionsAdapter.swift */,
 				7CD45D362B318CE70058B2B2 /* StellarKitWrapper.swift */,
-				7CD45D372B318CE70058B2B2 /* SendStellarViewController.swift */,
 				7CD45D382B318CE70058B2B2 /* StellarKitProvider.swift */,
 				7CD45D392B318CE70058B2B2 /* StellarAdapter.swift */,
 				7CD45D3A2B318CE70058B2B2 /* StellarKit.swift */,
@@ -7277,11 +7303,7 @@
 				7CD45D3C2B318CE70058B2B2 /* StellarTransactionManager.swift */,
 				7CD45D3D2B318CE70058B2B2 /* StellarSyncer.swift */,
 				7CD45D6E2B32D53A0058B2B2 /* StellarAddressParser.swift */,
-				7CD45D3E2B318CE70058B2B2 /* SendStellarModule.swift */,
-				7CD45D3F2B318CE70058B2B2 /* SendStellarConfirmationViewController.swift */,
-				7CD45D402B318CE70058B2B2 /* SendStellarConfirmationViewModel.swift */,
 				7CD45D412B318CE70058B2B2 /* StellarSyncTimer.swift */,
-				7CD45D422B318CE70058B2B2 /* SendStellarConfirmationService.swift */,
 				7CD45D432B318CE70058B2B2 /* StellarSendData.swift */,
 				7CD45D442B318CE70058B2B2 /* StellarSyncerStorage.swift */,
 				7CD45D452B318CE70058B2B2 /* StellarRecipientAddressViewModel.swift */,
@@ -7307,6 +7329,8 @@
 		7CE5592C2B2C044400552B1C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7C4BCBBE2BD0C75100AC4652 /* SendStellarConfirmation */,
+				7C4BCBB72BD0C22400AC4652 /* SendStellar */,
 				7CE559C22B2C313200552B1C /* BindingForm */,
 				7CE559B92B2C313200552B1C /* BindingStatus */,
 				7CE559A62B2C313100552B1C /* CountryList */,
@@ -8998,6 +9022,7 @@
 				11B3541D3F7AFB8C651BEE2B /* Guide.swift in Sources */,
 				11B352CBDFAABC82F02F66E9 /* MarkdownHeader1Cell.swift in Sources */,
 				11B3520F7C6CEAF1710AAD45 /* MarkdownTextView.swift in Sources */,
+				7C4BCBBD2BD0C60300AC4652 /* SendStellarViewModel.swift in Sources */,
 				11B35CD742378BF04CDB73F0 /* NSAttributedString.swift in Sources */,
 				11B35E24FD61B2799C191811 /* MarkdownTextCell.swift in Sources */,
 				11B35E65714776557A46B9D3 /* MarkdownHeader3Cell.swift in Sources */,
@@ -9319,6 +9344,7 @@
 				58AAAAEDC64AE5716BC07673 /* SwapSlippageViewModel.swift in Sources */,
 				58AAA56C780EF5C92C1D1A32 /* AddressResolutionProvider.swift in Sources */,
 				58AAA3762D78142A83A22F50 /* SwapViewModel.swift in Sources */,
+				7C4BCBBA2BD0C24000AC4652 /* SendStellarService.swift in Sources */,
 				58AAA8395FE1310712EAA82C /* OneInchFeeService.swift in Sources */,
 				58AAA6EBB2D6B2251A9CB43C /* OneInchSendEvmTransactionService.swift in Sources */,
 				11B35E24B2F98C74E95DA3BE /* WalletAdapterService.swift in Sources */,
@@ -10436,6 +10462,7 @@
 				1A564A7CB794B4367A87C5E2 /* FilterHeaderCell.swift in Sources */,
 				1A564515554F7BCAF473FE65 /* FilterHeaderView.swift in Sources */,
 				11B35783103DBC24D9EB7E85 /* Guide.swift in Sources */,
+				7C4BCBBC2BD0C60300AC4652 /* SendStellarViewModel.swift in Sources */,
 				11B35CC9464E639F3A086B29 /* MarkdownHeader1Cell.swift in Sources */,
 				11B353198C1F47A679D3CAAC /* MarkdownTextView.swift in Sources */,
 				11B35AACC2CDF424714B33D3 /* NSAttributedString.swift in Sources */,
@@ -10757,6 +10784,7 @@
 				58AAA9475B1C057E82B25C76 /* OneInchFeeService.swift in Sources */,
 				58AAA6371183D7FB9606FEDA /* OneInchSendEvmTransactionService.swift in Sources */,
 				11B35299107843A4663542F9 /* WalletAdapterService.swift in Sources */,
+				7C4BCBB92BD0C24000AC4652 /* SendStellarService.swift in Sources */,
 				5039F972269C5A9B004711B8 /* ReleaseNotesViewController.swift in Sources */,
 				11B352339E8052E6EE9CA3CF /* EnabledWalletCache.swift in Sources */,
 				11B35AE7D9E8BA8BDB06703F /* EnabledWalletCacheManager.swift in Sources */,

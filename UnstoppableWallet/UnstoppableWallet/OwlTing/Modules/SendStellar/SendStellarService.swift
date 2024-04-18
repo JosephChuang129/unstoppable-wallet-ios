@@ -1,64 +1,9 @@
 
-import UIKit
-import ThemeKit
-import MarketKit
-import StorageKit
-
-class SendStellarModule {
-
-    static func viewController(token: Token, mode: SendBaseService.Mode, adapter: StellarAdapter) -> UIViewController {
-        let stellarAddressParser = StellarAddressParser(stellarAdapter: adapter)
-        let addressParserChain = AddressParserChain().append(handler: stellarAddressParser)
-
-        let addressService = AddressService(
-            mode: .parsers(AddressParserFactory.parser(blockchainType: .stellar), addressParserChain),
-            marketKit: App.shared.marketKit,
-            contactBookManager: App.shared.contactManager,
-            blockchainType: .stellar
-        )
-        
-        let service = SendStellarService(token: token, mode: mode, adapter: adapter, addressService: addressService)
-        let switchService = AmountTypeSwitchService(localStorage: StorageKit.LocalStorage.default)
-        let fiatService = FiatService(switchService: switchService, currencyKit: App.shared.currencyKit, marketKit: App.shared.marketKit)
-
-        switchService.add(toggleAllowedObservable: fiatService.toggleAvailableObservable)
-
-        let coinService = CoinService(token: token, currencyKit: App.shared.currencyKit, marketKit: App.shared.marketKit)
-
-        let viewModel = SendStellarViewModel(service: service)
-        let availableBalanceViewModel = SendAvailableBalanceViewModel(service: service, coinService: coinService, switchService: switchService)
-
-        let amountViewModel = AmountInputViewModel(
-            service: service,
-            fiatService: fiatService,
-            switchService: switchService,
-            decimalParser: AmountDecimalParser()
-        )
-        addressService.amountPublishService = amountViewModel
-
-        let recipientViewModel = StellarRecipientAddressViewModel(service: addressService, handlerDelegate: nil, sendService: service)
-
-        let viewController = SendStellarViewController(
-            stellarKitWrapper: adapter.stellarKitWrapper,
-            viewModel: viewModel,
-            availableBalanceViewModel: availableBalanceViewModel,
-            amountViewModel: amountViewModel,
-            recipientViewModel: recipientViewModel
-        )
-        
-        return viewController
-    }
-
-}
-
-
 import MarketKit
 import RxSwift
 import RxRelay
-import TronKit
-import stellarsdk
 import BigInt
-import HsExtensions
+import UIKit
 
 class SendStellarService {
     let sendToken: Token
@@ -77,6 +22,7 @@ class SendStellarService {
 
     private var stellarAmount: BigUInt?
     private var addressData: AddressData?
+    private var memo: String?
 
     private let amountCautionRelay = PublishRelay<(error: Error?, warning: AmountWarning?)>()
     private var amountCaution: (error: Error?, warning: AmountWarning?) = (error: nil, warning: nil) {
@@ -122,7 +68,7 @@ class SendStellarService {
     private func syncState() {
         
         if amountCaution.error == nil, case .success = addressService.state, let stellarAmount = stellarAmount, let addressData = addressData {
-            let sendData = StellarSendData(to: addressData.stellarAddress.raw, value: Int(stellarAmount))
+            let sendData = StellarSendData(to: addressData.stellarAddress.raw, value: Int(stellarAmount), memo: memo)
             state = .ready(sendData: sendData)
         } else {
             state = .notReady
@@ -253,6 +199,10 @@ extension SendStellarService: IAmountInputService {
             .disposed(by: disposeBag)
     }
 
+    func onChange(memo: String?) {
+        self.memo = memo
+        syncState()
+    }
 }
 
 extension SendStellarService {
@@ -282,3 +232,24 @@ extension SendStellarService {
 
 }
 
+extension SendStellarService.AmountError: LocalizedError {
+
+    var errorDescription: String? {
+        switch self {
+            case .insufficientBalance: return "send.amount_error.balance".localized
+            default: return "\(self)"
+        }
+    }
+
+}
+
+extension SendStellarService.AddressError: LocalizedError {
+
+    var errorDescription: String? {
+        switch self {
+            case .ownAddress: return "send.address_error.own_address".localized
+            default: return "\(self)"
+        }
+    }
+
+}

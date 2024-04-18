@@ -145,7 +145,7 @@ extension StellarKitProvider {
         }
     }
     
-    func send(destinationAccountId: String, amount: Decimal, token: Token, isSendAdressActive: Bool) -> Single<Void> {
+    func send(destinationAccountId: String, amount: Decimal, token: Token, memo: Memo, isSendAdressActive: Bool) -> Single<Void> {
         
         return Single.create { single in
             
@@ -178,7 +178,7 @@ extension StellarKitProvider {
                         // build the transaction containing operation.
                         let transaction = try Transaction(sourceAccount: accountResponse,
                                                           operations: [operation],
-                                                          memo: Memo.none)
+                                                          memo: memo)
                         
                         // sign the transaction
                         try transaction.sign(keyPair: sourceAccountKeyPair, network: self.network)
@@ -210,6 +210,7 @@ extension StellarKitProvider {
                 case .failure(let error):
                     // handle account details retrieval error
                      print("failure error = \(error.localizedDescription)")
+                    StellarSDKLog.printHorizonRequestErrorMessage(tag:"testnet", horizonRequestError: error)
                     single(.error(error))
                 }
                 
